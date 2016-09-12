@@ -1,0 +1,33 @@
+.row
+  .column
+    %h1.ui.header 
+      Listagem de concursos
+      .sub.header
+        página de listagem de todos os concursos já criados. 
+    .ui.hidden.divider
+    %a{href: "#{admin.new_project_path}", class:'ui primary button'} + Adicionar Novo Concurso
+.ui.hidden.divider
+
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th Cod.
+          %th Título
+          %th Início
+          %th Fim
+          %th Situação
+          %th
+      %tbody
+        - @projects.each do |project|
+          %tr
+            %td.collapsing= project.id
+            %td= project.title
+            %td= project.start.strftime("%d/%m/%Y")
+            %td= project.end.strftime("%d/%m/%Y")
+            %td= project.situation
+            %td.collapsing
+              = link_to "<i class='external square icon'></i>".html_safe, project_path(project), class: 'ui icon button mini primary '
+              = link_to "<i class='edit icon'></i>".html_safe, edit_project_path(project), class: 'ui button green edit icon mini'
+              = link_to "<i class='remove icon'></i>".html_safe, project_path(project), method: :delete, data: { confirm:  t(:confirm)}, class: 'ui button icon red mini'

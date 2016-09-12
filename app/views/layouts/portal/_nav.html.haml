@@ -1,0 +1,24 @@
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#{portal.root_path}"} 
+        %b Concursos de Projeto
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => "#{portal.root_path}"} Ver Concursos
+        %li
+          %a{:href => "#"} Link
+        %li
+          %a{:href => "#"} Contato
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{:href => "./"}
+            IAB DF
+            %span.sr-only (current)
+        

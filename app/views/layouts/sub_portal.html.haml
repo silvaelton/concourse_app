@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ConcourseApp
+    = stylesheet_link_tag    'portal', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'portal', 'data-turbolinks-track' => true
+    %link{:href => "https://fonts.googleapis.com/css?family=PT+Sans+Narrow", :rel => "stylesheet"}/
+    = csrf_meta_tags
+  %body
+    = render 'layouts/portal/nav'
+    .container
+      .row
+        .col-md-12
+          %p
+            %h1= @project.title
+          %h4= @project.description
+
+      %hr/
+      .row
+        .col-md-3
+          %ul.list-group
+            - @project.navs.each do |nav|
+              %li.list-group-item 
+        .col-md-9
+          = yield

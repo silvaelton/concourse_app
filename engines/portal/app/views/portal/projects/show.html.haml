@@ -1,0 +1,8 @@
+- if @project.main_page.present?
+  %h2= @project.main_page.title
+  
+  %p
+    = @project.main_page.content.html_safe
+    
+- else
+  %i Necessário definir a página principal do projeto.

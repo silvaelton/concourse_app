@@ -1,0 +1,13 @@
+.row
+  .column
+    %h1.ui.header 
+      #{@project.title}
+      .sub.header
+        #{@project.description}
+    .ui.hidden.divider
+    %a{href: "#{admin.projects_path}", class:'ui primary button'} + Retornar para a Listagem
+.ui.hidden.divider
+.row
+  .two.columns 
+    .ui.blue.segment
+      teste

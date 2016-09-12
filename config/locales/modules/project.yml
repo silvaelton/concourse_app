@@ -1,0 +1,31 @@
+pt-BR:
+  activerecord:
+    modules:
+      project: "Concurso"
+    attributes:
+      project:
+        title: "Título"
+        description: "Descrição"
+        main_page: "Página inicial"
+        start: "Início"
+        end: "Fim"
+        consult_start: "Início"
+        consult_end: "Fim"
+        consult_text: "Texto"
+        consult_publish: "Ativo?"
+        subscribe_start: "Início"
+        subscribe_end: "Fim"
+        subscribe_publish: "Ativo?"
+        participation_start: "Início"
+        participation_end: "Fim"
+        participation_publish: "Ativo?"
+        result_date: "Data"
+        result_hour: "Hora"
+        result_publish: "Ativo?"
+        result_document: "Ata de reunião"
+
+        page_projects_allow: "Listagem de projetos ativa?"
+        slug: "URL amigável"
+        situation: "Situação"
+        banner: "Banner"
+        avatar: "Cartaz"

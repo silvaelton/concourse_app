@@ -1,0 +1,46 @@
+.row
+  .col-md-12
+    %h3 Em andamento
+%hr/
+.row
+  - @project_actives.each do |project| 
+    .col-md-3
+      .panel.panel-default
+        .panel-heading
+          %h4.panel-title
+            %b= project.situation
+        .panel-body
+          .row
+            .col-md-12
+              %h3
+                %p
+                  %b= link_to project.title, project_path(project)
+                %small= project.description
+          %hr/
+          .row
+            .col-md-6
+              %b Início:
+              #{project.start.strftime('%d/%m/%Y')}
+            .col-md-6
+              %b Fim:
+              #{project.end.strftime('%d/%m/%Y')}
+
+
+.row
+  .col-md-12
+    %h3 Previstos
+
+%hr/
+.row
+  - if @project_waiting.present?
+    - @project_waiting.each do |project| 
+      .col-md-3
+        .panel.panel-default
+          .panel-heading
+            %h4.panel-title= project.id
+          .panel-body
+            %h5
+              %b= project.title
+  - else
+    .col-md-12
+      %i Não existem concursos previstos no momento.

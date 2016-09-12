@@ -1,0 +1,14 @@
+body, input, select, textarea {
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.navbar-default {
+  background-color: white !important;
+  border-bottom: #d61130 solid 2px;
+  border-radius: 0px !important;
+}
+
+.panel-default > .panel-heading {
+  background-color: #af0d26 !important;
+  color: white !important;
+}

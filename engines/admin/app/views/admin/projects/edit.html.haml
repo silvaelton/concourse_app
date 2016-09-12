@@ -1,0 +1,13 @@
+.row
+  .column
+    %h1.ui.header 
+      Editar Concurso
+      .sub.header
+        Formulário de edição de concurso. 
+    .ui.hidden.divider
+    %a{href: "#{admin.projects_path}", class:'ui primary button'} + Retornar para a Listagem
+.ui.hidden.divider
+.row
+  .column 
+    .ui.blue.segment
+      = render 'form'

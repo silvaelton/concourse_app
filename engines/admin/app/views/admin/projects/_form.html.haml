@@ -1,0 +1,49 @@
+= simple_form_for @project do |f|
+  %h4.ui.dividing.header Formulário - Novo Concurso
+  = f.input :title, input_html: { placeholder: "Informe o título do concurso"}
+  = f.input :description, input_html: { placeholder: "Faça uma breve descrição do concurso"}
+  .field
+    .eight.fields
+      = f.input :start, as: :string, input_html: { class: 'date', value: f.object.start.present? ? localize(f.object.start) : nil}
+      = f.input :end, as: :string, input_html: { class: 'date', value: f.object.end.present? ? localize(f.object.end) : nil}
+  %h4.ui.dividing.header Consultas
+  .field
+    .eight.fields
+      = f.input :consult_start, as: :string, input_html: { class: 'date' , value: f.object.consult_start.present? ? localize(f.object.start) : nil}
+      = f.input :consult_end, as: :string, input_html: { class: 'date',  value: f.object.consult_end.present? ? localize(f.object.end) : nil}
+      = f.input :consult_publish, as: :select, include_blank: false
+  .field
+    = f.input :consult_text
+  %h4.ui.dividing.header Inscrições
+  .field
+    .eight.fields
+      = f.input :subscribe_start, as: :string, input_html: { class: 'date', value: f.object.subscribe_start.present? ? localize(f.object.subscribe_start) : nil}
+      = f.input :subscribe_end, as: :string, input_html: { class: 'date', value: f.object.subscribe_end.present? ? localize(f.object.subscribe_end) : nil}
+      = f.input :subscribe_publish, as: :select, include_blank: false
+  %h4.ui.dividing.header Participação
+  .field
+    .eight.fields
+      = f.input :participation_start, as: :string, input_html: { class: 'date', value: f.object.participation_start.present? ? localize(f.object.participation_start) : nil}
+      = f.input :participation_end, as: :string, input_html: { class: 'date', value: f.object.participation_end.present? ? localize(f.object.participation_end) : nil}
+      = f.input :participation_publish, as: :select, include_blank: false
+  .field
+    .eight.fields
+      = f.input :result_date, as: :string, input_html: { class: 'date', value: f.object.result_date.present? ? localize(f.object.result_date) : nil}
+      = f.input :result_hour, as: :string, input_html: { class: 'hour'}
+      = f.input :result_publish, as: :select, include_blank: false
+      = f.input :result_document, as: :file, include_blank: false
+  %h4.ui.dividing.header Configurações
+  .field
+    .four.fields
+      = f.input :slug, as: :string
+      = f.input :page_projects_allow, as: :select, include_blank: false
+      = f.association :main_page, as: :select, include_blank: 'nenhuma'
+      = f.input :situation, as: :select, collection: Project.situations.keys, include_blank: false
+  .field
+    .four.fields
+      = f.input :banner, as: :file
+      = f.input :avatar, as: :file
+  %h4.ui.dividing.header
+  .field
+    = f.button :submit, class: 'ui buttom primary', data: { disable_with: t(:disable_with)}
+    = link_to t(:back), projects_path, class: 'ui button'
