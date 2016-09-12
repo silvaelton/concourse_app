@@ -3,11 +3,16 @@ require_dependency 'admin/application_controller'
 module Admin
   class ProjectsController < ApplicationController
     before_action :set_project, only: [:edit, :show, :destroy, :update]
+    layout 'application', except: [:show]
 
     def index
       @projects = ::Project.all.order(:id)
     end
 
+    def show
+      render layout: 'sub_application'
+    end
+    
     def new
       @project  = ::Project.new
     end
@@ -51,7 +56,7 @@ module Admin
     private
 
     def set_project
-      @project = ::Project.find(params[:id])
+      @project = ::Project.friendly.find(params[:id])
     end
 
     def set_params

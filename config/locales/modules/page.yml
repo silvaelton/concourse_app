@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    modules:
+      page: "Página"
+    attributes:
+      page:
+        title: "Título"
+        content: "Conteúdo"
+        publish: "Publicado?"

@@ -1,0 +1,16 @@
+= simple_form_for @user do |f|
+  %h4.ui.dividing.header Formulário
+  .three.fields
+    = f.input :name, input_html: { placeholder: "Informe o título do concurso"}
+    = f.input :email, input_html: { placeholder: "Faça uma breve descrição do concurso"}
+    = f.input :privilege, as: :select, collection: ::User.privileges.keys, include_blank: false
+  .three.fields
+    = f.input :password, hint: (f.object.new_record?)  ? nil : 'deixe em branco caso não queira atualizar a senha', input_html: { placeholder: "Informe o título do concurso"}
+
+    = f.input :password_confirmation, input_html: { placeholder: "Informe o título do concurso"}
+  .three.fields
+    = f.input :status, as: :select, include_blank: false
+  %h4.ui.dividing.header
+  .field
+    = f.button :submit, class: 'ui button green'
+    = link_to t(:back), users_path, class: 'ui button'

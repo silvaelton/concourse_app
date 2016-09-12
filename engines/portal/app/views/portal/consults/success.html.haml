@@ -1,0 +1,14 @@
+.row
+  .column
+    %h2
+      %b Consulta realizada com sucesso!
+    %h2
+      %small 
+        %b Data e horário da consulta
+        %br/
+        = @consult.created_at.strftime('%d/%m/%Y às %H:%M')
+        %br/
+        %br/
+        %b Nº Protocolo
+        %br/
+        = @consult.id

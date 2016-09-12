@@ -13,6 +13,7 @@ gem 'validates_timeliness'
 gem 'email_validator'
 
 gem 'has_scope'
+gem 'friendly_id'
 gem 'pg'
 
 group :development, :test do

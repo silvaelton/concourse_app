@@ -1,8 +1,10 @@
 - if @project.main_page.present?
-  %h2= @project.main_page.title
-  
-  %p
-    = @project.main_page.content.html_safe
-    
+  .row
+    .column
+      %h2
+        %b= @project.main_page.title
+  .row
+    .column
+      = @project.main_page.content
 - else
   %i Necessário definir a página principal do projeto.

@@ -1,0 +1,10 @@
+.row
+  .column
+    %h2
+      %b Nova consulta
+.row
+  .column
+    - if @project.allow_consult?
+      = render 'form'
+    - else
+      %i Consultas não estão abertas ou já foram encerradas, consulte o cronograma. 

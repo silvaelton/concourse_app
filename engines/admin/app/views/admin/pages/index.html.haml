@@ -1,0 +1,27 @@
+.row
+  .column
+    %h1.ui.header 
+      Páginas
+    = link_to "+ Adicionar nova página", new_project_page_path(@project)
+
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th Cod.
+          %th Título
+          %th Data de criação
+          %th Publicada?
+          %th
+      %tbody
+        - @pages.each do |page|
+          %tr 
+            %td.collapsing= page.id
+            %td= page.title
+            %td= page.created_at.strftime("%d/%m/%Y")
+            %td.collapsing= page.publish ? "Sim" : "Não"
+            %td.collapsing
+              = link_to "<i class='edit icon'></i>".html_safe, edit_project_page_path(project_id: @project, id: page), class: 'ui button green icon mini'
+              = link_to "<i class='remove icon'></i>".html_safe, project_page_path(project_id: @project, id: page), method: :delete, data: { confirm:  t(:confirm)}, class: 'ui button icon red mini'

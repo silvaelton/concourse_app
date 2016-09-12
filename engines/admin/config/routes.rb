@@ -17,6 +17,15 @@ Admin::Engine.routes.draw do
     resources :subscribes
     resources :popups
     resources :informs
+    resources :bills
+    resources :participations
+    resources :winners
+    
+    resources :consults do 
+      get 'next_situation'
+    end
+
+    resources :resources
   end
 
 end

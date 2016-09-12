@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    modules:
+      consult: "Consulta"
+    attributes:
+      consult:
+        content: "Conteúdo"
+

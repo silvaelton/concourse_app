@@ -1,0 +1,14 @@
+= simple_form_for [@project, @nav] do |f|
+  = f.input :label, input_html: { placeholder: "Informe o título da página"}
+  .two.fields
+    = f.input :href, as: :string, input_html: { placeholder: "Digite o link, ex.: http://www.iabdf.com.br"}
+    = f.association :page, as: :select, collection: @project.pages, include_blank: "selecione..."
+  .four.fields
+    = f.input :self_open, as: :select, include_blank: false
+    = f.input :is_page, as: :select, include_blank: false
+    = f.input :order, as: :string
+    = f.input :publish, as: :select, include_blank: false
+  %h4.ui.dividing.header
+  .field
+    = f.button :submit, class: 'ui button green'
+    = link_to t(:back), project_navs_path(@project), class: 'ui button'

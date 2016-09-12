@@ -1,0 +1,10 @@
+%i.close.icon
+.header
+  Consulta Nº  #{@consult.id}
+.image.content
+  .description
+    %h3
+      %p= @consult.created_at.strftime("%d/%m/%Y às %H:%M")
+    %h4
+      %p= @consult.content
+

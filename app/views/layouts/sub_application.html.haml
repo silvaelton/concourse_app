@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Gestão de Concursos
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'layouts/admin/nav'
+    .ui.container
+      .ui.hidden.divider
+      .ui.grid
+        .row
+          .column
+            %h1.ui.header 
+              #{@project.title}
+              .sub.header
+                #{@project.description}
+            .ui.hidden.divider
+            %a{href: "#{admin.projects_path}", class:'ui primary button'} + Retornar para a Listagem
+        .ui.hidden.divider
+        .row
+          .three.wide.column
+            .ui.vertical.menu
+              %a.item{href:"#{project_path(@project)}"} Visão Geral
+              %a.item{href:"#{project_pages_path(@project)}"} Páginas
+              %a.item{href:"#{project_navs_path(@project)}"} Menus
+              %a.item{href:"#{project_popups_path(@project)}"} Pop-ups
+              %a.item{href:"#{project_consults_path(@project)}"} Consultas
+              %a.item{href:"#{project_informs_path(@project)}"} Informes
+              %a.item{href:"#{project_subscribes_path(@project)}"} Inscrições
+              %a.item{href:"#{project_bills_path(@project)}"} Boletos
+              %a.item{href:"#{project_participations_path(@project)}"} Participações
+              %a.item{href:"#{project_winners_path(@project)}"} Ganhadores
+              %a.item{href:"#{project_resources_path(@project)}"} Consultas
+ 
+          .thirteen.wide.column
+            .ui.blue.segment
+              = yield
+    .ui.modal
+          

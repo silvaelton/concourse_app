@@ -1,0 +1,31 @@
+.row
+  .column
+    %h1.ui.header 
+      Menus
+    = link_to "+ Adicionar novo menu", new_project_nav_path(@project)
+
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th Cod.
+          %th Nome
+          %th Tipo
+          %th Link
+          %th Data de criação
+          %th Publicada?
+          %th
+      %tbody
+        - @navs.each do |nav|
+          %tr 
+            %td.collapsing= nav.id
+            %td= nav.label
+            %td= nav.is_page ? "Página" : "Link externo"
+            %td= nav.is_page ? nav.page_id : nav.href
+            %td= nav.created_at.strftime("%d/%m/%Y")
+            %td.collapsing= nav.publish ? "Sim" : "Não"
+            %td.collapsing
+              = link_to "<i class='edit icon'></i>".html_safe, edit_project_nav_path(project_id: @project, id: nav), class: 'ui button green icon mini'
+              = link_to "<i class='remove icon'></i>".html_safe, project_nav_path(project_id: @project, id: nav), method: :delete, data: { confirm:  t(:confirm)}, class: 'ui button icon red mini'

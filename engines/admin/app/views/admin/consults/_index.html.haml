@@ -1,0 +1,11 @@
+- @consults.each do |nav|
+  %tr 
+    %td.collapsing= nav.id
+    %td= nav.created_at.strftime('%d/%M/%Y às %H:%M')
+    %td.collapsing= nav.situation.humanize
+    %td.collapsing
+      = link_to "Visualizar", project_consult_path(project_id: @project, id:nav), remote: true, class: 'ui button primary'
+      - if nav.não_lida?
+        = link_to "Marcar como lida", project_consult_next_situation_path(project_id: @project, consult_id: nav), remote: true, class: 'ui button green'
+      - if nav.lida?
+        = link_to "Marcar como respondida",  project_consult_next_situation_path(project_id: @project, consult_id: nav), remote: true, class: 'ui button yellow'

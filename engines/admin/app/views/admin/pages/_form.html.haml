@@ -1,0 +1,9 @@
+= simple_form_for [@project, @page] do |f|
+  = f.input :title, input_html: { placeholder: "Informe o título da página"}
+  = f.input :content, input_html: { placeholder: "Informe o conteúdo da página"}
+  .four.fields
+    = f.input :publish, as: :select, include_blank: false
+  %h4.ui.dividing.header
+  .field
+    = f.button :submit, class: 'ui button green'
+    = link_to t(:back), project_pages_path(@project), class: 'ui button'

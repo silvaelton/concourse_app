@@ -1,0 +1,13 @@
+.row
+  .column
+    %h1.ui.header 
+      Adicionar Novo Usuário
+      .sub.header
+        Formulário de criação de usuário. 
+    .ui.hidden.divider
+    %a{href: "#{admin.users_path}", class:'ui primary button'} + Retornar para a Listagem
+.ui.hidden.divider
+.row
+  .column 
+    .ui.blue.segment
+      = render 'form'

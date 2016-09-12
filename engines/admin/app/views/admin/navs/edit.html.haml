@@ -1,0 +1,12 @@
+.row
+  .column
+    %h1.ui.header 
+      Editar Menu
+      .sub.header
+        Formulário de editação menu. 
+    .ui.hidden.divider
+    %a{href: "#{admin.project_navs_path(@project)}", class:''} + Retornar para a Listagem
+.ui.hidden.divider
+.row
+  .column 
+    = render 'form'

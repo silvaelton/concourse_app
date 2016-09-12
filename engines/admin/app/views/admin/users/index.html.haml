@@ -1,0 +1,32 @@
+.row
+  .column
+    %h1.ui.header 
+      Listagem de Usuários
+      .sub.header
+        página de listagem de todos os usuários cadastrados. 
+    .ui.hidden.divider
+    %a{href: "#{admin.new_user_path}", class:'ui primary button'} + Adicionar Novo Usuário
+.ui.hidden.divider
+
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.blue.celled.table.striped
+      %thead
+        %tr
+          %th Cod.
+          %th Nome
+          %th E-mail
+          %th Criado em
+          %th Privilégio
+          %th
+      %tbody
+        - @users.each do |user|
+          %td.collapsing= user.id
+          %td= user.name
+          %td= user.email
+          %td= user.created_at.strftime("%d/%m/%Y")
+          %td= user.privilege
+          %td.collapsing
+            = link_to "<i class='edit icon'></i>".html_safe, edit_user_path(user), class: 'ui button green edit icon mini'
+            = link_to "<i class='remove icon'></i>".html_safe, user_path(user), method: :delete, data: { confirm:  t(:confirm)}, class: 'ui button icon red mini'

@@ -19,8 +19,13 @@
       %hr/
       .row
         .col-md-3
+          %br/
           %ul.list-group
-            - @project.navs.each do |nav|
+            - @project.navs.actives.each do |nav|
               %li.list-group-item 
+                - if nav.is_page
+                  %a{href:"#{portal.project_page_path(project_id: @project, id: nav.page)}"}= nav.label
+                - else
+                  %a{href: "#{nav.href}"}= nav.label
         .col-md-9
           = yield

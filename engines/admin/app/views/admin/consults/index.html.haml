@@ -1,0 +1,17 @@
+.row
+  .column
+    %h1.ui.header 
+      Consultas
+
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th Cod.
+          %th Data de envio
+          %th Situação
+          %th
+      %tbody.consults-index 
+        = render 'index'

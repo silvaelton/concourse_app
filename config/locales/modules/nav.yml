@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    modules:
+      nav: "Menu"
+    attributes:
+      nav:
+        label: "Nome"
+        href: "href"
+        page: "Página"
+        self_open: "Abrir na mesma página?"
+        is_page: "Página interna?"
+        order: "Ordem"
+        publish: "Publicado?"
+

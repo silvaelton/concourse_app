@@ -1,5 +1,5 @@
 = simple_form_for @project do |f|
-  %h4.ui.dividing.header Formulário - Novo Concurso
+  %h4.ui.dividing.header Formulário
   = f.input :title, input_html: { placeholder: "Informe o título do concurso"}
   = f.input :description, input_html: { placeholder: "Faça uma breve descrição do concurso"}
   .field
@@ -26,6 +26,7 @@
       = f.input :participation_start, as: :string, input_html: { class: 'date', value: f.object.participation_start.present? ? localize(f.object.participation_start) : nil}
       = f.input :participation_end, as: :string, input_html: { class: 'date', value: f.object.participation_end.present? ? localize(f.object.participation_end) : nil}
       = f.input :participation_publish, as: :select, include_blank: false
+  %h4.ui.dividing.header Resultado
   .field
     .eight.fields
       = f.input :result_date, as: :string, input_html: { class: 'date', value: f.object.result_date.present? ? localize(f.object.result_date) : nil}

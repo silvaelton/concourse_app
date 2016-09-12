@@ -55,6 +55,8 @@ GEM
       activemodel
     erubis (2.7.0)
     execjs (2.7.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -161,6 +163,7 @@ DEPENDENCIES
   admin!
   byebug
   email_validator
+  friendly_id
   haml-rails
   has_scope
   jquery-rails
