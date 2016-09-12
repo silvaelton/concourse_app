@@ -1,0 +1,10 @@
+.row
+  .column
+    %h2
+      %b Nova inscrição
+.row
+  .column
+    - if @project.allow_subscribe?
+      = render 'form'
+    - else
+      %i As inscrições não estão abertas ou já foram encerradas, consulte o cronograma. 

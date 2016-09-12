@@ -1,9 +1,10 @@
 class Project < ActiveRecord::Base
   belongs_to :main_page, class_name: "Page"
 
-  has_many :navs,     -> { order('"order" ASC') } 
-  has_many :pages,    -> { order(:title) } 
-  has_many :consults, -> { order('created_at DESC') } 
+  has_many :navs,       -> { order('"order" ASC') } 
+  has_many :pages,      -> { order(:title) } 
+  has_many :consults,   -> { order('created_at DESC') } 
+  has_many :subscribes, -> { order('id DESC') } 
 
   scope :actives, -> { where(situation: 0)}
   scope :waiting, -> { where(situation: 1)}
@@ -22,6 +23,11 @@ class Project < ActiveRecord::Base
 
   def allow_consult?
     self.consult_start <= Date.today && self.consult_end >= Date.today && self.consult_publish
+  end
+
+
+  def allow_subscribe?
+    self.subscribe_start <= Date.today && self.subscribe_end >= Date.today && self.subscribe_publish
   end
 
 end
