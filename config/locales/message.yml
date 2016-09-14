@@ -1,0 +1,4 @@
+pt-BR:
+  confirm: "Tem certeza que deseja realizar esta operação"
+  danger: "Não foi possível executar esta operação"
+  success: "Operação realizada com sucesso"

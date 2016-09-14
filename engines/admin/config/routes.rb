@@ -1,15 +1,19 @@
 
 Admin::Engine.routes.draw do
 
-  root 'dashboard#index'
+  root 'projects#index'
 
-  resources :sessions, only: [:new, :create]
+  resources :sessions, only: [:new, :create] do 
+    collection do 
+      delete 'logout'
+    end
+  end
 
   get  'edit_profile', to: 'profile#edit'
   post 'edit_profile', to: 'profile#update'
   
   resources :users
-  resources :bills
+  resources :billings
 
   resources :projects do 
     resources :pages 

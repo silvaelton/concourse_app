@@ -1,13 +1,13 @@
 .ui.menu
   .header.item Gestão de Concursos
-  %a.item{href: "#{admin.root_path}"} Dashboard
   %a.item{href: "#{admin.projects_path}"} Projetos
-  %a.item{href: "#{admin.bills_path}"} Financeiro
+  %a.item{href: "#{admin.billings_path}"} Financeiro
   %a.item{href: "#{admin.users_path}"} Usuários
+  %a.item{href: "#"} Relatórios
   .right.menu
     .ui.dropdown.item
-      Usuário
+      = current_user.name
       %i.dropdown.icon
       .menu
-        %a.item Meu perfil
-        %a.item Sair 
+        %a.item{href: "#{admin.edit_profile_path}"} Meu perfil
+        %a.item{href: "#{admin.logout_sessions_path}", data: { method: 'delete'}} Sair 

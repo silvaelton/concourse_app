@@ -1,0 +1,47 @@
+.row
+  .column
+    %h1.ui.header 
+      Boletos
+      .sub.header
+        página de listagem de todos os boletos já emitidos. 
+.ui.hidden.divider
+.row
+  .column
+    .ui.segment.blue
+      = simple_form_for url_for, method: :get do |f|
+        .fields
+          .six.wide.field
+            = f.input :by_concourse, label: "Por concurso", as: :select, collection: ::Project.all.order(:title), include_blank: "ver todos...", selected: params[:by_concourse], input_html: { name: 'by_concourse'}
+          .three.wide.field
+            = f.input :by_situation, label: "Por situação", as: :select, collection: {}, include_blank: "ver todos...", input_html: { name: 'by_situation'}
+          .three.wide.field
+            = f.submit "Filtrar", name: nil, class: 'ui button primary filter-button', data: { disable_with: t(:disable_with)}
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.blue.celled.table.striped
+      %thead
+        %tr
+          %th Total emitidos
+          %th Total pagos
+          %th Total pendentes
+      %tbody
+        %tr
+          %td 0
+          %td 0
+          %td 0
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.blue.celled.table.striped
+      %thead
+        %tr
+          %th Nº
+          %th Concurso
+          %th Emitido em
+          %th Valor
+          %th Vencimento
+          %th Pago em
+          %th Situação
+          %th
+      %tbody

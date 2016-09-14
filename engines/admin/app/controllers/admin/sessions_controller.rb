@@ -4,6 +4,8 @@ module Admin
   class SessionsController < ApplicationController
     before_action :redirect_session_present, only: [:new, :create]
 
+    layout 'session-application'
+    
     def new
       @session = Admin::Session.new
     end

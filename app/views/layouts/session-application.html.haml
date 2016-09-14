@@ -7,11 +7,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = render 'layouts/admin/nav'
     .ui.container
-      .ui.hidden.divider
-      - flash.each do |key, value|
-        .ui.message{class: "#{key}"}
-          %p= value
       .ui.hidden.divider
       = yield

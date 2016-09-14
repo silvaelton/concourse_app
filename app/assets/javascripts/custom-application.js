@@ -1,4 +1,4 @@
-$(document).on("ready", function() {
+$(document).on('turbolinks:load', function() {
   $('.ui.dropdown').dropdown();
   $('.ui.fluid.dropdown').dropdown();
 

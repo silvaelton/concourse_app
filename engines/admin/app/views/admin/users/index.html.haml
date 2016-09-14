@@ -29,4 +29,4 @@
           %td= user.privilege
           %td.collapsing
             = link_to "<i class='edit icon'></i>".html_safe, edit_user_path(user), class: 'ui button green edit icon mini'
-            = link_to "<i class='remove icon'></i>".html_safe, user_path(user), method: :delete, data: { confirm:  t(:confirm)}, class: 'ui button icon red mini'
+            = link_to "<i class='remove icon'></i>".html_safe, user_path(user), method: :delete, data: { confirm:  t(:confirm)}, class: 'ui button icon red mini' unless current_user.id == user.id

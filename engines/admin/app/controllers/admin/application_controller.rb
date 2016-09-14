@@ -1,6 +1,6 @@
 module Admin
   class ApplicationController < ActionController::Base
-    #before_action :authenticate?
+    before_action :authenticate?
 
     layout 'application'
     

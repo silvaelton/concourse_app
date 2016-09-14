@@ -4,6 +4,8 @@ gem 'rails', '4.2.1'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
 
 gem 'haml-rails'
 gem 'simple_form'
@@ -16,6 +18,8 @@ gem 'has_scope'
 gem 'friendly_id'
 gem 'pg'
 
+gem 'mailgun-ruby'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
@@ -23,7 +27,6 @@ group :development, :test do
   gem 'spring'
 
 end
-
 
 
 path 'engines' do 

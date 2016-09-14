@@ -1,0 +1,54 @@
+.row
+  .column
+    %h1.ui.header 
+      Visão Geral
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th Início das inscrições
+          %th Fim das inscrições
+          %th Início do envio de projetos
+          %th Fim do envio de projetos 
+      %tbody
+        %tr
+          %td= @project.subscribe_start.strftime("%d/%m/%Y")
+          %td= @project.subscribe_end.strftime("%d/%m/%Y")
+          %td= @project.participation_start.strftime("%d/%m/%Y")
+          %td= @project.participation_start.strftime("%d/%m/%Y")
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th Total de inscritos
+          %th Total de homologados
+          %th Total de indeferidos
+          %th Total de envio de projetos
+      %tbody
+        %tr
+          %td 0
+          %td 0
+          %td 0
+          %td 0
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th Boletos Emitidos
+          %th Boletos Pagos
+          %th Consultas enviadas
+          %th Consultas lidas
+          %th Consultas respondidas
+      %tbody
+        %tr
+          %td 0
+          %td 0
+          %td 0
+          %td 0
+          %td 0
