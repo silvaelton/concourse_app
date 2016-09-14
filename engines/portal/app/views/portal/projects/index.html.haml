@@ -1,6 +1,7 @@
 .row
   .col-md-12
-    %h3 Em andamento
+    %h3
+      %b Em andamento
 %hr/
 .row
   - @project_actives.each do |project| 
@@ -26,9 +27,11 @@
               #{project.end.strftime('%d/%m/%Y')}
 
 
+%br/
 .row
   .col-md-12
-    %h3 Previstos
+    %h3 
+      %b Previstos
 
 %hr/
 .row
@@ -44,3 +47,24 @@
   - else
     .col-md-12
       %i Não existem concursos previstos no momento.
+
+%br/
+.row
+  .col-md-12
+    %h3 
+      %b Finalizados
+%hr/
+
+.row
+  - if @project_waiting.present?
+    - @project_waiting.each do |project| 
+      .col-md-3
+        .panel.panel-default
+          .panel-heading
+            %h4.panel-title= project.id
+          .panel-body
+            %h5
+              %b= project.title
+  - else
+    .col-md-12
+      %i Não existem concursos finalizados no momento.

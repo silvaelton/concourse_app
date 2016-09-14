@@ -2,6 +2,11 @@ body, input, select, textarea {
   font-family: 'PT Sans Narrow', sans-serif;
 }
 
+body {
+  background-color: #fff7f1 !important;
+  margin-bottom: 100px;
+}
+
 .navbar-default {
   background-color: white !important;
   border-bottom: #d61130 solid 2px;

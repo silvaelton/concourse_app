@@ -20,7 +20,7 @@ module Portal
     private
 
     def set_project
-      @project = Project.friendly.find(params[:project_id])
+      @project = ::Project.friendly.find(params[:project_id])
     end
    
   end

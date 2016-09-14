@@ -2,6 +2,11 @@
   .column
     %h2
       %b Nova consulta
+
+.row
+  .column
+    = @project.consult_text
+%br/
 .row
   .column
     - if @project.allow_consult?
