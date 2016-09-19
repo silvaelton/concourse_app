@@ -14,6 +14,11 @@ gem 'validates_cpf_cnpj'
 gem 'validates_timeliness'
 gem 'email_validator'
 
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
+gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
+
+
 gem 'has_scope'
 gem 'friendly_id'
 gem 'pg'

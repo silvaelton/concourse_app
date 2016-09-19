@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require semantic-ui/semantic.min
 //= require jquery.mask.min
+//= require tinymce-jquery
 //= require custom-application
-//= require turbolinks

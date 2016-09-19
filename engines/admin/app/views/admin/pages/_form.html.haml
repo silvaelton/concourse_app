@@ -1,6 +1,6 @@
 = simple_form_for [@project, @page] do |f|
   = f.input :title, input_html: { placeholder: "Informe o título da página"}
-  = f.input :content, input_html: { placeholder: "Informe o conteúdo da página"}
+  = f.input :content, input_html: { placeholder: "Informe o conteúdo da página", class: 'tinymce'}
   .four.fields
     = f.input :publish, as: :select, include_blank: false
   %h4.ui.dividing.header
