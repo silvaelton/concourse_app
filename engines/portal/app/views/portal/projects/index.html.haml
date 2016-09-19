@@ -1,70 +1,86 @@
-.row
-  .col-md-12
-    %h3
-      %b Em andamento
-%hr/
-.row
-  - @project_actives.each do |project| 
-    .col-md-3
-      .panel.panel-default
-        .panel-heading
-          %h4.panel-title
-            %b= project.situation
-        .panel-body
+.ui.grid
+  .row
+    .column
+      %h2.ui.header Em andamento
+  .row
+    - @project_actives.each do |project| 
+      .four.wide.column
+        .ui.stacked.red.segment
           .row
-            .col-md-12
-              %h3
-                %p
-                  %b= link_to project.title, project_path(project)
-                %small= project.description
+            %h3= link_to project.title, project_path(project)
           %hr/
           .row
-            .col-md-6
-              %b Início:
-              #{project.start.strftime('%d/%m/%Y')}
-            .col-md-6
-              %b Fim:
-              #{project.end.strftime('%d/%m/%Y')}
+            %p= project.description
+          %hr/
+          .row
+            .ui.grid
+              .eight.wide.column
+                %b Início:
+                #{project.start.strftime('%d/%m/%Y')}
+              .eight.wide.column
+                %b Fim:
+                #{project.end.strftime('%d/%m/%Y')}
 
 
-%br/
-.row
-  .col-md-12
-    %h3 
-      %b Previstos
 
-%hr/
-.row
-  - if @project_waiting.present?
-    - @project_waiting.each do |project| 
-      .col-md-3
-        .panel.panel-default
-          .panel-heading
-            %h4.panel-title= project.id
-          .panel-body
-            %h5
-              %b= project.title
-  - else
-    .col-md-12
-      %i Não existem concursos previstos no momento.
+  %hr.ui.dividing.header
+  %hr/
 
-%br/
-.row
-  .col-md-12
-    %h3 
-      %b Finalizados
-%hr/
+  .row
+    .column
+      %h2.ui.header Previstos
+  .row
+    - if @project_waiting.present?
+      - @project_waiting.each do |project| 
+        .four.wide.column
+          .ui.stacked.red.segment
+            .row
+              %h3= link_to project.title, project_path(project)
+            %hr/
+            .row
+              %p= project.description
+            %hr/
+            .row
+              .ui.grid
+                .eight.wide.column
+                  %b Início:
+                  #{project.start.strftime('%d/%m/%Y')}
+                .eight.wide.column
+                  %b Fim:
+                  #{project.end.strftime('%d/%m/%Y')}
 
-.row
-  - if @project_waiting.present?
-    - @project_waiting.each do |project| 
-      .col-md-3
-        .panel.panel-default
-          .panel-heading
-            %h4.panel-title= project.id
-          .panel-body
-            %h5
-              %b= project.title
-  - else
-    .col-md-12
-      %i Não existem concursos finalizados no momento.
+    - else 
+      .four.wide.column
+        %i No momento não há concursos previstos.
+
+
+  %hr.ui.dividing.header
+  %hr/
+  .row
+    .column
+      %h2.ui.header Finalizados
+  .row
+    - if @project_waiting.present?
+      - @project_waiting.each do |project| 
+        .four.wide.column
+          .ui.stacked.red.segment
+            .row
+              %h4= link_to project.title, project_path(project)
+            %hr/
+            .row
+              %p= project.description
+            %hr/
+            .row
+              .ui.grid
+                .eight.wide.column
+                  %b Início:
+                  #{project.start.strftime('%d/%m/%Y')}
+                .eight.wide.column
+                  %b Fim:
+                  #{project.end.strftime('%d/%m/%Y')}
+    - else 
+      .six.wide.column
+        %i No momento não há concursos finalizados.
+
+
+

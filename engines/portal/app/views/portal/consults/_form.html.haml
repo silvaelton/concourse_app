@@ -1,13 +1,3 @@
-= form_for [@project, @consult] do |f|
-  - if f.object.errors.any?
-    .alert.alert-danger
-      %h3
-        %b Erro de validação: 
-      - f.object.errors.full_messages.each do |error| 
-        %p
-          %b= error
-
-  = f.label :content
-  = f.text_area :content, class: 'form-control', style: 'max-width: 100%; min-height: 250px', placeholder: "Descreva aqui sua consulta"
-  %hr/
-  = f.submit "Enviar Consulta", class: 'btn btn-success'
+= simple_form_for [@project, @consult] do |f|
+  = f.input :content, placeholder: "Descreva aqui sua consulta"
+  = f.submit "Enviar Consulta", class: 'ui button red'

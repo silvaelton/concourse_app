@@ -9,23 +9,23 @@
     = csrf_meta_tags
   %body
     = render 'layouts/portal/nav'
-    .container
+    .ui.container
       .row
-        .col-md-12
+        .ui.segment
           %p
             %h1= @project.title
-          %h4= @project.description
-
-      %hr/
+          = @project.description
+      %br/
+      .ui.divider
+      %br/
       .row
-        .col-md-3
-          %br/
-          %ul.list-group
-            - @project.navs.actives.each do |nav|
-              %li.list-group-item 
+        .ui.grid
+          .four.wide.column
+            .ui.vertical.pointing.menu
+              - @project.navs.actives.each do |nav|
                 - if nav.is_page
-                  %a{href:"#{portal.project_page_path(project_id: @project, id: nav.page)}"}= nav.label
+                  %a.item{href:"#{portal.project_page_path(project_id: @project, id: nav.page)}"}= nav.label
                 - else
-                  %a{href: "#{nav.href}"}= nav.label
-        .col-md-9
-          = yield
+                  %a.item{href: "#{nav.href}"}= nav.label
+          .twelve.wide.column
+            = yield
