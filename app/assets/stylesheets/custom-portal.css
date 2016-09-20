@@ -1,16 +1,29 @@
-body {
+body, h2 {
   font-family: 'PT Sans Narrow', sans-serif !important;
   color:  #1c1c1c !important;
 }
 
 body {
   font-size: 18px !important;
-  background-color: #f9f9f9 !important;
+  background-color: white !important;
   margin-bottom: 100px !important;
 }
 
-.menu {
+.custom-menu {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.ui.link.menu .item:hover, .ui.menu .dropdown.item:hover, .ui.menu .link.item:hover, .ui.menu a.item {
+  background-color: #f1f1f1 !important;
+}
+
+.text-center {
+  text-align: justify !important;
+}
+.border-menu {
   border-bottom: #e93036 2px solid !important;
+  margin-bottom: 0px !important;
 }
 
 .segment {

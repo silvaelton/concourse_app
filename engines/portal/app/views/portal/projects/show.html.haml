@@ -3,8 +3,9 @@
     .column
       %h2
         %b= @project.main_page.title
+  %br/
   .row
-    .column
-      = @project.main_page.content
+    .column.text-center
+      = @project.main_page.content.html_safe
 - else
   %i Necessário definir a página principal do projeto.

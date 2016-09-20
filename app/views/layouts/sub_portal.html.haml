@@ -9,23 +9,25 @@
     = csrf_meta_tags
   %body
     = render 'layouts/portal/nav'
+    .ui.big.menu{style: "background-color: #{@project.header_color} !important; margin-top: 0px !important"}
+      .ui.container.custom-menu
+        = image_tag "/images/default_logo.jpg", size: '100x100'
     .ui.container
-      .row
-        .ui.segment
-          %p
-            %h1= @project.title
-          = @project.description
       %br/
+      .row
+        .column
+          %p
+          = @project.description
       .ui.divider
       %br/
       .row
         .ui.grid
+          .twelve.wide.column
+            = yield
           .four.wide.column
-            .ui.vertical.pointing.menu
+            .ui.vertical.pointing.menu.custom-item
               - @project.navs.actives.each do |nav|
                 - if nav.is_page
                   %a.item{href:"#{portal.project_page_path(project_id: @project, id: nav.page)}"}= nav.label
                 - else
                   %a.item{href: "#{nav.href}"}= nav.label
-          .twelve.wide.column
-            = yield
