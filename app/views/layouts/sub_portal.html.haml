@@ -8,10 +8,23 @@
     %link{:href => "https://fonts.googleapis.com/css?family=PT+Sans+Narrow", :rel => "stylesheet"}/
     = csrf_meta_tags
   %body
-    = render 'layouts/portal/nav'
-    .ui.big.menu{style: "background-color: #{@project.header_color} !important; margin-top: 0px !important"}
-      .ui.container.custom-menu
-        = image_tag "/images/default_logo.jpg", size: '100x100'
+    %div{style: "background-color: #{@project.header_color} !important; margin-top: 0px !important"}
+      .ui.container
+        .ui.grid
+          .seven.wide.column
+            %br/
+            = image_tag "/images/default_logo.jpg", size: '100x100'
+          .nine.wide.column{style: "margin-top: auto;"}
+            .ui.secondary.pointing.menu.bottom.aligned{style: 'border: none !important'}
+              - @project.navs.actives.each do |nav|
+                - if nav.is_page
+                  %a.item.custom-item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}", style: "background-color: #{@project.header_color} !important"}
+                    %b= nav.label
+                - else
+                  %a.item.custom-item{href: "#{nav.href}", style: "background-color: #{@project.header_color} !important"}
+                    %b= nav.label
+          
+
     .ui.container
       %br/
       .row
@@ -22,12 +35,5 @@
       %br/
       .row
         .ui.grid
-          .twelve.wide.column
+          .sixteen.wide.column
             = yield
-          .four.wide.column
-            .ui.vertical.pointing.menu.custom-item
-              - @project.navs.actives.each do |nav|
-                - if nav.is_page
-                  %a.item{href:"#{portal.project_page_path(project_id: @project, id: nav.page)}"}= nav.label
-                - else
-                  %a.item{href: "#{nav.href}"}= nav.label

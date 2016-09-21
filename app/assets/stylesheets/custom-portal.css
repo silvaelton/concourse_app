@@ -9,6 +9,11 @@ body {
   margin-bottom: 100px !important;
 }
 
+.custom-item {
+  color: white !important;
+  font-family: 'PT Sans Narrow', sans-serif !important;
+  border-right: white solid 1px !important;
+}
 .custom-menu {
   padding-top: 5px;
   padding-bottom: 5px;
