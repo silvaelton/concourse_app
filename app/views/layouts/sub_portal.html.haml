@@ -32,16 +32,20 @@
           %p
           = @project.description.html_safe
       .ui.divider
-    = image_tag '/images/imagem_0.jpg', width: '100%'
-    .ui.container
+      %br/
       .row
         .ui.grid
           .sixteen.wide.column
-            %br/
-            %br/
             = yield
-    %br/
-    %br/
-    %br/
-    .ui.grid.one.column.centered
-      = image_tag '/images/footer.png'
+      %br/
+      %br/
+      %br/
+      .ui.divider
+      .ui.grid
+        .four.wide.column
+          %h4{style: 'color: gray'} PROMOÇÃO E ORGANIZAÇÃO:
+          = image_tag '/images/footer-iab.png', size: '220x40'
+        .eigth.wide.column
+        .four.wide.column
+          %h4{style: 'color: gray'} PROMOÇÃO:
+          = image_tag '/images/footer-cau.png', size: '180x50'
