@@ -4,16 +4,23 @@ body, h2 {
 }
 
 body {
-  font-size: 18px !important;
+  font-size: 17px !important;
   background-color: white !important;
   margin-bottom: 100px !important;
 }
 
 .custom-item {
+  height: 15px;
   color: white !important;
+  font-size: 16px;
   font-family: 'PT Sans Narrow', sans-serif !important;
   border-right: white solid 1px !important;
 }
+
+.custom-item:hover {
+  border-bottom: none !important;
+}
+
 .custom-menu {
   padding-top: 5px;
   padding-bottom: 5px;
