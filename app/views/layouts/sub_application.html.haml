@@ -16,7 +16,7 @@
             %h1.ui.header 
               #{@project.title}
               .sub.header
-                #{@project.description}
+                #{@project.description.html_safe}
             .ui.hidden.divider
             %a{href: "#{admin.projects_path}", class:'ui primary button'} + Retornar para a Listagem
         .ui.hidden.divider
