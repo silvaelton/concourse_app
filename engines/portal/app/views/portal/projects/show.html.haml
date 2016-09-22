@@ -2,7 +2,7 @@
   .row
     .column
       %h2
-        %b= @project.main_page.title
+        %b= @project.main_page.title.html_safe
   %br/
   .row
     .column.text-center

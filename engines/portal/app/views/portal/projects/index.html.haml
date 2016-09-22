@@ -10,7 +10,7 @@
             %h3= link_to project.title, project_path(project)
           %hr/
           .row
-            %p= project.description
+            %p= project.description.html_safe
           %hr/
           .row
             .ui.grid
