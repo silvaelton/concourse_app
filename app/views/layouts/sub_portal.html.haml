@@ -32,15 +32,16 @@
           %p
           = @project.description.html_safe
       .ui.divider
-      %br/
+    = image_tag '/images/imagem_0.jpg', width: '100%'
+    .ui.container
       .row
         .ui.grid
           .sixteen.wide.column
+            %br/
+            %br/
             = yield
     %br/
     %br/
     %br/
-    .ui.grid
-      .ui.container
-        .sixteen.wide.column
-          = image_tag '/images/footer.png', size: '1100x150'
+    .ui.grid.one.column.centered
+      = image_tag '/images/footer.png'
