@@ -30,7 +30,7 @@
       .row
         .column
           %p
-          = @project.description
+          = @project.description.html_safe
       .ui.divider
       %br/
       .row
