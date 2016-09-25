@@ -12,7 +12,6 @@ class Subscribe < ActiveRecord::Base
   enum gender: ['masculino', 'feminino']
   enum situation: ['processando', 'indeferido', 'homologado']
 
-  validates_uniqueness_of :cpf, scope: :project_id 
 
   validates :name, :cpf, :born, presence: true 
   validates :cep,  :state, :city, :address, presence: true 
@@ -23,6 +22,7 @@ class Subscribe < ActiveRecord::Base
   validates :email, email: true 
   validates :telephone,presence: true
   validates :cpf, cpf: true 
+  validates_uniqueness_of :cpf, scope: :project_id 
   validates :cnpj, cnpj: true
 
   validates :password,:password_confirmation, length: {minimum: 6, maximum: 24}, presence: true
