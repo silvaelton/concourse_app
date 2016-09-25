@@ -46,6 +46,13 @@
         = f.input :state_number, placeholder: "Informe a inscrição estadual" 
       .field
         = f.input :local_subscribe, placeholder: "Nº e Local de inscrição"
+        = f.hint '(Municipal, Estadual, Distrital ou Isento)'
+  .field
+    .sixteen.wide.field
+      %label Declaro ser responsável técnico pela empresa acima
+    .two.wide.field
+      = f.input :tecnical_responsible, as: :select, label: false, include_blank: false
+
   .ui.divider
   .fields
     .three.wide.field

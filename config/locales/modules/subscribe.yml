@@ -15,7 +15,7 @@ pt-BR:
         fantasy_name: "Nome Fantasia"
         state_number: "I.E - Inscrição Estadual"
         cnpj: "CNPJ"
-        local_subscribe: "Nº e Local de Inscrição (Municipal, Estadual, Distrital ou Isento)."
+        local_subscribe: "Nº e Local de Inscrição."
         social_contract: "Contrato Social"
         social_reason: "Razão Social"
         password: "Senha de Acesso"
