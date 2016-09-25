@@ -15,9 +15,30 @@ module Portal
     end
 
     def create
+      @subscribe = @project.subscribes.new(set_params)
+
+      if @subscribe.save 
+        session[:subscribe_id] = @subscribe.id
+        redirect_to action: :success
+      else
+        render action: :new 
+      end
+    end
+
+    def success
+      @subscribe = @project.subscribes.find(session[:subscribe_id])
     end
 
     private
+
+    def set_params
+      params.require(:subscribe).permit(:name, :cpf, :born, :cep, :city, :state_id,
+                                        :address, :fantasy_name, :social_reason, 
+                                        :social_contract, :state_number,
+                                        :local_subscribe, :cnpj, :email, 
+                                        :telephone, :celphone, :password, :password_confirmation)
+    end
+
 
     def set_project
       @project = ::Project.friendly.find(params[:project_id])

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920153710) do
+ActiveRecord::Schema.define(version: 20160925182947) do
 
   create_table "bills", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -119,15 +119,49 @@ ActiveRecord::Schema.define(version: 20160920153710) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "states", force: :cascade do |t|
+    t.string   "name"
+    t.string   "acronym"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "subscribe_professionals", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "subscribes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "project_id"
+    t.integer  "situation",            default: 0
+    t.boolean  "subscribe_paid",       default: false
+    t.integer  "subscribe_id"
+    t.string   "name"
+    t.string   "cpf"
+    t.date     "born"
+    t.integer  "state_id"
+    t.string   "city"
+    t.integer  "gender"
+    t.string   "telephone"
+    t.string   "email"
+    t.string   "celphone"
+    t.string   "address"
+    t.string   "cep"
+    t.string   "fantasy_name"
+    t.string   "social_reason"
+    t.string   "cnpj"
+    t.string   "state_number"
+    t.string   "local_subscribe"
+    t.string   "social_contract"
+    t.string   "password"
+    t.boolean  "tecnical_responsible", default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
+
+  add_index "subscribes", ["project_id"], name: "index_subscribes_on_project_id"
+  add_index "subscribes", ["state_id"], name: "index_subscribes_on_state_id"
+  add_index "subscribes", ["subscribe_id"], name: "index_subscribes_on_subscribe_id"
 
   create_table "teams", force: :cascade do |t|
     t.datetime "created_at", null: false

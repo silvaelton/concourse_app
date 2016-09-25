@@ -4,6 +4,10 @@ Portal::Engine.routes.draw do
   resources :projects, path: '/' do 
     resources :pages,      path: 'paginas'
     resources :consults,   path: 'consultas'
-    resources :subscribes, path: 'inscricao'
+    resources :subscribes, path: 'inscricao' do 
+      collection do 
+        get 'success', path: 'sucesso'
+      end
+    end
   end
 end

@@ -1,13 +1,58 @@
-= form_for [@project, @subscribe] do |f|
-  - if f.object.errors.any?
-    .alert.alert-danger
-      %h3
-        %b Erro de validação: 
-      - f.object.errors.full_messages.each do |error| 
-        %p
-          %b= error
+= simple_form_for [@project, @subscribe] do |f|
+  .fields
+    .field.wide.eight
+      = f.input :name, placeholder: "Digite seu nome"
+    .field.wide.three
+      = f.input :cpf, input_html: { class: 'cpf'}
+    .field.wide.three
+      = f.input :born, as: :string, input_html: { class: 'date', value: f.object.born.present? ? localize(f.object.born) : nil}
+    .field.wide.two
+      = f.input :gender, as: :select, include_blank: false, collection: Subscribe.genders.keys
+  
+  .fields
+    .field.wide.four
+      = f.input :email, placeholder: "Digite um e-mail válido"
+    .field.wide.four
+      = f.input :telephone, placeholder: "Digite um telefone"
+    .field.wide.four
+      = f.input :celphone, placeholder: "Digite um celular"
+  .ui.divider
+  .fields
+    .four.wide.field
+      = f.input :cep, input_html: { class: 'cep' }
+    .four.wide.field
+      = f.association :state, include_blank: false 
+    .twelve.wide.field
+      = f.input :city, placeholder: "Digite o nome da cidade"
 
-  = f.label :content
-  = f.text_area :content, class: 'form-control', style: 'max-width: 100%; min-height: 250px', placeholder: "Descreva aqui sua consulta"
-  %hr/
-  = f.submit "Enviar Consulta", class: 'btn btn-success'
+      
+  .fields
+    .sixteen.wide.field
+      = f.input :address, placeholder: "Informe o logradouro completo"
+  .ui.divider
+  .field
+    .three.fields  
+      .field
+        = f.input :fantasy_name, placeholder: "Informe o nome fantasia"
+      .field
+        = f.input :social_reason, placeholder: "Informe a Razão Social"
+      .field
+        = f.input :cnpj, input_html: { class: 'cnpj' }
+  .field
+    .three.fields
+      .field
+        = f.input :social_contract, placeholder: "Informe o número do contrato"
+      .field
+        = f.input :state_number, placeholder: "Informe a inscrição estadual" 
+      .field
+        = f.input :local_subscribe, placeholder: "Nº e Local de inscrição"
+  .ui.divider
+  .fields
+    .three.wide.field
+      = f.input :password
+    .three.wide.field
+      = f.input :password_confirmation
+  .ui.divider
+  .fields
+    .twelve.wide.field
+      = f.submit 'Realizar inscrição', class: 'ui button green'

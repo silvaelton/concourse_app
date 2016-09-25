@@ -1,0 +1,83 @@
+.ui.grid
+  .row
+    .column
+      %h2 Sua Inscrição foi realizada com sucesso!
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th.collapsing Nº de inscrição
+            %th Data
+            %th Situação
+            %th Nome Completo
+            %th.collapsing CPF
+        %tbody
+          %tr 
+            %td= @subscribe.id
+            %td= @subscribe.created_at.strftime("%d/%m/%Y às %H:%M")
+            %td= @subscribe.situation
+            %td= @subscribe.name
+            %td= @subscribe.cpf
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th Data de nascimento
+            %th Sexo
+            %th E-mail
+            %th Telefone
+            %th Celular
+        %tbody
+          %tr 
+            %td= @subscribe.born.strftime("%d/%m/%Y")
+            %td= @subscribe.gender
+            %td= @subscribe.email
+            %td= @subscribe.telephone
+            %td= @subscribe.celphone
+
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th.collapsing CEP
+            %th.collapsing Estado
+            %th Cidade
+            %th Endereço
+        %tbody
+          %tr 
+            %td= @subscribe.cep
+            %td= @subscribe.state.name rescue nil
+            %td= @subscribe.city
+            %td= @subscribe.address
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th.collapsing CNPJ
+            %th Nome Fantasia
+            %th Razão Social
+        %tbody
+          %tr 
+            %td= @subscribe.cnpj
+            %td= @subscribe.fantasy_name
+            %td= @subscribe.social_reason
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th.collapsing Inscrição Estadual
+            %th Nº e Local de Inscrição
+            %th Contrato Social          
+        %tbody
+          %tr
+            %td= @subscribe.state_number
+            %td= @subscribe.local_subscribe
+            %td= @subscribe.social_contract

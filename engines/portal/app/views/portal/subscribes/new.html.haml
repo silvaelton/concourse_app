@@ -5,6 +5,7 @@
 .row
   .column
     - if @project.allow_subscribe?
+      .ui.divider
       = render 'form'
     - else
       %i As inscrições não estão abertas ou já foram encerradas, consulte o cronograma. 
