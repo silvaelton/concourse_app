@@ -20,3 +20,6 @@ pt-BR:
         social_reason: "Razão Social"
         password: "Senha de Acesso"
         password_confirmation: "Repita a Senha"
+        telephone: "Telefone"
+        celphone: "Celular"
+        email: 'E-mail'
