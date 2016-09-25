@@ -14,9 +14,9 @@
           %th Total de envio de projetos
       %tbody
         %tr
-          %td 0
-          %td 0
-          %td 0
+          %td= @project.subscribes.count
+          %td= @project.subscribes.enabled.count
+          %td= @project.subscribes.recused.count
           %td 0
 .ui.hidden.divider
 .row
@@ -31,3 +31,13 @@
           %th Envio do projeto
           %th
       %tbody
+        - @project.subscribes.order('created_at DESC').each do |candidate|
+          %tr
+            %td= candidate.id
+            %td= candidate.cpf
+            %td= candidate.subscribe_paid ? "Não pago" : "Pago"
+            %td= candidate.situation.humanize
+            %td
+            %td
+              = link_to "Visualizar", project_subscribe_path(project_id: @project, id: candidate)
+

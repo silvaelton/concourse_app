@@ -34,7 +34,7 @@ module Portal
     def set_params
       params.require(:subscribe).permit(:name, :cpf, :born, :cep, :city, :state_id,
                                         :address, :fantasy_name, :social_reason, 
-                                        :social_contract, :state_number,
+                                        :social_contract, :state_number, :gender,
                                         :local_subscribe, :cnpj, :email, 
                                         :telephone, :celphone, :password, :password_confirmation)
     end

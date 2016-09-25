@@ -3,6 +3,10 @@ class Subscribe < ActiveRecord::Base
   belongs_to :project 
   belongs_to :state
 
+  scope :processing, -> { where(situation: 0)}
+  scope :recused,    -> { where(situation: 1)}
+  scope :enabled,    -> { where(situation: 2)}
+
   attr_accessor :password_confirmation
   
   enum gender: ['masculino', 'feminino']

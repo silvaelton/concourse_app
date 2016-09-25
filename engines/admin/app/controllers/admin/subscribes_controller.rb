@@ -10,6 +10,10 @@ module Admin
       @consults = @project.consults
     end
 
+    def show
+      @subscribe = @project.subscribes.find(params[:id])
+    end
+
     private
 
     def set_project

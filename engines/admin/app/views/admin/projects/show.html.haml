@@ -30,9 +30,9 @@
           %th Total de envio de projetos
       %tbody
         %tr
-          %td 0
-          %td 0
-          %td 0
+          %td= @project.subscribes.count
+          %td= @project.subscribes.enabled.count
+          %td= @project.subscribes.recused.count
           %td 0
 .ui.hidden.divider
 .row
@@ -43,12 +43,8 @@
           %th Boletos Emitidos
           %th Boletos Pagos
           %th Consultas enviadas
-          %th Consultas lidas
-          %th Consultas respondidas
       %tbody
         %tr
           %td 0
           %td 0
-          %td 0
-          %td 0
-          %td 0
+          %td= @project.consults.count
