@@ -53,7 +53,7 @@
   .field
     .two.wide.field
       = f.input :tecnical_responsible, as: :select, label: false, include_blank: false
-    .five.wide.field
+    .five.wide.field#tecnical_observation{style: !f.object.tecnical_responsible ? 'display: block' : 'display: none'}
       = f.input :tecnical_observation, as: :string
 
   .ui.divider
@@ -66,3 +66,13 @@
   .fields
     .twelve.wide.field
       = f.submit 'Realizar inscrição', class: 'ui button green', data: { disable_with: "Carregando..."}
+
+
+
+:javascript
+
+  $(document).ready(function() {
+    $('#subscribe_tecnical_responsible').on('change', function() {
+      $("#tecnical_observation").toggle();
+    })
+  })
