@@ -1,6 +1,6 @@
 module Portal
   class SubscribeMailer < ActionMailer::Base
-    default from: 'nao-responda@iabdfconcursos.com.br'
+    default from: 'contato@iabdfconcursos.com.br'
 
     
     def success(candidate, project)
