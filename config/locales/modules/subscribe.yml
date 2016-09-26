@@ -13,9 +13,9 @@ pt-BR:
         city: "Cidade"
         address: "Endereço Completo"
         fantasy_name: "Nome Fantasia"
-        state_number: "I.E - Inscrição Estadual"
+        state_number: "I.E - Inscrição Estadual ou Isento."
         cnpj: "CNPJ"
-        local_subscribe: "Nº e Local de Inscrição."
+        local_subscribe: "Nº e Local de Inscrição ou Isento."
         social_contract: "Contrato Social"
         social_reason: "Razão Social"
         password: "Senha de Acesso"
@@ -23,3 +23,4 @@ pt-BR:
         telephone: "Telefone"
         celphone: "Celular"
         email: 'E-mail'
+

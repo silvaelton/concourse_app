@@ -8,16 +8,16 @@ body, h2 {
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-   font-size: 17px !important;
+   font-size: 13px !important;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  font-size: 17px !important;
+  font-size: 13px !important;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-  font-size: 17px !important;
+  font-size: 13px !important;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   font-size: 17px !important;
+   font-size: 13px !important;
 }
 
 body {
