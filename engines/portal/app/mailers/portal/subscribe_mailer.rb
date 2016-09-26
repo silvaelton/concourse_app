@@ -1,9 +1,12 @@
 module Portal
-  class SubscribeMailer 
+  class SubscribeMailer < ActionMailer::Base
+    default from: 'nao-responda@iabdfconcursos.com.br'
+
     
-    def success(candidate)
+    def success(candidate, project)
       @candidate = candidate
-      mail(@candidate.email, "Inscrição realizada com sucesso")
+      @project   = project
+      mail(to: @candidate.email, subject:"Inscrição realizada com sucesso")
     end
 
   end
