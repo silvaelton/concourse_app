@@ -50,8 +50,11 @@
   .field
     .sixteen.wide.field
       %label Declaro ser responsável técnico pela empresa acima
+  .field
     .two.wide.field
       = f.input :tecnical_responsible, as: :select, label: false, include_blank: false
+    .five.wide.field
+      = f.input :tecnical_observation, as: :string
 
   .ui.divider
   .fields

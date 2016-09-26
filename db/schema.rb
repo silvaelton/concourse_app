@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925182947) do
+ActiveRecord::Schema.define(version: 20160926012050) do
 
   create_table "bills", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 20160925182947) do
     t.boolean  "tecnical_responsible", default: false
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.string   "tecnical_observation"
   end
 
   add_index "subscribes", ["project_id"], name: "index_subscribes_on_project_id"
