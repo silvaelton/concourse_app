@@ -2,9 +2,12 @@
 .header
   Consulta Nº  #{@consult.id}
 .image.content
-  .description
-    %h3
-      %p= @consult.created_at.strftime("%d/%m/%Y às %H:%M")
-    %h4
-      %p= @consult.content
+  .ui.grid
+    .row
+      .column
+        %h3
+          %p= @consult.created_at.strftime("%d/%m/%Y às %H:%M")
+    .row
+      .sixteen.wide.column
+        = @consult.content.html_safe
 

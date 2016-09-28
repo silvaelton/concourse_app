@@ -30,4 +30,3 @@
             %td.collapsing
               = link_to "<i class='external square icon'></i>".html_safe, project_path(project), class: 'ui icon button mini primary '
               = link_to "<i class='edit icon'></i>".html_safe, edit_project_path(project), class: 'ui button green edit icon mini'
-              = link_to "<i class='remove icon'></i>".html_safe, project_path(project), method: :delete, data: { confirm:  t(:confirm)}, class: 'ui button icon red mini'
