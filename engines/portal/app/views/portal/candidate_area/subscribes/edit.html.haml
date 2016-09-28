@@ -1,0 +1,14 @@
+.row
+  .column
+    %h2
+      %b Editar Minha Inscrição
+.row
+  .column
+    - if current_candidate.homologado? || current_candidate.indeferido? 
+      .ui.divider.hidden
+      %h4
+        %i Sua inscrição já se encontra na situação *#{current_candidate.situation.humanize} e não pode ser mais editada.
+    - else
+      = link_to "Voltar para resumo da minha inscrição", project_candidate_area_root_path(@project)
+      .ui.divider.hidden
+      = render 'form'

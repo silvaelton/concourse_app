@@ -1,0 +1,80 @@
+= simple_form_for [@project, @subscribe], url: project_candidate_area_candidate_subscribe_path(@project, @subscribe), method: :put do |f|
+  .fields
+    .field.wide.eight
+      = f.input :name, placeholder: "Digite seu nome"
+    .field.wide.three
+      = f.input :cpf, input_html: { class: 'cpf', disabled: true}
+    .field.wide.three
+      = f.input :born, as: :string, input_html: { class: 'date', value: f.object.born.present? ? localize(f.object.born) : nil}
+    .field.wide.two
+      = f.input :gender, as: :select, include_blank: false, collection: Subscribe.genders.keys
+  
+  .fields
+    .field.wide.four
+      = f.input :email, placeholder: "Digite um e-mail válido"
+    .field.wide.four
+      = f.input :telephone, placeholder: "Digite um telefone"
+    .field.wide.four
+      = f.input :celphone, placeholder: "Digite um celular"
+  .ui.divider
+  .fields
+    .four.wide.field
+      = f.input :cep, input_html: { class: 'cep' }
+    .four.wide.field
+      = f.association :state, include_blank: false 
+    .twelve.wide.field
+      = f.input :city, placeholder: "Digite o nome da cidade"
+
+      
+  .fields
+    .sixteen.wide.field
+      = f.input :address, placeholder: "Informe o logradouro completo"
+  .ui.divider
+  .field
+    .three.fields  
+      .field
+        = f.input :fantasy_name, placeholder: "Informe o nome fantasia"
+      .field
+        = f.input :social_reason, placeholder: "Informe a Razão Social"
+      .field
+        = f.input :cnpj, input_html: { class: 'cnpj' }
+  .field
+    .three.fields
+      .field
+        = f.input :social_contract, placeholder: "Informe o número do contrato"
+      .field
+        = f.input :state_number, placeholder: "Informe a inscrição estadual" 
+      .field
+        = f.input :local_subscribe, placeholder: "Nº e Local de inscrição"
+        = f.hint '(Municipal, Estadual, Distrital ou Isento)'
+  .field
+    .sixteen.wide.field
+      %label Declaro ser responsável técnico pela empresa acima
+  .field
+    .two.wide.field
+      = f.input :tecnical_responsible, as: :select, label: false, include_blank: false
+    .five.wide.field#tecnical_observation{style: !f.object.tecnical_responsible ? 'display: block' : 'display: none'}
+      = f.input :tecnical_observation, as: :string
+
+  .ui.divider
+  .fields
+    .three.wide.field
+      = f.input :password
+      = f.hint "Deixe em branco caso não deseje trocar a senha"
+    .three.wide.field
+      = f.input :password_confirmation
+      = f.hint "Deixe em branco caso não deseje trocar a senha"
+  .ui.divider
+  .fields
+    .twelve.wide.field
+      = f.submit 'Atualizar inscrição', class: 'ui button green', data: { disable_with: "Carregando..."}
+
+
+
+:javascript
+
+  $(document).ready(function() {
+    $('#subscribe_tecnical_responsible').on('change', function() {
+      $("#tecnical_observation").toggle();
+    })
+  })

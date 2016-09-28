@@ -1,0 +1,95 @@
+.ui.grid
+  .row
+    .column
+      %h2.ui.header 
+        Minha Inscrição
+        .ui.sub.header
+          Detalhamento da sua inscrição
+  .row
+    .column
+      = link_to "Editar Minha Inscrição", edit_project_candidate_area_candidate_subscribe_path(@project, current_candidate)
+      |
+      = link_to "Finalizar Acesso", logout_project_candidate_area_sessions_path(@project), method: :delete
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th.collapsing Nº de inscrição
+            %th Data
+            %th Situação
+            %th Nome Completo
+            %th CPF
+        %tbody
+          %tr 
+            %td= current_candidate.id
+            %td.collapsing= current_candidate.created_at.strftime("%d/%m/%Y às %H:%M")
+            %td.collapsing= current_candidate.situation
+            %td= current_candidate.name
+            %td.collapsing= current_candidate.cpf
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th.collapsing Data de nascimento
+            %th Sexo
+            %th E-mail
+            %th Telefone
+            %th Celular
+        %tbody
+          %tr 
+            %td= current_candidate.born.strftime("%d/%m/%Y")
+            %td.collapsing= current_candidate.gender
+            %td.collapsing= current_candidate.email
+            %td.collapsing= current_candidate.telephone
+            %td.collapsing= current_candidate.celphone
+
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th CEP
+            %th.collapsing Estado
+            %th Cidade
+            %th Endereço
+        %tbody
+          %tr 
+            %td.collapsing= current_candidate.cep
+            %td.collapsing= current_candidate.state.name rescue nil
+            %td= current_candidate.city
+            %td= current_candidate.address
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th CNPJ
+            %th Nome Fantasia
+            %th Razão Social
+        %tbody
+          %tr 
+            %td.collapsing= current_candidate.cnpj
+            %td= current_candidate.fantasy_name
+            %td= current_candidate.social_reason
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th.collapsing Inscrição Estadual
+            %th Nº e Local de Inscrição
+            %th Contrato Social          
+            %th Responsável Técnico
+            %th Observação
+        %tbody
+          %tr
+            %td= current_candidate.state_number
+            %td= current_candidate.local_subscribe
+            %td= current_candidate.social_contract
+            %td= current_candidate.tecnical_responsible
+            %td= current_candidate.tecnical_observation

@@ -1,4 +1,4 @@
-body, h2 {
+body, h2, .header {
   font-family: 'PT Sans Narrow', sans-serif !important;
   color:  #1c1c1c !important;
 }

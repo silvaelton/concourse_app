@@ -25,9 +25,8 @@ class Subscribe < ActiveRecord::Base
   validates_uniqueness_of :cpf, scope: :project_id 
   validates :cnpj, cnpj: true
 
-  validates :password,:password_confirmation, length: {minimum: 6, maximum: 24}, presence: true
-
-  validate :compare_passwords
+  validates :password, :password_confirmation, length: {minimum: 6, maximum: 24}, presence: true, if: 'self.password_changed?'
+  validate  :compare_passwords, if: 'self.password_changed?'
 
   private
 

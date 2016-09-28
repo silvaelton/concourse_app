@@ -1,0 +1,22 @@
+.ui.grid
+  .column
+    %h2.ui.image.header
+    .row
+      .column
+        %h3.ui.header
+          Área do Candidato
+          .ui.sub.header
+            Formulário de acesso
+    .ui.divider.hidden 
+    .row
+      .column
+        = simple_form_for @session, url: project_candidate_area_sessions_path do |f|       
+          .fields
+            .four.wide.field
+              = f.input :subscribe_id, label: false, placeholder:"Digite seu número de inscrição"
+            .four.wide.field
+              = f.input :password, label: false, placeholder:"Digite sua senha"
+          .fields
+            .four.wide.field
+              = f.submit "Realizar acesso", class: 'ui button green'
+        

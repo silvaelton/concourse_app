@@ -36,6 +36,9 @@
       .row
         .ui.grid
           .sixteen.wide.column
+            - flash.each do |type, message|
+              .ui.message{class: "#{type}"}
+                %p= message
             = yield
       
       %br/
