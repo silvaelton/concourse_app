@@ -2,7 +2,8 @@
   .header.item Gestão de Concursos
   %a.item{href: "#{admin.projects_path}"} Projetos
   %a.item{href: "#{admin.billings_path}"} Financeiro
-  %a.item{href: "#{admin.users_path}"} Usuários
+  - if current_user.administrador?
+    %a.item{href: "#{admin.users_path}"} Usuários
   %a.item{href: "#"} Relatórios
   .right.menu
     .ui.dropdown.item

@@ -24,13 +24,16 @@
           .three.wide.column
             .ui.vertical.menu
               %a.item{href:"#{project_path(@project)}"} Visão Geral
-              %a.item{href:"#{project_pages_path(@project)}"} Páginas
-              %a.item{href:"#{project_navs_path(@project)}"} Menus
-              %a.item{href:"#{project_popups_path(@project)}"} Pop-ups
+              - if current_user.administrador?
+                %a.item{href:"#{project_pages_path(@project)}"} Páginas
+                %a.item{href:"#{project_navs_path(@project)}"} Menus
+                %a.item{href:"#{project_popups_path(@project)}"} Pop-ups
               %a.item{href:"#{project_consults_path(@project)}"} Consultas
-              %a.item{href:"#{project_informs_path(@project)}"} Informes
+              - if current_user.administrador?
+                %a.item{href:"#{project_informs_path(@project)}"} Informes
               %a.item{href:"#{project_subscribes_path(@project)}"} Inscrições
-              %a.item{href:"#{project_bills_path(@project)}"} Boletos
+              - if current_user.administrador?
+                %a.item{href:"#{project_bills_path(@project)}"} Boletos
               %a.item{href:"#{project_participations_path(@project)}"} Participações
               %a.item{href:"#{project_winners_path(@project)}"} Vencedores
  

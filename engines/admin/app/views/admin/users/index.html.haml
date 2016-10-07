@@ -22,11 +22,12 @@
           %th
       %tbody
         - @users.each do |user|
-          %td.collapsing= user.id
-          %td= user.name
-          %td= user.email
-          %td= user.created_at.strftime("%d/%m/%Y")
-          %td= user.privilege
-          %td.collapsing
-            = link_to "<i class='edit icon'></i>".html_safe, edit_user_path(user), class: 'ui button green edit icon mini'
-            = link_to "<i class='remove icon'></i>".html_safe, user_path(user), method: :delete, data: { confirm:  t(:confirm)}, class: 'ui button icon red mini' unless current_user.id == user.id
+          %tr
+            %td.collapsing= user.id
+            %td= user.name
+            %td= user.email
+            %td= user.created_at.strftime("%d/%m/%Y")
+            %td= user.privilege
+            %td.collapsing
+              = link_to "<i class='edit icon'></i>".html_safe, edit_user_path(user), class: 'ui button green edit icon mini'
+              = link_to "<i class='remove icon'></i>".html_safe, user_path(user), method: :delete, data: { confirm:  t(:confirm)}, class: 'ui button icon red mini' unless current_user.id == user.id
