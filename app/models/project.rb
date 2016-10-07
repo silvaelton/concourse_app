@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   has_many :pages,      -> { order(:title) } 
   has_many :consults,   -> { order('created_at DESC') } 
   has_many :subscribes, -> { order('id DESC') } 
+  has_many :informs,    -> { order('id DESC') } 
+  has_many :popups,     -> { order('id DESC') } 
 
   scope :actives, -> { where(situation: 0)}
   scope :waiting, -> { where(situation: 1)}

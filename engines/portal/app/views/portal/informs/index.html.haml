@@ -1,0 +1,9 @@
+.ui.grid
+  .sixteen.wide.column
+    - @informs.order("date DESC").each do |inform|
+      .row
+        %p
+          %b= "#{inform.title} - #{inform.date.strftime('%d.%m.%Y')}"
+        = inform.description.html_safe 
+        = link_to inform.label_link, inform.link
+      %br/

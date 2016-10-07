@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926012050) do
+ActiveRecord::Schema.define(version: 20161007165526) do
 
   create_table "bills", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -34,9 +34,18 @@ ActiveRecord::Schema.define(version: 20160926012050) do
   add_index "consults", ["project_id"], name: "index_consults_on_project_id"
 
   create_table "informs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "project_id"
+    t.string   "title"
+    t.text     "description"
+    t.date     "date"
+    t.string   "label_link"
+    t.string   "link"
+    t.boolean  "publish",     default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
+
+  add_index "informs", ["project_id"], name: "index_informs_on_project_id"
 
   create_table "navs", force: :cascade do |t|
     t.integer  "project_id"
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160926012050) do
   end
 
   create_table "popups", force: :cascade do |t|
+    t.integer  "project_id"
     t.string   "title"
     t.text     "content"
     t.boolean  "publish",    default: true
@@ -85,6 +95,8 @@ ActiveRecord::Schema.define(version: 20160926012050) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  add_index "popups", ["project_id"], name: "index_popups_on_project_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
@@ -167,6 +179,7 @@ ActiveRecord::Schema.define(version: 20160926012050) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.string   "tecnical_observation"
+    t.string   "token"
   end
 
   add_index "subscribes", ["project_id"], name: "index_subscribes_on_project_id"

@@ -2,7 +2,7 @@
   .column
     %h1.ui.header 
       Informes
-    = link_to "+ Adicionar Novo Informe", '#'
+    = link_to "+ Adicionar Novo Informe", new_project_inform_path(@project)
 
 .ui.hidden.divider
 .row
@@ -10,9 +10,16 @@
     %table.ui.celled.table.striped
       %thead
         %tr
-          %th Nº
+          %th Título
           %th Data
           %th Publicado?
-          %th Data
           %th
       %tbody
+        - @informs.each do |inform|
+          %tr
+            %td= inform.title
+            %td= inform.date
+            %td= inform.publish ? "Sim" : "Não"
+            %td.collapsing
+              = link_to "Editar", edit_project_inform_path(@project, inform), class: 'ui button green mini'
+              = link_to "Excluir", project_inform_path(@project, inform), method: :delete, data: { confirm: "Tem certeza que deseja excluir?"}, class: 'ui button red mini'

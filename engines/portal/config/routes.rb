@@ -3,6 +3,7 @@ Portal::Engine.routes.draw do
 
 
   resources :projects, path: '/' do 
+    resources :informs,    path: 'informes'
     resources :pages,      path: 'paginas'
     resources :consults,   path: 'consultas'
     resources :subscribes, path: 'inscricao' do 

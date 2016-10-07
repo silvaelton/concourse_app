@@ -1,0 +1,22 @@
+= simple_form_for [@project, @inform] do |f|
+  .fields
+    .field.twelve.wide
+      = f.input :title, label: "Título"
+    .field.four.wide
+      = f.input :date, as: :string, label: "Data", input_html: { class: 'date'}
+  .fields
+    .field.eight.wide
+      = f.input :label_link, label: "Título do link"
+    .field.eight.wide
+      = f.input :link, label: "Link para baixar o informe"
+  .fields
+    .field.sixteen.wide
+      = f.input :description, label: "Descrição"
+  .fields
+    .field.two.wide
+      = f.input :publish, as: :select, label: "Publicado?"
+  %br/
+  %br/
+  .fields
+    .field.two.wide
+      = f.submit "Salvar Informe", class: 'ui button green'

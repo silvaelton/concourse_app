@@ -1,0 +1,9 @@
+.row
+  .column
+    %h1.ui.header 
+      Novo Informe
+    = link_to "Retornar para listagem", project_informs_path(@project)
+.ui.hidden.divider
+.row
+  .column
+    = render 'form'
