@@ -78,8 +78,12 @@ ActiveRecord::Schema.define(version: 20160926012050) do
   end
 
   create_table "popups", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "publish",    default: true
+    t.string   "link"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "projects", force: :cascade do |t|
@@ -115,8 +119,13 @@ ActiveRecord::Schema.define(version: 20160926012050) do
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true
 
   create_table "resources", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.text     "description"
+    t.string   "date"
+    t.string   "link"
+    t.boolean  "publish",     default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "states", force: :cascade do |t|
