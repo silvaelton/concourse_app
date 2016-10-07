@@ -7,7 +7,7 @@ module Portal
     layout 'sub_portal'
 
     def index
-      redirect_to action: :new
+      
     end
     
     def new
