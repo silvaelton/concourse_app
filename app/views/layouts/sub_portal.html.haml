@@ -44,16 +44,18 @@
       %br/
       %br/
       %br/
-      .ui.divider
-      .ui.grid
-        .three.wide.column
-          %h4{style: 'color: gray'} PROMOÇÃO E ORGANIZAÇÃO:
-          = image_tag '/images/footer-iab.png', size: '220x40'
-        .eigth.wide.column
+    #footer
+      .ui.container
+        .ui.divider
+        .ui.grid
+          .three.wide.column
+            %h4{style: 'color: gray'} PROMOÇÃO E ORGANIZAÇÃO:
+            = image_tag '/images/footer-iab.png', size: '220x40'
+          .eigth.wide.column
 
-        .four.wide.column
-          %h4{style: 'color: gray'} PROMOÇÃO:
-          = image_tag '/images/footer-cau.png', size: '180x50'
+          .four.wide.column
+            %h4{style: 'color: gray'} PROMOÇÃO:
+            = image_tag '/images/footer-cau.png', size: '180x50'
 
     = render 'layouts/portal/modal' if @popup.present?
 

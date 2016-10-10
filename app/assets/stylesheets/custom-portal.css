@@ -1,3 +1,14 @@
+#footer {
+  position: relative  !important;
+  bottom: 0  !important;
+  height: 20px  !important;
+  width: 100% !important; 
+}
+
+body{
+    margin-bottom:50px !important;
+}
+
 body, h2, .header {
   font-family: 'PT Sans Narrow', sans-serif !important;
   color:  #1c1c1c !important;
@@ -63,3 +74,4 @@ body {
 .ui .button .red input {
   color: white !important;
 }
+
