@@ -14,6 +14,7 @@ module Portal
 
     def set_project
       @project = ::Project.friendly.find(params[:project_id])
+      @popup = @project.popups.find_by(link: request.original_fullpath) rescue nil
     end
   end
 end

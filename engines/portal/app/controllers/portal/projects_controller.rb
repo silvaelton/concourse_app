@@ -13,7 +13,8 @@ module Portal
 
     def show
       @project = ::Project.friendly.find(params[:id])
+      @popup = @project.popups.find_by(link: request.original_fullpath) rescue nil
     end
-    
+
   end
 end

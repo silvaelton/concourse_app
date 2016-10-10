@@ -1,0 +1,9 @@
+.row
+  .column
+    %h1.ui.header 
+      Editar Pop-up
+    = link_to "Retornar para listagem", project_popups_path(@project)
+.ui.hidden.divider
+.row
+  .column
+    = render 'form'

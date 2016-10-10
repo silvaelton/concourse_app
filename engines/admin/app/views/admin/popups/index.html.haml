@@ -2,7 +2,7 @@
   .column
     %h1.ui.header 
       Pop-ups
-    = link_to "+ Adicionar Novo Pop-up", '#'
+    = link_to "+ Adicionar Novo Pop-up", new_project_popup_path(@project)
 
 .ui.hidden.divider
 .row
@@ -16,3 +16,12 @@
           %th Publicado?
           %th
       %tbody
+        - @popups.each do |popup|
+          %tr 
+            %td.collapsing= popup.id
+            %td= popup.title
+            %td= popup.link
+            %td.collapsing= popup.publish ? "Sim" : "Não"
+            %td.collapsing
+              = link_to "editar", edit_project_popup_path(@project, popup), class: 'ui button blue mini icon'
+              = link_to "excluir", project_popup_path(@project, popup), method: :delete, class: 'ui button red mini icon'

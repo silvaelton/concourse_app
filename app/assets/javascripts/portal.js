@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap/javascripts/bootstrap.min
+//= require semantic-ui/semantic.min
 //= require jquery.mask.min
 //= require custom-portal

@@ -1,0 +1,13 @@
+.ui.modal
+  %i.close.icon
+  .header
+    = @popup.title.html_safe
+  .image.content
+    .description
+      = @popup.content.html_safe
+
+:javascript
+
+  $('.ui.modal').modal({
+      blurring: true
+    }).modal('show');

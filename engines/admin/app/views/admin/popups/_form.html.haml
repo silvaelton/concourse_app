@@ -1,0 +1,19 @@
+= simple_form_for [@project, @popup] do |f|
+  .fields
+    .field.sixteen.wide
+      = f.input :title, label: "Título", placeholder: "Digite o título do Pop-up"
+  .fields
+    .field.sixteen.wide
+      = f.input :link, label: "Link da página", placeholder: "Digite o link onde deverá abrir o Pop-up"
+  .fields
+    .field.sixteen.wide
+      = f.input :content, label: "Conteúdo do pop-up"
+  .fields
+    .field.four.wide
+      = f.input :publish, as: :select, label: "Publicado?"
+  %br/
+  %br/
+  .fields
+    .field.twelve.wide
+      = f.submit "Salvar Pop-up", class: 'ui button green'
+      = link_to "Cancelar",  project_popups_path(@project), class: 'ui button icon'

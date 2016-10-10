@@ -2,6 +2,7 @@ module Portal
   class ApplicationController < ActionController::Base
     layout 'portal'
 
+
     def current_candidate
       ::Subscribe.find(session[:subscribe_id]) rescue nil
     end
@@ -14,5 +15,7 @@ module Portal
     
     helper_method :current_candidate
     helper_method :subscribe_authenticate!
+
+
   end
 end
