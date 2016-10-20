@@ -18,6 +18,11 @@ gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
 gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 
+gem "rghost"
+gem "rghost_barcode"
+gem "parseline"
+gem "brcobranca", :github => "kivanio/brcobranca"
+
 
 gem 'has_scope'
 gem 'friendly_id'

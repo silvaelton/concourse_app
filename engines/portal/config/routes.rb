@@ -21,6 +21,12 @@ Portal::Engine.routes.draw do
         end
       end
 
+      resources :billets, path: 'boleto' do 
+        collection do 
+          get 'generate', path: 'gerar'
+        end
+      end
+      
       resources :subscribes, only: [:edit, :update], as: 'candidate_subscribe'
 
     end

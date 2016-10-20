@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/kivanio/brcobranca.git
+  revision: 62dbf31185b6a483f7bb02a3402eecbcba44a888
+  specs:
+    brcobranca (6.8.0)
+      activemodel (>= 3)
+      activesupport (>= 3)
+      parseline (~> 1.0.3)
+      rghost (~> 0.9)
+      rghost_barcode (~> 0.9)
+      unidecoder (>= 1.1.2)
+
 PATH
   remote: engines
   specs:
@@ -99,6 +111,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    parseline (1.0.3)
     pg (0.18.4)
     pkg-config (1.1.7)
     rack (1.6.4)
@@ -131,6 +144,8 @@ GEM
     rake (11.2.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rghost (0.9.6)
+    rghost_barcode (0.9)
     ruby_parser (3.7.3)
       sexp_processor (~> 4.1)
     sexp_processor (4.6.1)
@@ -164,6 +179,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
+    unidecoder (1.1.2)
     validates_cpf_cnpj (0.2.0)
       activemodel (>= 3.0.0)
     validates_timeliness (4.0.2)
@@ -179,6 +195,7 @@ PLATFORMS
 
 DEPENDENCIES
   admin!
+  brcobranca!
   byebug
   email_validator
   friendly_id
@@ -187,9 +204,12 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   mailgun-ruby
+  parseline
   pg
   portal!
   rails (= 4.2.1)
+  rghost
+  rghost_barcode
   simple_form
   spring
   sqlite3
