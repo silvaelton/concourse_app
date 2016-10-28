@@ -27,7 +27,7 @@ module Portal
         @boleto.data_documento = Date.today.strftime("%Y-%m-%d").to_date
         @boleto.instrucao1 = "Pagável na rede bancária até a data de vencimento."
         @boleto.instrucao4 = "NÃO RECEBER APÓS data"
-        @boleto.sacado_endereco = "SGAS 603 LT 21, ASA SUL"
+        @boleto.sacado_endereco = "#{current_candidate.address} - #{current_candidate.city}"
 
         headers['Content-Type'] = 'application/pdf'
         send_data @boleto.to('pdf'), :filename => "boleto_concurso.pdf"
