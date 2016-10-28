@@ -8,11 +8,11 @@ module Portal
 
         @boleto = Brcobranca::Boleto::BancoBrasil.new
         @boleto.cedente = "Concurso IAB - CAUBR"
-        @boleto.documento_cedente = current_candidate.cpf
+        @boleto.documento_cedente = "00480533000118"
         @boleto.sacado = current_candidate.name
-        @boleto.sacado_documento = "00000000000"
-        @boleto.avalista = "Concurso IAB - CAUBR"
-        @boleto.avalista_documento = "0000000001"
+        @boleto.sacado_documento = current_candidate.cpf
+        @boleto.avalista = "INSTITUTO DE ARQUITETORS DO BRASIL - IABDF"
+        @boleto.avalista_documento = "00480533000118"
         @boleto.valor = 300.00
         @boleto.agencia        = "3475"
         @boleto.conta_corrente = "15933"
@@ -20,7 +20,7 @@ module Portal
         
         # BB
         # O que diferencia um tipo de boleto de outro, dentro do Banco do Brasil é a quantidade de dígitos do convênio.
-        @boleto.convenio = "2942895"
+        @boleto.convenio = "2945690"
 
         @boleto.numero_documento = current_candidate.id
         @boleto.data_vencimento = "2016-11-01".to_date
