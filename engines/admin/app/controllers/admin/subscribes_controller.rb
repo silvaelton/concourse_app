@@ -27,7 +27,8 @@ module Admin
       @subscribe = @project.subscribes.find(params[:subscribe_id])
 
       @subscribe.paid = @subscribe.paid ? false : true
-      @subscribe.save
+      @subscribe.save 
+
       
     end
 
