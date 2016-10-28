@@ -1,0 +1,10 @@
+= simple_form_for [@project, @subscribe], url:project_candidate_area_password_path(@project, @subscribe.token) do |f|
+  .fields
+    .five.wide.field
+      = f.input :password, label: "Nova senha", placeholder: "Digite sua senha"
+  .fields
+    .five.wide.field
+      = f.input :password_confirmation, placeholder: "Repita sua senha"
+  .fields
+    .five.wide.field
+      = f.submit "Atualizar senha", class: 'ui button green', data: { disable_with: t(:disable_with)}

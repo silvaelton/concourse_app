@@ -1,0 +1,31 @@
+.row
+  .column
+    = simple_form_for url_for, method: :get do |f|
+      .fields
+        .four.wide.field
+          = f.input :cpf, label: "CPF", input_html: { class: 'cpf', name: :by_cpf, value: params[:by_cpf]}
+        
+        .four.wide.field
+          = f.submit "Verificar CPF", name: nil, class: 'ui button green', style: 'margin-top: 30px !important', data: { disable_with: t(:disable_with)}
+.ui.divider.hidden
+.row
+  .column
+    %table.ui.table.celled
+      %thead
+        %tr 
+          %th Concurso
+          %th.collapsing CPF
+          %th.collapsing Nº de inscrição
+          %th.collapsing Ação
+      %tbody
+        - if @subscribes.present?
+          - @subscribes.each do |subscribe|
+            %tr 
+              %td= subscribe.project.title.mb_chars.upcase
+              %td.collapsing= subscribe.cpf
+              %td.collapsing= subscribe.id
+              %td.collapsing= link_to "Recuperar senha",  project_candidate_area_password_remember_path(@project, subscribe), data: { disable_with: t(:disable_with)}
+        - else 
+          %tr
+            %td{colspan: 3} 
+              %i Nenhuma inscrição encontrada, verifique o CPF.

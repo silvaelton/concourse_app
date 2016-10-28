@@ -19,4 +19,6 @@
           .fields
             .four.wide.field
               = f.submit "Realizar acesso", class: 'ui button green'
+            .four.wide.field
+              = link_to "Esqueceu os dados de acesso? Clique aqui.", project_candidate_area_passwords_path(@project)
         

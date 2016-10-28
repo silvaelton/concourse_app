@@ -5,6 +5,11 @@
   width: 100% !important; 
 }
 
+.filter-button {
+  margin-top: 23px !important;
+}
+
+
 body{
     margin-bottom:50px !important;
 }

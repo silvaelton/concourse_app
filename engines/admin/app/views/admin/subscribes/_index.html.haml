@@ -1,0 +1,14 @@
+- @project.subscribes.order('id ASC').each do |candidate|
+  %tr
+    %td= candidate.id
+    %td= candidate.cpf
+    %td= candidate.situation.humanize
+    %td
+    %td
+      - if candidate.paid   
+        = link_to "Pago", project_subscribe_update_paid_path(project_id: @project, subscribe_id: candidate), remote: true, class: 'ui button green icon mini'
+      - else 
+        = link_to "Não pago", project_subscribe_update_paid_path(project_id: @project, subscribe_id: candidate), remote: true, class: 'ui button red icon mini'
+    %td
+      = link_to "Visualizar", project_subscribe_path(project_id: @project, id: candidate), class: 'ui button icon mini'
+

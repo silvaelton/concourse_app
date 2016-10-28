@@ -26,18 +26,9 @@
         %tr
           %th Nº
           %th CPF
-          %th Pagamento
           %th Situação
           %th Envio do projeto
+          %th Pagamento
           %th
-      %tbody
-        - @project.subscribes.order('created_at DESC').each do |candidate|
-          %tr
-            %td= candidate.id
-            %td= candidate.cpf
-            %td= candidate.subscribe_paid ? "Pago" : "Não pago"  
-            %td= candidate.situation.humanize
-            %td
-            %td
-              = link_to "Visualizar", project_subscribe_path(project_id: @project, id: candidate)
-
+      %tbody.subscribe-index
+        = render 'index'

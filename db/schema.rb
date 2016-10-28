@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007165526) do
+ActiveRecord::Schema.define(version: 20161028091617) do
 
   create_table "bills", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -180,6 +180,8 @@ ActiveRecord::Schema.define(version: 20161007165526) do
     t.datetime "updated_at",                           null: false
     t.string   "tecnical_observation"
     t.string   "token"
+    t.boolean  "paid",                 default: false
+    t.text     "paid_observation"
   end
 
   add_index "subscribes", ["project_id"], name: "index_subscribes_on_project_id"

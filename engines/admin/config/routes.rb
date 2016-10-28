@@ -18,7 +18,10 @@ Admin::Engine.routes.draw do
   resources :projects do 
     resources :pages 
     resources :navs
-    resources :subscribes
+    resources :subscribes do 
+      get 'update_paid'
+    end
+    
     resources :popups
     resources :informs
     resources :bills

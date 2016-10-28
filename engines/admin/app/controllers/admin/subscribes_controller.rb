@@ -14,7 +14,28 @@ module Admin
       @subscribe = @project.subscribes.find(params[:id])
     end
 
+    def edit
+      @subscribe = @project.subscribes.find(params[:id])
+    end
+
+    def update
+      @subscribe = @project.subscribes.find(params[:id])
+      @subscribe.update(set_params)
+    end
+
+    def update_paid
+      @subscribe = @project.subscribes.find(params[:subscribe_id])
+
+      @subscribe.paid = @subscribe.paid ? false : true
+      @subscribe.save
+      
+    end
+
     private
+
+    def set_params
+      params.require(:subscribe).permit(:paid, :situation)
+    end
 
     def set_project
       @project = ::Project.friendly.find(params[:project_id])

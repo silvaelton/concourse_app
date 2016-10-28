@@ -21,6 +21,11 @@ Portal::Engine.routes.draw do
         end
       end
 
+      resources :passwords, path: 'lembrar-senha' do 
+        get 'remember'
+        get 'success'
+      end
+
       resources :billets, path: 'boleto' do 
         collection do 
           get 'generate', path: 'gerar'

@@ -2,7 +2,6 @@ module Portal
   class ApplicationController < ActionController::Base
     layout 'portal'
 
-
     def current_candidate
       ::Subscribe.find(session[:subscribe_id]) rescue nil
     end
