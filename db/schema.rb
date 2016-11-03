@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028091617) do
+ActiveRecord::Schema.define(version: 20161103173315) do
 
   create_table "bills", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -82,8 +82,11 @@ ActiveRecord::Schema.define(version: 20161028091617) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.integer  "max_mb",             default: 0
+    t.integer  "participation_type", default: 0
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "popups", force: :cascade do |t|
@@ -146,6 +149,16 @@ ActiveRecord::Schema.define(version: 20161028091617) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "subscribe_participations", force: :cascade do |t|
+    t.integer  "subscribe_id"
+    t.integer  "participation_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "subscribe_participations", ["participation_id"], name: "index_subscribe_participations_on_participation_id"
+  add_index "subscribe_participations", ["subscribe_id"], name: "index_subscribe_participations_on_subscribe_id"
 
   create_table "subscribe_professionals", force: :cascade do |t|
     t.datetime "created_at", null: false

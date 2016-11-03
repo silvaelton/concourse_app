@@ -34,6 +34,7 @@ Portal::Engine.routes.draw do
       
       resources :subscribes, only: [:edit, :update], as: 'candidate_subscribe'
 
+      resources :participations, path: 'participacao'
     end
   end
 end
