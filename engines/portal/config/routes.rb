@@ -34,7 +34,21 @@ Portal::Engine.routes.draw do
       
       resources :subscribes, only: [:edit, :update], as: 'candidate_subscribe'
 
-      resources :participations, path: 'participacao'
+      resources :participations, path: 'participacao' do 
+        collection do 
+          post 'upload_document'
+        end
+      end
+
+      resources :subscribe_teams do 
+        collection do 
+          get  'new_required', as: 'new_required'
+          post 'create_required', as: 'create_required'
+  
+          get 'new_optional', as: 'new_optional'
+          post 'create_optional', as: 'create_optional'
+        end
+      end
     end
   end
 end

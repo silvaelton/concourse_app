@@ -4,7 +4,7 @@ class CreateSubscribeParticipations < ActiveRecord::Migration
 
       t.integer :subscribe_id, index: true 
       t.integer :participation_id, index: true 
-      t.string  :participation_file
+      t.string  :participation_path
       
       t.timestamps null: false
     end

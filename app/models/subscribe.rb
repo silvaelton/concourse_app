@@ -3,6 +3,8 @@ class Subscribe < ActiveRecord::Base
   belongs_to :project 
   belongs_to :state
 
+  has_many :subscribe_participations
+
   scope :processing, -> { where(situation: 0)}
   scope :recused,    -> { where(situation: 1)}
   scope :enabled,    -> { where(situation: 2)}

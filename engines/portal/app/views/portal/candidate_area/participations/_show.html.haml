@@ -1,0 +1,118 @@
+.row
+  .column  
+    %h2 Envio de projeto
+.ui.divider.hidden  
+.ui.divider.hidden  
+.row
+  .column
+    %h4 Projeto
+    %table.ui.table.celled
+      %thead
+        %tr
+          %th Descrição
+          %th Arquivo
+          %th 
+      %tbody
+        - @project.participation_normal.each do |item|
+          %tr
+            %td= item.name
+            - if current_candidate.subscribe_participations.where(participation_id: item.id).present?
+              %td.collapsing
+                = link_to "Visualizar arquivo", current_candidate.subscribe_participations.find_by(participation_id: item.id).participation_path_url, target: '_blank'
+              %td.collapsing
+                = link_to "Remover",  project_candidate_area_participation_path(project_id: @project, id: current_candidate.subscribe_participations.find_by(participation_id: item.id).id), method: :delete, class: 'ui button red mini', data: { confirm: "Tem certeza que deseja excluir o arquivo?", disable_with: t(:disable_with)}
+            - else
+              %td
+                = simple_form_for current_candidate.subscribe_participations.new, url: upload_document_project_candidate_area_participations_path(project_id: @project), method: :post  do |f|
+                  .fields
+                    .field.wide.sixteen
+                      = f.input :participation_id, as: :hidden, input_html: { value: item.id }
+                      = f.input :participation_path, label: false, as: :file, input_html:{ id:'file-upload'} 
+                  .fields
+                    .field.wide.two
+                      = f.submit "Enviar arquivo", class: 'ui button green mini', data: { disable_with: t(:disable_with)}
+              %td
+
+.ui.divider.hidden  
+.row
+  .column
+    %h4 Equipe técnica
+    = link_to "+ Adicionar membro", new_required_project_candidate_area_subscribe_teams_path(project_id: @project.id), remote: true, data: { confirm: "Tem certeza que deseja excluir o arquivo?", disable_with: t(:disable_with)}
+    %table.ui.table.celled
+      %thead
+        %tr
+          %th Atividade
+          %th Nome completo
+          %th Qualificação
+          %th Nº Registro
+          %th Documento
+          %th 
+      %tbody
+        - if @project.subscribe_requireds.present?
+          - @project.subscribe_requireds.each do |member|
+            %tr
+              %td= member.activity
+              %td= member.name
+              %td= member.professional_type.humanize
+              %td= member.number_registry
+              %td.collapsing= link_to "Baixar arquivo", member.archive_path_url, target: "_blank"
+              %td.collapsing= link_to "Remover", project_candidate_area_subscribe_team_path(project_id: @project, id: member), method: :delete, remote: true, data: { confirm: "Tem certeza que deseja remover?"}, class: 'ui button red mini'
+        - else
+          %tr
+            %td{colspan: 6}
+              %i Nenhum membro cadastrado.
+  
+.ui.divider.hidden  
+.row
+  .column
+    %h4 Equipe (não obrigatória)
+    = link_to "+ Adicionar membro", new_optional_project_candidate_area_subscribe_teams_path(project_id: @project.id), remote: true, data: { disable_with: t(:disable_with)}
+    %table.ui.table.celled
+      %thead
+        %tr
+          %th Nome completo
+          %th Qualificação
+          %th 
+      %tbody
+        - if @project.subscribe_optionals.present?
+          - @project.subscribe_optionals.each do |subscribe_optional|
+            %tr 
+              %td= subscribe_optional.name
+              %td= subscribe_optional.professional_type.humanize
+              %td.collapsing= link_to "Remover", project_candidate_area_subscribe_team_path(project_id: @project, id: subscribe_optional), method: :delete, remote: true, data: { confirm: "Tem certeza que deseja remover?"}, class: 'ui button red mini', data: {confirm: "Tem certeza que deseja excluir o arquivo?",  disable_with: t(:disable_with)}
+        - else
+          %tr
+            %td{colspan: 3}
+              %i Nenhum membro cadastrado.
+  
+
+.ui.divider.hidden  
+.row#juridical
+  .column
+    %h4 Documentação Pessoa Jurídica
+    %table.ui.table.celled
+      %thead
+        %tr
+          %th Descrição
+          %th Arquivo
+          %th 
+      %tbody
+        - @project.participation_juridical.each do |item|
+          %tr
+            %td.collapsing= item.name
+            - if current_candidate.subscribe_participations.where(participation_id: item.id).present?
+              %td
+                = link_to "Visualizar arquivo", current_candidate.subscribe_participations.find_by(participation_id: item.id).participation_path_url, target: '_blank'
+              %td.collapsing
+                = link_to "Remover",  project_candidate_area_participation_path(project_id: @project, id: current_candidate.subscribe_participations.find_by(participation_id: item.id).id), method: :delete, class: 'ui button red mini', data: { confirm: "Tem certeza que deseja excluir o arquivo?", disable_with: t(:disable_with)}
+            - else
+              %td
+                = simple_form_for current_candidate.subscribe_participations.new, url: upload_document_project_candidate_area_participations_path(project_id: @project), method: :post  do |f|
+                  .fields
+                    .field.wide.sixteen
+                      = f.input :participation_id, as: :hidden, input_html: { value: item.id }
+                      = f.input :participation_path, label: false, as: :file, input_html:{ id:'file-upload'} 
+                  .fields
+                    .field.wide.two
+                      = f.submit "Enviar arquivo", class: 'ui button green mini', data: { disable_with: t(:disable_with)}
+              %td

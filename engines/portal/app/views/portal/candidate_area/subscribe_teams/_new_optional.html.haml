@@ -1,0 +1,17 @@
+
+%i.close.icon
+.header
+  Adicionar membro (não obrigatório)
+.image.content
+  .description
+    = simple_form_for @optional, url:  create_optional_project_candidate_area_subscribe_teams_path(project_id: @project), remote: true do |f|
+      .field
+        = f.input :name, label: "Nome completo", placeholder: "Digite o nome completo do membro"
+      .fields
+        .field.wide.four
+          = f.input :professional_type, label: "Qualificação profissional", as: :select, collection: ::SubscribeTeamOptional.professional_types.keys, include_blank: false 
+      .ui.divider.hidden
+      .fields
+        .field.wide.four
+          = f.submit "Adicionar membro", class: 'ui button green', data: { disable_with: t(:disable_with)}
+    

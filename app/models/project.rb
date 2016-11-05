@@ -8,6 +8,15 @@ class Project < ActiveRecord::Base
   has_many :informs,    -> { order('id DESC') } 
   has_many :popups,     -> { order('id DESC') } 
 
+  # gato
+
+  has_many :subscribe_teams#, class_name: "::SubscribeTeamOptional"
+  has_many :subscribe_optionals, class_name: "::SubscribeTeamOptional"
+  has_many :subscribe_requireds, class_name: "::SubscribeTeamRequired"
+
+  # fim do gato
+
+
   scope :actives, -> { where(situation: 0)}
   scope :waiting, -> { where(situation: 1)}
 
@@ -22,6 +31,8 @@ class Project < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  def participation_juridical; ::Participation.where(participation_type: 1).order(:id); end
+  def participation_normal;    ::Participation.where(participation_type: 0).order(:id); end
 
   def allow_consult?
     self.consult_start <= Date.today && self.consult_end >= Date.today && self.consult_publish

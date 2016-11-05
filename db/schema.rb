@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103173315) do
+ActiveRecord::Schema.define(version: 20161105192447) do
 
   create_table "bills", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -153,8 +153,9 @@ ActiveRecord::Schema.define(version: 20161103173315) do
   create_table "subscribe_participations", force: :cascade do |t|
     t.integer  "subscribe_id"
     t.integer  "participation_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "participation_path"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "subscribe_participations", ["participation_id"], name: "index_subscribe_participations_on_participation_id"
@@ -164,6 +165,22 @@ ActiveRecord::Schema.define(version: 20161103173315) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "subscribe_teams", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "subscribe_id"
+    t.integer  "activity"
+    t.string   "name"
+    t.integer  "professional_type", default: 0
+    t.string   "number_registry"
+    t.integer  "team_type",         default: 0
+    t.string   "archive_path"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "subscribe_teams", ["project_id"], name: "index_subscribe_teams_on_project_id"
+  add_index "subscribe_teams", ["subscribe_id"], name: "index_subscribe_teams_on_subscribe_id"
 
   create_table "subscribes", force: :cascade do |t|
     t.integer  "project_id"

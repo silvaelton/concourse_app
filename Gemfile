@@ -23,12 +23,16 @@ gem "rghost_barcode"
 gem "parseline"
 gem "brcobranca", :github => "kivanio/brcobranca"
 
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem 'fog-aws'
+gem 'remotipart'
 
 gem 'has_scope'
 gem 'friendly_id'
 gem 'pg'
 
 gem 'mailgun-ruby'
+
 
 group :development, :test do
   gem 'sqlite3'
