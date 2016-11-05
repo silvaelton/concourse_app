@@ -37,7 +37,7 @@
 .row
   .column
     %h4 Equipe técnica
-    = link_to "+ Adicionar membro", new_required_project_candidate_area_subscribe_teams_path(project_id: @project.id), remote: true, disable_with: t(:disable_with)}
+    = link_to "+ Adicionar membro", new_required_project_candidate_area_subscribe_teams_path(project_id: @project.id), remote: true, data: {disable_with: t(:disable_with)}
     %table.ui.table.celled
       %thead
         %tr
