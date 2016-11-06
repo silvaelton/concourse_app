@@ -32,7 +32,7 @@ gem 'friendly_id'
 gem 'pg'
 
 gem 'mailgun-ruby'
-
+gem 'file_validators'
 
 group :development, :test do
   gem 'sqlite3'

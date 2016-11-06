@@ -6,28 +6,33 @@ module Portal
       before_action :set_project
 
       def new_required
-        @required = @project.subscribe_requireds.new
+        @required = current_candidate.subscribe_requireds.new
       end
 
       def create_required
-        @required = @project.subscribe_requireds.new(set_params_required)
+        @required = current_candidate.subscribe_requireds.new(set_params_required)
         
         if @required.save
+          flash[:green] = "Operação realizada com sucesso!"
+          
           redirect_to project_candidate_area_participations_path(@project)
+        else 
+          flash[:red] = "Arquivo de formato inválido ou excede o tamanho máximo. Verifique."
+          redirect_to new_project_candidate_area_participation_path @project  
         end
       end
 
       def new_optional
-        @optional = @project.subscribe_optionals.new
+        @optional = current_candidate.subscribe_optionals.new
       end
 
       def create_optional
-        @optional = @project.subscribe_optionals.new(set_params_optional)
+        @optional = current_candidate.subscribe_optionals.new(set_params_optional)
         @optional.save
       end
 
       def destroy
-        @team = @project.subscribe_teams.find(params[:id])
+        @team = current_candidate.subscribe_teams.find(params[:id])
         @team.destroy 
       end
 

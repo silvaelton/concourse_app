@@ -4,6 +4,10 @@ class Subscribe < ActiveRecord::Base
   belongs_to :state
 
   has_many :subscribe_participations
+  has_many :subscribe_teams
+  has_many :subscribe_optionals, class_name: "::SubscribeTeamOptional"
+  has_many :subscribe_requireds, class_name: "::SubscribeTeamRequired"
+
 
   scope :processing, -> { where(situation: 0)}
   scope :recused,    -> { where(situation: 1)}

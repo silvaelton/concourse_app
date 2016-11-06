@@ -18,17 +18,20 @@ module Portal
       def upload_document
         @file = current_candidate.subscribe_participations.new(set_params)
         if @file.save
+          flash[:green] = "Operação executada com sucesso!"
           redirect_to action: :index
         else
+          flash[:red] = "Arquivo de formato inválido ou excede o tamanho máximo. Verifique."
           render action: :new 
         end
         
       end
 
       def destroy
-        @participation = ::SubscribeParticipation.find(params[:id])
+        @participation = current_candidate.subscribe_participations.find(params[:id])
         @participation.destroy 
 
+        flash[:green] = "Operação executada com sucesso!"
         redirect_to action: :index
       end
 

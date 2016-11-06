@@ -24,7 +24,26 @@ class SubscribeTeamRequired < SubscribeTeam
     'paisagismo'
   ]
 
+
+  def self.activities_required current_candidate
+    
+    array = {}
+
+    ::SubscribeTeamRequired.activities.each do |key,value|
+      unless current_candidate.subscribe_requireds.where(activity: value).present?
+        array[key] = value 
+      end
+    end
+
+    array
+
+  end
+
   validates :name, :professional_type, :activity, :number_registry, :archive_path, presence: true
+  validates :archive_path, file_size: { less_than_or_equal_to: 3.megabytes },
+                     file_content_type: { allow: ['image/jpeg', 'image/png', 'application/pdf', 'application/msword',
+                                                  'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+                                                  message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPEG, PNG, PDF, DOC, DOCX]"}
 
   mount_uploader :archive_path, ::DocumentUploader
 end
