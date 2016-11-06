@@ -29,7 +29,7 @@ namespace :populate do
       "8. Certidão negativa de débitos trabalhistas (CNDT) na justiça do traballho",
       "9. Declaração de não utilização de trabalho escravo ou mão de obra infantil",
       "10. Comprovante de regularidade do CAU ou CREA da empresa",
-      "11. Comprovante de vínculo entre o responsável técnico e a empresa detentoram da inscrição"
+      "11. Comprovante de vínculo entre o responsável técnico e a empresa detentora da inscrição"
     ]
 
     project = ::Participation.new({

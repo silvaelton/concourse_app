@@ -2,7 +2,7 @@ class SubscribeTeamRequired < SubscribeTeam
   default_scope { where(team_type: 0)}
   
   enum professional_type: [
-    'arquiteto',
+    'arquiteto_urbanista',
     'arquiteto_paisagista',
     'engenheiro',
     'outro'
@@ -41,9 +41,8 @@ class SubscribeTeamRequired < SubscribeTeam
 
   validates :name, :professional_type, :activity, :number_registry, :archive_path, presence: true
   validates :archive_path, file_size: { less_than_or_equal_to: 3.megabytes },
-                     file_content_type: { allow: ['image/jpeg', 'image/png', 'application/pdf', 'application/msword',
-                                                  'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
-                                                  message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPEG, PNG, PDF, DOC, DOCX]"}
+                     file_content_type: { allow: ['image/jpeg', 'image/png', 'image/png'],
+                                          message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPG, PNG, PDF]"}
 
   mount_uploader :archive_path, ::DocumentUploader
 end
