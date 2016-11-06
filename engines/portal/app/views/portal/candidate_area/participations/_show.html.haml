@@ -1,6 +1,11 @@
 .row
   .column  
     %h2 Envio de projeto
+.row
+  .column
+    = link_to "Retornar para página inicial", edit_project_candidate_area_candidate_subscribe_path(@project, current_candidate)
+    |
+    = link_to "Finalizar Acesso", logout_project_candidate_area_sessions_path(@project), method: :delete
 .ui.divider.hidden  
 .ui.divider.hidden  
 .row

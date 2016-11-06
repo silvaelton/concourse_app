@@ -7,7 +7,7 @@
           Detalhamento da sua inscrição
   .row
     .column
-      = link_to "Editar Minha Inscrição", edit_project_candidate_area_candidate_subscribe_path(@project, current_candidate)
+      = link_to "Editar Minha Inscrição", project_candidate_area_root_path(@project)
       |
       = link_to "Finalizar Acesso", logout_project_candidate_area_sessions_path(@project), method: :delete
   .row

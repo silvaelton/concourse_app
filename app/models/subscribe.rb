@@ -35,7 +35,7 @@ class Subscribe < ActiveRecord::Base
   validate  :compare_passwords, if: 'self.password_changed?'
 
   def send_project?
-    Date.today >= Date.parse('07/11/2016') && Date.today <= Date.parse('09/11/2016')
+    self.paid && (Date.today >= Date.parse('07/11/2016') && Date.today <= Date.parse('09/11/2016'))
   end
 
   private
