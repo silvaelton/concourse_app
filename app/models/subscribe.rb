@@ -34,6 +34,10 @@ class Subscribe < ActiveRecord::Base
   validates :password, :password_confirmation, length: {minimum: 6, maximum: 24}, presence: true, if: 'self.password_changed?'
   validate  :compare_passwords, if: 'self.password_changed?'
 
+  def send_project?
+    Date.today >= Date.parse('07/11/2016') && Date.today <= Date.parse('09/11/2016')
+  end
+
   private
 
   def compare_passwords

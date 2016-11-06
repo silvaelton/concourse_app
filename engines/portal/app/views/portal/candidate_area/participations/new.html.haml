@@ -1,2 +1,9 @@
 .show-participation
-  = render 'show'
+  - if !current_candidate.send_project?
+    = render 'show'
+  - else 
+    %br/
+    %br/
+    %br/
+    %h4
+      %i Envio do projeto encerrado ou ainda não foi iniciado.
