@@ -41,7 +41,7 @@
 .ui.divider.hidden  
 .row
   .column
-    %h4 Equipe técnica
+    %h4 Equipe técnica (obrigatório)
     = link_to "+ Adicionar membro", new_required_project_candidate_area_subscribe_teams_path(project_id: @project.id), remote: true, data: {disable_with: t(:disable_with)}, class: 'ui button green mini'
     %table.ui.table.celled
       %thead
