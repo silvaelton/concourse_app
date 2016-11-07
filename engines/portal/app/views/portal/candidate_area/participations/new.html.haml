@@ -1,5 +1,5 @@
 .show-participation
-  - if !current_candidate.send_project?
+  - if current_candidate.send_project?
     = render 'show'
   - else 
     %br/
