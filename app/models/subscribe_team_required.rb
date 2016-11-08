@@ -41,7 +41,7 @@ class SubscribeTeamRequired < SubscribeTeam
 
   validates :name, :professional_type, :activity, :number_registry, :archive_path, presence: true
   validates :archive_path, file_size: { less_than_or_equal_to: 3.megabytes },
-                     file_content_type: { allow: ['image/jpeg', 'image/png', 'image/png'],
+                     file_content_type: { allow: ['application/pdf', 'image/jpeg', 'image/png', 'image/png'],
                                           message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPG, PNG, PDF]"}
 
   mount_uploader :archive_path, ::DocumentUploader
