@@ -11,11 +11,15 @@
 
       - if candidate.send_members?
         .ui.label.mini.green Equipe técnica
+      - elsif candidate.start_send_members?
+        .ui.label.mini.yellow Equipe técnica
       - else
         .ui.label.mini.gray Equipe técnica
 
       - if candidate.send_juridical?
         .ui.label.mini.green Documentação jurídica
+      - elsif candidate.start_send_juridical?
+        .ui.label.mini.yellow Documentação jurídica
       - else
         .ui.label.mini.gray Documentação jurídica
     %td

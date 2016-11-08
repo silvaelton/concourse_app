@@ -54,8 +54,16 @@ class Subscribe < ActiveRecord::Base
     self.subscribe_participations.count == 11
   end
 
+  def start_send_juridical?
+    self.subscribe_participations.count > 0
+  end
+
   def send_members?
     self.subscribe_requireds.count == 13
+  end
+
+  def start_send_members?
+    self.subscribe_requireds.count > 0
   end
 
   def send_project_a3?
