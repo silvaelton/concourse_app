@@ -34,8 +34,37 @@ class Subscribe < ActiveRecord::Base
   validates :password, :password_confirmation, length: {minimum: 6, maximum: 24}, presence: true, if: 'self.password_changed?'
   validate  :compare_passwords, if: 'self.password_changed?'
 
+  def self.count_projects
+    @index = 0
+  
+    ::Subscribe.all.each do |subscribe|
+      if subscribe.send_participation?
+        @index += 1
+      end
+    end
+
+    @index
+  end
+
   def send_project?
     self.id == 2 || (self.paid && (Date.current >= Date.parse('07/11/2016') && Date.current <= Date.parse('09/11/2016')))
+  end
+
+  def send_juridical?
+    self.subscribe_participations.count == 11
+  end
+
+  def send_members?
+    self.subscribe_requireds.count == 13
+  end
+
+  def send_project_a3?
+    participation = ::Participation.find_by(name: "Prancha A1 (PDF até 15mb)") rescue nil
+    self.subscribe_participations.where(participation_id: participation.id).present?
+  end
+
+  def send_participation?
+    send_juridical? && send_members? && send_project?
   end
 
   private

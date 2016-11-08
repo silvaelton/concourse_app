@@ -17,7 +17,7 @@
           %td= @project.subscribes.count
           %td= @project.subscribes.enabled.count
           %td= @project.subscribes.recused.count
-          %td 0
+          %td= @project.subscribes.count_projects
 .ui.hidden.divider
 .row
   .column

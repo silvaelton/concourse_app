@@ -4,6 +4,20 @@
     %td= candidate.cpf
     %td= candidate.situation.humanize
     %td
+      - if candidate.send_project_a3?
+        .ui.label.mini.green Projeto
+      - else
+        .ui.label.mini.gray Projeto
+
+      - if candidate.send_members?
+        .ui.label.mini.green Equipe técnica
+      - else
+        .ui.label.mini.gray Equipe técnica
+
+      - if candidate.send_juridical?
+        .ui.label.mini.green Documentação jurídica
+      - else
+        .ui.label.mini.gray Documentação jurídica
     %td
       - if candidate.paid   
         = link_to "Pago", project_subscribe_update_paid_path(project_id: @project, subscribe_id: candidate), remote: true, class: 'ui button green icon mini'
