@@ -21,22 +21,13 @@
             %td.collapsing= item.id
             %td= item.created_at.strftime("%d/%m/%Y às %H:%M")
             %td
-              - if item.subscribe.send_project_a3?
-                .ui.label.mini.green Projeto
-              - else
-                .ui.label.mini.gray Projeto
-
               - if item.subscribe.send_members?
                 .ui.label.mini.green Equipe técnica
-              - elsif item.subscribe.start_send_members?
-                .ui.label.mini.yellow Equipe técnica
               - else
                 .ui.label.mini.gray Equipe técnica
 
               - if item.subscribe.send_juridical?
                 .ui.label.mini.green Documentação jurídica
-              - elsif item.subscribe.start_send_juridical?
-                .ui.label.mini.yellow Documentação jurídica
               - else
                 .ui.label.mini.gray Documentação jurídica
             //%td.collapsing= link_to "Visualizar projeto", item.participation_path_url, target: '_blank'
