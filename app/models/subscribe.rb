@@ -50,7 +50,7 @@ class Subscribe < ActiveRecord::Base
     @index = 0
   
     ::Subscribe.all.each do |subscribe|
-      if subscribe.send_participation?
+      if subscribe.send_participation_ok?
         @index += 1
       end
     end
