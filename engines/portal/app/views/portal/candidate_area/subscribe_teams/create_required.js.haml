@@ -1,5 +1,6 @@
 - if @required.errors.any?
   $("#action.ui.modal").html("#{escape_javascript(render 'new_required')}")
 - else 
+  alert('ok')
   $("#action.ui.modal").modal("hide")
   $(".show-participation").html("#{escape_javascript(render 'portal/candidate_area/participations/show')}")

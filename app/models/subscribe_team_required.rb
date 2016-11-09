@@ -39,10 +39,17 @@ class SubscribeTeamRequired < SubscribeTeam
 
   end
 
-  validates :name, :professional_type, :activity, :number_registry, :archive_path, presence: true
-  validates :archive_path, file_size: { less_than_or_equal_to: 3.megabytes },
+  validates :name, :professional_type, :activity, presence: true
+  validates :number_registry, presence: true, if: :is_allow?
+  validates :archive_path, presence: true, file_size: { less_than_or_equal_to: 3.megabytes },
                      file_content_type: { allow: ['application/pdf', 'image/jpeg', 'image/png', 'image/png'],
-                                          message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPG, PNG, PDF]"}
+                                          message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPG, PNG, PDF]"}, if: :is_allow?
 
   mount_uploader :archive_path, ::DocumentUploader
+
+  private
+
+  def is_allow?
+    !self.outro? && !self.comunicação_visual?
+  end
 end

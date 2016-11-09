@@ -12,13 +12,27 @@ module Portal
       def create_required
         @required = current_candidate.subscribe_requireds.new(set_params_required)
         
-        if @required.save
-          flash[:green] = "Operação realizada com sucesso!"
-          
-          redirect_to project_candidate_area_participations_path(@project)
-        else 
-          flash[:red] = "Arquivo de formato inválido ou excede o tamanho máximo. Verifique."
-          redirect_to new_project_candidate_area_participation_path @project  
+        respond_to do |format|
+          if @required.save
+            format.html {
+              flash[:green] = "Operação realizada com sucesso!"
+              redirect_to project_candidate_area_participations_path(@project)
+            }
+
+            format.js {
+              flash[:green] = "Operação realizada com sucesso!"
+              render js: "window.location.href = '#{project_candidate_area_participations_path(@project)}'"
+            } 
+
+          else 
+
+            format.html {
+              flash[:red] = "Arquivo de formato inválido ou excede o tamanho máximo. Verifique."
+              redirect_to new_project_candidate_area_participation_path @project  
+            }
+
+           
+          end
         end
       end
 
