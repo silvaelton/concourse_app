@@ -18,6 +18,8 @@
           %td= @project.subscribes.count
           %td= @project.subscribes.enabled.count
           %td= @project.subscribes.recused.count
+          %td= ::Subscribe.send_participation
+          %td= ::Subscribe.send_participation_ok
 .ui.hidden.divider
 .row
   .column

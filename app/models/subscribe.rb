@@ -58,8 +58,12 @@ class Subscribe < ActiveRecord::Base
     @index
   end
 
-  def send_project?
+  def send_project? 
     self.id == 2 || (self.paid && (Date.current >= Date.parse('07/11/2016') && Date.current <= Date.parse('09/11/2016')))
+  end
+
+  def self.allow_project?
+    (self.paid && (Date.current >= Date.parse('07/11/2016') && Date.current <= Date.parse('09/11/2016')))
   end
 
   def send_juridical?

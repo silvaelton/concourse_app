@@ -30,6 +30,8 @@
                 .ui.label.mini.green Documentação jurídica
               - else
                 .ui.label.mini.gray Documentação jurídica
-            //%td.collapsing= link_to "Visualizar projeto", item.participation_path_url, target: '_blank'
-            %td 
-              %i Bloqueado
+            - if ::Subscribe.allow_project?
+              %td 
+                %i Bloqueado
+            - else
+              %td.collapsing= link_to "Visualizar projeto", item.participation_path_url, target: '_blank'
