@@ -7,7 +7,7 @@
     |
     = link_to "Finalizar Acesso", logout_project_candidate_area_sessions_path(@project), method: :delete
 .ui.divider.hidden  
-- if current_candidate.send_participation?
+- if current_candidate.send_participation_ok?
   .row
     .column{style: 'text-align: center !important'}
       .ui.label.segment.green{style: 'text-align: center !important'}

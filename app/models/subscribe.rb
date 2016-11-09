@@ -75,6 +75,10 @@ class Subscribe < ActiveRecord::Base
     send_juridical? && send_members? && send_project?
   end
 
+  def send_participation_ok?
+    send_juridical? && send_members? && send_project_a3?
+  end
+
   private
 
   def compare_passwords
