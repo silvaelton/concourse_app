@@ -1,7 +1,13 @@
 - @project.subscribes.order('id ASC').each do |candidate|
   %tr
     %td= candidate.id
-    %td= candidate.cpf
+    %td
+      .ui.label.mini= candidate.name
+      %br/
+      .ui.label.mini= candidate.cpf
+      %br/
+      .ui.label.mini= candidate.email
+      %br/
     %td= candidate.situation.humanize
     %td
       - if candidate.send_project_a3?

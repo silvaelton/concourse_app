@@ -7,7 +7,7 @@ module Admin
     layout 'sub_application'
 
     def index
-      @consults = @project.consults
+      @participations = ::SubscribeParticipation.where(participation_id: 1)
     end
 
     private

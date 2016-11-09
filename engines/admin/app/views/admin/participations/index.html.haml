@@ -2,15 +2,22 @@
   .column
     %h1.ui.header 
       Participações
-
+    %b
+    %b Total listado:
+    #{::Subscribe.count_projects}
 .ui.hidden.divider
 .row
   .column
     %table.ui.celled.table.striped
       %thead
         %tr
-          %th Nº Pasta
+          %th.collapsing Nº Pasta
           %th Data
           %th Visualização
-          %th
       %tbody
+        - @participations.order(:id).each do |item| 
+          - if item.subscribe.send_participation?
+            %tr
+              %td.collapsing= item.id
+              %td= item.created_at.strftime("%d/%m/%Y às %H:%M")
+              %td.collapsing= link_to "Visualizar projeto", item.participation_path_url, target: '_blank'
