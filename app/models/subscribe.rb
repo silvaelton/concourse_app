@@ -72,7 +72,7 @@ class Subscribe < ActiveRecord::Base
   end
 
   def send_participation?
-    send_juridical? && send_members? && send_project_a3?
+    send_juridical? && send_members? && send_project?
   end
 
   private
