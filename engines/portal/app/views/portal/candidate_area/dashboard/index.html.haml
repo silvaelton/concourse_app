@@ -13,7 +13,7 @@
   .row
     .column
       - if current_candidate.send_project?
-        = link_to "Realizar participação", new_project_candidate_area_participation_path(@project),  class: 'ui right floated button blue', data: { disable_with: t(:disable_with)}
+        = link_to "Realizar envio do projeto", new_project_candidate_area_participation_path(@project),  class: 'ui right floated button blue', data: { disable_with: t(:disable_with)}
       = link_to "Emitir boleto", generate_project_candidate_area_billets_path(@project),  class: 'ui right floated button green', data: { disable_with: t(:disable_with)}
   .row
     .column

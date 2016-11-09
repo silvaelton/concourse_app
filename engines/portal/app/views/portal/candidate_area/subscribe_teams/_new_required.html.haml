@@ -2,29 +2,28 @@
 %i.close.icon
 .header
   Adicionar membro (obrigatório)
-.image.content
-  .description
-    = simple_form_for @required, url:  create_required_project_candidate_area_subscribe_teams_path(project_id: @project), remote: true do |f|
-      .field
-        = f.input :name, label: "Nome completo", placeholder: "Digite o nome completo do membro"
-      .fields
-        .field.wide.four
-          = f.input :professional_type, label: "Qualificação profissional", as: :select, collection: ::SubscribeTeamRequired.professional_types.map { |k,v| [k.humanize, k]}, include_blank: false, input_html: { id: "professional_type"} 
-        .field.wide.four
-          = f.input :activity, label: "Atividade", as: :select, collection: ::SubscribeTeamRequired.activities_required(current_candidate).map { |k,v| [k.humanize, k]}, include_blank: false, input_html: { id: "activity"}  
-        .field.wide.four
-          = f.input :number_registry, label: "Nº do registro no conselho", as: :string
-      .fields
-        .field.wide.sixteen
-          = f.input :archive_path, label: "Comprovante de Regularidade CAU/BR OU CREA (Max. 3MB) Formatos (JPG, PNG, PDF)", as: :file, input_html: { id: 'archive_path'}
-          
-      .fields#hide{style: 'display: none'}
-        .field.wide.sixteen
-          %i Fica facultado ao profissional a inserção, nos respectivos campos (Qualificação = "Outro" + Atividade = "Comunicação Visual"), o número de registro profissional, bem como o Comprovante de Regularidade junto ao CAU/BR ou CREA.
-      .ui.divider.hidden
-      .fields
-        .field.wide.four
-          = f.submit "Adicionar membro", class: 'ui button green', data: { disable_with: t(:disable_with)}
+.content
+  = simple_form_for @required, url:  create_required_project_candidate_area_subscribe_teams_path(project_id: @project), remote: true do |f|
+    .field
+      = f.input :name, label: "Nome completo", placeholder: "Digite o nome completo do membro"
+    .fields
+      .field.wide.four
+        = f.input :professional_type, label: "Qualificação profissional", as: :select, collection: ::SubscribeTeamRequired.professional_types.map { |k,v| [k.humanize, k]}, include_blank: false, input_html: { id: "professional_type"} 
+      .field.wide.four
+        = f.input :activity, label: "Atividade", as: :select, collection: ::SubscribeTeamRequired.activities_required(current_candidate).map { |k,v| [k.humanize, k]}, include_blank: false, input_html: { id: "activity"}  
+      .field.wide.four
+        = f.input :number_registry, label: "Nº do registro no conselho", as: :string
+    .fields
+      .field.wide.sixteen
+        = f.input :archive_path, label: "Comprovante de Regularidade CAU/BR OU CREA (Max. 3MB) Formatos (JPG, PNG, PDF)", as: :file, input_html: { id: 'archive_path'}
+        
+    .fields#hide{style: 'display: none'}
+      .field.wide.sixteen
+        %i Fica facultado ao profissional a inserção, nos respectivos campos (Qualificação = "Outro" + Atividade = "Comunicação Visual"), o número de registro profissional, bem como o Comprovante de Regularidade junto ao CAU/BR ou CREA.
+    .ui.divider.hidden
+    .fields
+      .field.wide.four
+        = f.submit "Adicionar membro", class: 'ui button green', data: { disable_with: t(:disable_with)}
 
 :javascript
 
