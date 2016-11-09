@@ -46,6 +46,18 @@ class Subscribe < ActiveRecord::Base
     @index
   end
 
+  def self.send_participation_ok
+    @index = 0
+  
+    ::Subscribe.all.each do |subscribe|
+      if subscribe.send_participation?
+        @index += 1
+      end
+    end
+
+    @index
+  end
+
   def send_project?
     self.id == 2 || (self.paid && (Date.current >= Date.parse('07/11/2016') && Date.current <= Date.parse('09/11/2016')))
   end

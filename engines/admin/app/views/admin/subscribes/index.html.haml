@@ -11,14 +11,13 @@
           %th Total de inscritos
           %th Total de homologados
           %th Total de indeferidos
-          %th Total de envio de projetos
+          %th Total de envio de parcial
           %th Total de envio de projetos completos
       %tbody
         %tr
           %td= @project.subscribes.count
           %td= @project.subscribes.enabled.count
           %td= @project.subscribes.recused.count
-          %td= @project.subscribes.count_projects
 .ui.hidden.divider
 .row
   .column
