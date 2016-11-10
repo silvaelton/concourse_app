@@ -13,7 +13,7 @@ module Portal
         @required = current_candidate.subscribe_requireds.new(set_params_required)
         
         respond_to do |format|
-          if @required.save
+          if @required.save && ::Subscribe.allow_project?
             format.html {
               flash[:green] = "Operação realizada com sucesso!"
               redirect_to project_candidate_area_participations_path(@project)
@@ -42,7 +42,7 @@ module Portal
 
       def create_optional
         @optional = current_candidate.subscribe_optionals.new(set_params_optional)
-        @optional.save
+        @optional.save if ::Subscribe.allow_project?
       end
 
       def destroy
