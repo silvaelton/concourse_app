@@ -4,7 +4,7 @@
       Detalhamento de documentação
     %b
     %b Pasta Nº: 
-    #{@participation.id}
+    #{@participation.subscribe_id}
     .ui.hidden.divider
     %h5 Membros técnicos
     %table.ui.table.celled
@@ -25,7 +25,7 @@
               %td= member.number_registry
               %td.collapsing
                 - if member.archive_path?
-                  = link_to "Baixar arquivo", member.archive_path_url, target: "_blank"
+                  = link_to "Baixar", member.archive_path_url, target: "_blank"
                 - else
                   Sem arquivo
             - else
@@ -41,7 +41,7 @@
           %th Descrição
           %th Arquivo
       %tbody
-        - @project.participation_juridical do |item, index|
+        - @project.participation_juridical.each do |item, index|
           %tr
             %td.collapsing= item.name
             - if @subscribe.subscribe_participations.where(participation_id: item.id).present?
