@@ -34,11 +34,13 @@
     %table.ui.table.celled
       %thead
         %tr
+          %th Nº
           %th Descrição
           %th Arquivo
       %tbody
-        - @project.participation_juridical.each do |item|
+        - @project.participation_juridical.each_with_index do |item, index|
           %tr
+            %td.collapsing= index + 1
             %td.collapsing= item.name
             - if @subscribe.subscribe_participations.where(participation_id: item.id).present?
               %td
