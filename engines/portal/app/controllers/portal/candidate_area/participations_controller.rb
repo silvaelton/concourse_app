@@ -17,7 +17,7 @@ module Portal
 
       def upload_document
         @file = current_candidate.subscribe_participations.new(set_params)
-        if @file.save
+        if @file.save && ::Subscribe.allow_project?
           flash[:green] = "Operação executada com sucesso!"
           redirect_to action: :index
         else
