@@ -26,6 +26,7 @@ Admin::Engine.routes.draw do
     resources :informs
     resources :bills
     resources :participations
+    resources :documents
     resources :winners
     
     resources :consults do 

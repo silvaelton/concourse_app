@@ -1,0 +1,20 @@
+.row
+  .column
+    %h1.ui.header 
+      Documentação
+    %b
+    %b Projetos A3 enviados:
+    #{@participations.count}
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th.collapsing Nº Pasta
+          %th Documentação
+      %tbody
+        - @participations.order(:id).each do |item| 
+          %tr
+            %td.collapsing= item.id
+            %td= link_to "Visualizar", project_document_path(@project, item)

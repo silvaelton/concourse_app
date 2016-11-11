@@ -1,0 +1,65 @@
+.row
+  .column
+    %h1.ui.header 
+      Detalhamento de documentação
+    %b
+    %b Pasta Nº: 
+    #{@participation.id}
+    .ui.hidden.divider
+    %h5 Membros técnicos
+    %table.ui.table.celled
+      %thead
+      %tbody
+        - ::SubscribeTeamRequired.activities.each do |key, value|
+          %tr 
+            - if @subscribe.subscribe_requireds.where(activity: value).present?
+              - member = @subscribe.subscribe_requireds.where(activity: value).first
+              %td.collapsing
+                .ui.label.green Registrado
+              %td.collapsing= key.humanize
+              %td= member.name
+              %td= member.professional_type.humanize
+              %td= member.number_registry
+              %td.collapsing
+                - if member.archive_path?
+                  = link_to "Baixar arquivo", member.archive_path_url, target: "_blank"
+                - else
+                  Sem arquivo
+            - else
+              %td.collapsing
+                .ui.label.red Pendente
+              %td.collapsing{colspan: 6}= key.humanize
+    .ui.divider.hidden
+    %h5 Documentação jurídica
+    %table.ui.table.celled
+      %thead
+        %tr
+          %th Descrição
+          %th Arquivo
+      %tbody
+        - @project.participation_juridical.each do |item|
+          %tr
+            %td.collapsing= item.name
+            - if @subscribe.subscribe_participations.where(participation_id: item.id).present?
+              %td
+                = link_to "Visualizar arquivo", @subscribe.subscribe_participations.find_by(participation_id: item.id).participation_path_url, target: '_blank'
+            - else
+              %td 
+                %i Não enviado.
+    .ui.divider.hidden
+    %h5 Membros (não obrigatórios)
+    %table.ui.table.celled
+      %thead
+        %tr
+          %th Nome completo
+          %th Qualificação
+      %tbody
+        - if @subscribe.subscribe_optionals.present?
+          - @subscribe.subscribe_optionals.each do |subscribe_optional|
+            %tr 
+              %td= subscribe_optional.name
+              %td= subscribe_optional.professional_type.humanize
+        - else
+          %tr
+            %td{colspan: 3}
+              %i Nenhum membro cadastrado.
