@@ -10,9 +10,11 @@
     %table.ui.table.celled
       %thead
       %tbody
-        - ::SubscribeTeamRequired.activities.each_with_index do |key, value, index|
+        - @index = 0
+        - ::SubscribeTeamRequired.activities.each do |key, value|
+          - @index += 1
           %tr 
-            %td= index + 1
+            %td= @index
             - if @subscribe.subscribe_requireds.where(activity: value).present?
               - member = @subscribe.subscribe_requireds.where(activity: value).first
               %td.collapsing
