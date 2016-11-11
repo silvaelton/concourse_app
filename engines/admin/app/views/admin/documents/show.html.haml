@@ -10,8 +10,9 @@
     %table.ui.table.celled
       %thead
       %tbody
-        - ::SubscribeTeamRequired.activities.each do |key, value|
+        - ::SubscribeTeamRequired.activities.each_with_index do |key, value, index|
           %tr 
+            %td= index + 1
             - if @subscribe.subscribe_requireds.where(activity: value).present?
               - member = @subscribe.subscribe_requireds.where(activity: value).first
               %td.collapsing
@@ -38,9 +39,8 @@
           %th Descrição
           %th Arquivo
       %tbody
-        - @project.participation_juridical.each_with_index do |item, index|
+        - @project.participation_juridical do |item, index|
           %tr
-            %td.collapsing= index + 1
             %td.collapsing= item.name
             - if @subscribe.subscribe_participations.where(participation_id: item.id).present?
               %td
