@@ -3,8 +3,16 @@
     %h1.ui.header 
       Documentação
     %b
-    %b Projetos A3 enviados:
-    #{@participations.count}
+    %b Total de participação A3:
+    = @participations.count
+    %br/
+    %b Projetos completos:
+    - @total = ::Subscribe.send_participation_ok
+    #{@total}
+    %br/
+    %b Projetos Incompletos:
+    #{@participations.count - @total}
+    %br/
 .ui.hidden.divider
 .row
   .column
@@ -13,6 +21,7 @@
         %tr
           %th.collapsing Nº Inscrição
           %th Documentação
+          %th Situaçaõ
       %tbody
         - @participations.order(:id).each do |item| 
           %tr
