@@ -68,7 +68,7 @@ class Subscribe < ActiveRecord::Base
 
   def send_juridical?
     participation = ::Participation.find_by(name: "Prancha A1 (PDF até 15mb)") rescue nil
-    self.subscribe_participations.not.where(participation_id: participation.id).count == 11
+    self.subscribe_participations.where.not(participation_id: participation.id).count == 11
   end
 
   def start_send_juridical?
