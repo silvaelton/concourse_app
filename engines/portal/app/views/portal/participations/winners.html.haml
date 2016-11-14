@@ -14,7 +14,6 @@
           %th.collapsing Nº de pasta
           %th Nome 
           %th.collapsing Cidade/Estado
-          %th.collapsing Equipe
           %th.collapsing Projeto
       %tbody 
         - if @projects.present?
@@ -25,9 +24,6 @@
               %td.collapsing= project.subscribe_participation.id
               %td= project.subscribe_participation.subscribe.name.mb_chars.upcase
               %td.collapsing= "#{project.subscribe_participation.subscribe.city} / #{project.subscribe_participation.subscribe.state.name}"
-              %td.collapsing
-                - project.subscribe.subscribe_teams.each do |team|
-                  = "#{team.name},"
               %td.collapsing= link_to "Visualizar", project.subscribe_participation.participation_path_url, target: "_blank"
         - else 
           %tr 
