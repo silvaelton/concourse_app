@@ -20,11 +20,9 @@
           - @projects.each do |project|
             - if project.id == 301
               %tr
-                %td.collapsing Sem informação
-                %td.collapsing Sem informação
-                %td.collapsing Sem informação
-                %td.collapsing Sem informação
-                %td.collapsing 
+                %td.collapsing= project.subscribe_id
+                %td.collapsing= project.id
+                %td.collapsing{colspan: 3} 
                   %i O candidato, ao invés do projeto, enviou uma propaganda publicitária. O seu nome será preservado.
             - else
               %tr 
