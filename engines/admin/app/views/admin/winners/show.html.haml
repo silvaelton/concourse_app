@@ -5,7 +5,7 @@
 .ui.divider.hidden
 .row
   .column{style: 'text-align:center'}
-    %h1= @winner.winner_type.humanize.upcase
+    %h1= @winner.winner_type.humanize.mb_chars.upcase
     %h3
       #{@winner.subscribe_participation.subscribe.name.upcase}
     %h4
