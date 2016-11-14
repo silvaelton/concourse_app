@@ -30,6 +30,8 @@ class Project < ActiveRecord::Base
   validates :participation_start, :participation_end, presence: true
   validates :slug, uniqueness: true, presence: true
 
+  mount_uploader :result_document, ::DocumentUploader
+  
   extend FriendlyId
   friendly_id :title, use: :slugged
 

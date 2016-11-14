@@ -6,6 +6,18 @@
 .ui.divider.hidden
 .row  
   .column
+    - if @project.result_document?
+      %table.ui.table.celled
+        %thead
+          %tr 
+            %th.collapsing Ata de julgamento
+        %tbody
+          %tr
+            %td= link_to "Baixar arquivo", @project.result_document_url, target: '_blank' if @project.result_document?
+
+.ui.divider.hidden
+.row  
+  .column
     %table.ui.table.celled
       %thead
         %tr 

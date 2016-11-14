@@ -63,7 +63,7 @@ module Admin
       params.require(:project).permit(:title, :description, :start, :end, :consult_start, :consult_end, :consult_publish, 
                                       :consult_text, :subscribe_start, :subscribe_end, :subscribe_publish, :participation_start, 
                                       :participation_end, :participation_publish, :header_color, :result_date, :result_hour, :result_publish, 
-                                      :slug, :page_projects_allow, :main_page_id, :situation)
+                                      :result_document,:slug, :page_projects_allow, :main_page_id, :situation)
 
     end
   end
