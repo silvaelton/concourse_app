@@ -1,0 +1,30 @@
+.row  
+  .column 
+    %h2
+      Propostas enviadas
+      %br/
+      %small Total: #{@projects.count}
+.ui.divider.hidden
+.row  
+  .column
+    %table.ui.table.celled
+      %thead
+        %tr 
+          %th.collapsing Nº de inscrição
+          %th.collapsing Nº de pasta
+          %th Nome 
+          %th.collapsing Cidade/Estado
+          %th.collapsing Projeto
+      %tbody 
+        - if @projects.present?
+          - @projects.each do |project|
+            %tr 
+              %td.collapsing= project.subscribe_id
+              %td.collapsing= project.id
+              %td= project.subscribe.name.mb_chars.upcase
+              %td.collapsing= "#{project.subscribe.city.mb_chars.upcase}/ #{project.subscribe.state.name}"
+              %td.collapsing= link_to "Visualizar", project.participation_path_url, target: "_blank"
+        - else 
+          %tr 
+            %td{colspan:5}
+              %i Nenhum projeto disponível.

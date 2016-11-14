@@ -1,0 +1,31 @@
+.row  
+  .column 
+    %h2
+      Vencedores
+      %br/
+.ui.divider.hidden
+.row  
+  .column
+    %table.ui.table.celled
+      %thead
+        %tr 
+          %th.collapsing Classificação
+          %th.collapsing Nº de inscrição
+          %th.collapsing Nº de pasta
+          %th Nome 
+          %th.collapsing Cidade/Estado
+          %th.collapsing Projeto
+      %tbody 
+        - if @projects.present?
+          - @projects.order(:winner_type).each do |project|
+            %tr 
+              %td.collapsing= project.winner_type.humanize.upcase
+              %td.collapsing= project.subscribe_participation.subscribe_id
+              %td.collapsing= project.subscribe_participation.id
+              %td= project.subscribe_participation.subscribe.name.mb_chars.upcase
+              %td.collapsing= "#{project.subscribe_participation.subscribe.city} / #{project.subscribe_participation.subscribe.state.name}"
+              %td.collapsing= link_to "Visualizar", project.subscribe_participation.participation_path_url, target: "_blank"
+        - else 
+          %tr 
+            %td{colspan:5}
+              %i Nenhum projeto disponível.
