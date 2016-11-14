@@ -5,7 +5,7 @@ class Winner < ActiveRecord::Base
   enum winner_type: ['primeiro_lugar', 'segundo_lugar', 'terceiro_lugar', 'menção_honrosa']
 
   validates :subscribe_participation_id, :winner_type, presence: true
-  #validate  :subscribe_validate
+  validate  :subscribe_validate
   
 
 

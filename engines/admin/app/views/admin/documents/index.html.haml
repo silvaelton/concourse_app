@@ -25,7 +25,7 @@
       %tbody
         - @participations.order(:id).each do |item| 
           %tr
-            %td.collapsing= item.subscribe_id
+            %td.collapsing= item.id
             %td= link_to "Visualizar", project_document_path(@project, item)
             %td
               - if item.subscribe.send_participation_ok?
