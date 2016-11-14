@@ -8,7 +8,7 @@
     
     %br/
     %br/
-    %h4 Equipe Técnica
+    %h4 Equipe
     %br/
     - if @winner.subscribe_participation.subscribe.subscribe_requireds.present? 
       - @winner.subscribe_participation.subscribe.subscribe_requireds.each do |item|
@@ -17,7 +17,7 @@
       %i Não informou equipe técnica.
     %br/
     %br/
-    %h4 Equipe (não obrigatória)
+    %h4 Equipe
     %br/
     - if @winner.subscribe_participation.subscribe.subscribe_optionals.present? 
       - @winner.subscribe_participation.subscribe.subscribe_optionals.each do |item|
