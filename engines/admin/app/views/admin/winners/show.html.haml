@@ -1,0 +1,32 @@
+.row
+  .column
+    %h2 Nomear vencedor
+    = link_to "Voltar a listagem de vencedores", project_winners_path(@project)
+.ui.divider.hidden
+.row
+  .column{style: 'text-align:center'}
+    %h1= @winner.winner_type.humanize.upcase
+    %h3
+      #{@winner.subscribe_participation.subscribe.name.upcase}
+    %h4
+      #{@winner.subscribe_participation.subscribe.city}/#{@winner.subscribe_participation.subscribe.state.name}
+    
+    %br/
+    %br/
+    %h4 Equipe
+    %br/
+    - if @winner.subscribe_participation.subscribe.subscribe_teams.present? 
+      - @winner.subscribe_participation.subscribe.subscribe_teams.each do |item|
+        = "#{item.name}, "
+    - else
+      %i Não informou equipe.
+    %br/
+    %br/
+    %br/
+    %br/
+    = link_to image_tag('/images/download.png', size: '100x100'), @winner.subscribe_participation.participation_path_url, target: '_blank'
+    %br/
+    %br/
+    %br/
+  
+

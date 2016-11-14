@@ -14,11 +14,15 @@ module Admin
       @winner  = @project.winners.new
     end
 
+    def show
+      @winner = @project.winners.find(params[:id])
+    end
+
     def create
       @winner  = @project.winners.new(set_params)
       
       if @winner.save
-        redirect_to action: :index
+        redirect_to [@project, @winner]
       else
         render action: :new
       end

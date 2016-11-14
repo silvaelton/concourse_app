@@ -2,7 +2,7 @@ class Winner < ActiveRecord::Base
   belongs_to :subscribe_participation
   belongs_to :project
 
-  enum winner_type: ['primeiro_lugar', 'segundo_lugar', 'terceiro_lugar', 'menção_honrosa']
+  enum winner_type: ['primeiro_lugar', 'segundo_lugar', 'terceiro_lugar', 'quarto_lugar','quinto_lugar', 'menção_honrosa']
 
   validates :subscribe_participation_id, :winner_type, presence: true
   validate  :subscribe_validate

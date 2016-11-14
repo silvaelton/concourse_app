@@ -22,7 +22,7 @@
               %td= winner.subscribe_participation_id 
               %td= winner.subscribe_participation.subscribe_id if winner.subscribe_participation.present? 
               %td
-                = link_to "Visualizar", winner.subscribe_participation.participation_path_url, target: '_blank', class: 'ui button blue mini' if winner.subscribe_participation.present?
+                = link_to "Visualizar", project_winner_path(@project, winner), target: '_blank', class: 'ui button blue mini' if winner.subscribe_participation.present?
                 = link_to "Remover", project_winner_path(project_id: @project, id: winner), method: :delete, data: { disable_with: t(:disable_with), confirm: "Tem certeza que deseja remover?"}, class: 'ui button red mini'
         - else
           %tr
