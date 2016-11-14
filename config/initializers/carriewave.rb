@@ -1,3 +1,4 @@
+=begin
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/aws'                        # required
   config.fog_credentials = {
@@ -11,3 +12,4 @@ CarrierWave.configure do |config|
   config.fog_public     = true                                        # optional, defaults to true
   config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" } # optional, defaults to {}
 end
+=end
