@@ -11,17 +11,17 @@
       %thead
         %tr
           %th Classificação
-          %th Nº Pasta
-          %th Nº Inscrição
+          %th.collapsing Nº Pasta
+          %th.collapsing Nº Inscrição
           %th
       %tbody
         - if @winners.present?
           - @winners.order(:winner_type).each do |winner|
             %tr
               %td= winner.winner_type.mb_chars.humanize.upcase
-              %td= winner.subscribe_participation_id 
-              %td= winner.subscribe_participation.subscribe_id if winner.subscribe_participation.present? 
-              %td
+              %td.collapsing= winner.subscribe_participation_id 
+              %td.collapsing= winner.subscribe_participation.subscribe_id if winner.subscribe_participation.present? 
+              %td.collapsing
                 = link_to "Visualizar", project_winner_path(@project, winner), target: '_blank', class: 'ui button blue mini' if winner.subscribe_participation.present?
                 = link_to "Remover", project_winner_path(project_id: @project, id: winner), method: :delete, data: { disable_with: t(:disable_with), confirm: "Tem certeza que deseja remover?"}, class: 'ui button red mini'
         - else

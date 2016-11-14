@@ -1,0 +1,7 @@
+- if @winner.errors.any?
+  $("#form-partial").html("#{escape_javascript(render 'form')}")
+- else
+  $("#form-partial").fadeOut('slow', function() {
+  $("#form-partial").html("#{escape_javascript(render 'show')}") 
+  $("#form-partial").fadeIn('slow')
+  });
