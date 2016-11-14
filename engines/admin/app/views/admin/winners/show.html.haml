@@ -6,6 +6,7 @@
 .row
   .column{style: 'text-align:center'}
     %h1= @winner.winner_type.humanize.mb_chars.upcase
+    %h1 Pasta Nº #{@winner.subscribe_participation_id} | Inscrição Nº #{@winner.subscribe_participation.subscribe_id}
     %h3
       #{@winner.subscribe_participation.subscribe.name.upcase}
     %h4
