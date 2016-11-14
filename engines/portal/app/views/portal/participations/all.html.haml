@@ -13,6 +13,7 @@
           %th.collapsing Nº de inscrição
           %th.collapsing Nº de pasta
           %th Nome 
+          %th Equipe
           %th.collapsing Cidade/Estado
           %th.collapsing Projeto
       %tbody 
@@ -22,13 +23,16 @@
               %tr
                 %td.collapsing= project.subscribe_id
                 %td.collapsing= project.id
-                %td.collapsing{colspan: 3} 
+                %td.collapsing{colspan: 4} 
                   %i O candidato, ao invés do projeto, enviou uma propaganda publicitária. O seu nome será preservado.
             - else
               %tr 
                 %td.collapsing= project.subscribe_id
                 %td.collapsing= project.id
                 %td= project.subscribe.name.mb_chars.upcase
+                %td.collapsing
+                  - project.subscribe.subscribe_teams.each do |team|
+                    = "#{team.name},"
                 %td.collapsing= "#{project.subscribe.city.mb_chars.upcase}/ #{project.subscribe.state.name}"
                 %td.collapsing= link_to "Visualizar", project.participation_path_url, target: "_blank"
         - else 
