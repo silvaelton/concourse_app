@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105192447) do
+ActiveRecord::Schema.define(version: 20161114080305) do
 
   create_table "bills", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -243,5 +243,13 @@ ActiveRecord::Schema.define(version: 20161105192447) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "winners", force: :cascade do |t|
+    t.integer  "subscribe_participation_id"
+    t.integer  "winner_type"
+    t.integer  "project_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
 end

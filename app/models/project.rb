@@ -14,6 +14,8 @@ class Project < ActiveRecord::Base
   has_many :subscribe_optionals, class_name: "::SubscribeTeamOptional"
   has_many :subscribe_requireds, class_name: "::SubscribeTeamRequired"
 
+  has_many :winners
+
   # fim do gato
 
 

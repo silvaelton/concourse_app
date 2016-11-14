@@ -1,7 +1,7 @@
 class DocumentUploader < CarrierWave::Uploader::Base
  
-  storage :fog
-
+  #storage :fog
+  
   def store_dir
     'documents'
   end

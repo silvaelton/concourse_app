@@ -2,6 +2,7 @@
   .column
     %h1.ui.header 
       Vencedores
+    = link_to "+ Adicionar vencedor", new_project_winner_path(@project)
 
 .ui.hidden.divider
 .row
@@ -9,8 +10,21 @@
     %table.ui.celled.table.striped
       %thead
         %tr
-          %th Nº Inscrição
-          %th Nº Pasta
           %th Classificação
+          %th Nº Pasta
+          %th Nº Inscrição
           %th
       %tbody
+        - if @winners.present?
+          - @winners.order(:winner_type).each do |winner|
+            %tr
+              %td= winner.winner_type.mb_chars.humanize.upcase
+              %td= winner.subscribe_participation_id 
+              %td= winner.subscribe_participation.subscribe_id if winner.subscribe_participation.present? 
+              %td
+                = link_to "Visualizar", winner.subscribe_participation.participation_path_url if winner.subscribe_participation.present?
+                = link_to "Remover", project_winner_path(project_id: @project, id: winner), method: :delete, data: { disable_with: t(:disable_with), confirm: "Tem certeza que deseja remover?"}, class: 'ui button red mini'
+        - else
+          %tr
+            %td
+              %i Nenhum ganhador registrado.

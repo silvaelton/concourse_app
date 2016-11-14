@@ -1,0 +1,8 @@
+= simple_form_for [@project, @winner] do |f|
+  .fields  
+    .field.wide.three
+      = f.input :winner_type, as: :select, label: "Classificação", collection: ::Winner.winner_type_allow(@project).map { |k,v| [k.to_s.humanize, k] }, include_blank: false
+    .field.wide.three
+      = f.input :subscribe_participation_id, label: "Nº da pasta", as: :string, input_html: { placeholder: "Informe o Nº"}
+    .field.wide.three
+      = f.submit "Nomear vencedor", class: 'ui button green filter-button', data: { disable_with: t(:disable_with)}

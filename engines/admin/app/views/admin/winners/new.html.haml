@@ -1,0 +1,9 @@
+.row
+  .column
+    %h2 Nomear vencedor
+    = link_to "Voltar a listagem de vencedores", project_winners_path(@project)
+.ui.divider.hidden
+.row
+  .column
+    #form
+      = render 'form'
