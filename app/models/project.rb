@@ -29,9 +29,7 @@ class Project < ActiveRecord::Base
   validates :subscribe_start, :subscribe_end, presence: true
   validates :participation_start, :participation_end, presence: true
   validates :slug, uniqueness: true, presence: true
-
-  mount_uploader :result_document, ::DocumentUploader
-  
+ 
   def result_document_url 
     "http://wmasites.com.br/iabconcursos/documents/#{self.result_document}"
   end
