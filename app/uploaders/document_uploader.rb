@@ -3,7 +3,7 @@ class DocumentUploader < CarrierWave::Uploader::Base
   storage :fog
   
   def store_dir
-    'http://wmasites.com.br/iabconcursos/documents/'
+    'documents'
   end
 
   def extension_white_list

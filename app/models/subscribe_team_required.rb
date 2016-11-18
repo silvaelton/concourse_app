@@ -45,7 +45,10 @@ class SubscribeTeamRequired < SubscribeTeam
                      file_content_type: { allow: ['application/pdf', 'image/jpeg', 'image/png', 'image/png'],
                                           message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPG, PNG, PDF]"}, if: :is_allow?
 
-  mount_uploader :archive_path, ::DocumentUploader
+  
+  def archive_path_url
+    "http://wmasites.com.br/iabconcursos/documents/#{self.archive_path}"
+  end
 
   private
 
