@@ -10,6 +10,8 @@ gem 'jquery-turbolinks'
 gem 'haml-rails'
 gem 'simple_form'
 
+
+
 gem 'validates_cpf_cnpj'
 gem 'validates_timeliness'
 gem 'email_validator'
