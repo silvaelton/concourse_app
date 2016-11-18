@@ -32,6 +32,11 @@ class Project < ActiveRecord::Base
 
   mount_uploader :result_document, ::DocumentUploader
   
+  def result_document_url 
+    "http://wmasites.com.br/iabconcursos/documents/#{self.result_document}"
+  end
+
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
