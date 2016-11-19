@@ -14,7 +14,7 @@ class Mean < ActiveRecord::Base
   def subscribe_is_valid?
     if ::Subscribe.where(id: self.subscribe_id, password: self.password).present?
       participation = ::Participation.find_by(name: "Prancha A1 (PDF até 15mb)") rescue nil
-      if !::SubscribseParticipation.where(participation_id: participation.id, subscribe_id: self.subscribe_id).present?
+      if !::SubscribeParticipation.where(participation_id: participation.id, subscribe_id: self.subscribe_id).present?
         errors.add(:subscribe_id, "Nº de inscrição não realizou envio de participação para este concurso")
       end
     else
