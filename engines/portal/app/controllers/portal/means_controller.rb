@@ -11,13 +11,13 @@ module Portal
 		end 
 
 		def new
-			@means = @project.means.new
+			@mean = @project.means.new
 		end
 
 		def create
-			@means = @project.means.new(set_params)
+			@mean = @project.means.new(set_params)
 
-      if @means.save
+      if @mean.save
         flash[:green] = t :success
         redirect_to action: :index
       else
