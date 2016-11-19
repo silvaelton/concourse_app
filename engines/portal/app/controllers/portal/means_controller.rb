@@ -4,7 +4,7 @@ module Portal
 	class MeansController < ApplicationController 
 		before_action :set_project
 
-    layout 'sub-portal'
+    layout 'sub_portal'
     
 		def index
 			@means = @project.means
