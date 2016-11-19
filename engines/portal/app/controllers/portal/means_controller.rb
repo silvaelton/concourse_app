@@ -27,7 +27,6 @@ module Portal
 
 		private
 
-
 		def set_params
 			params.require(:mean).permit(:subscribe_id, :password, :content)
 		end

@@ -1,8 +1,8 @@
 = simple_form_for [@project, @mean] do |f|
   .fields
-    .field-wide.two
+    .field.wide.two
       = f.input :subscribe_id, label: "Nº de inscrição"
-    .field-wide.four
+    .field.wide.four
       = f.input :password, label: "Digite sua senha"
   .field
     = f.input :content, kabel: "Conteúdo", as: :text, input_html: {style: 'min-height: 200px'}
