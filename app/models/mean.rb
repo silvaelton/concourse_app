@@ -1,5 +1,7 @@
 class Mean < ActiveRecord::Base
 
+	belongs_to :subscribe 
+	
   attr_accessor :password
 
   validates :content, presence: true

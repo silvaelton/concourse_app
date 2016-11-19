@@ -9,15 +9,17 @@
       %table.ui.table.celled
         %thead
           %tr
-            %th Nº de inscrição
-            %th Data de recurso
-            %th Ação
+            %th.collapsing Nº de inscrição
+            %th Nome
+            %th.collapsing Data de recurso
+            %th.collapsing Ação
         %tbody
           - if @means.present?
             - @means.each do |item|
               %tr
-                %td.collapsing= item.subscribe_id
-                %td.collapsing= item.created_at.strftime("%d/%m/%Y")
+                %td= item.subscribe_id
+                %td= item.subscribe.name
+                %td= item.created_at.strftime("%d/%m/%Y")
                 %td= link_to "Visualizar", project_mean_path(@project, item)
           - else
             %tr
