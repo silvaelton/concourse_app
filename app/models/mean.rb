@@ -3,7 +3,7 @@ class Mean < ActiveRecord::Base
   attr_accessor :password
 
   validates :content, presence: true
-
+  validates_uniqueness_of :subscribe_id, scope: :project_id 
   validate :subscribe_is_valid?
 
 
