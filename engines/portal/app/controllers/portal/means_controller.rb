@@ -10,8 +10,12 @@ module Portal
 			@means = @project.means
 		end 
 
-		def new
-			@mean = @project.means.new
+    def show
+			@mean = @project.means.find(params[:id])
+    end
+    
+    def new
+      @mean = @project.means.new
 		end
 
 		def create
