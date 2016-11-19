@@ -1,0 +1,11 @@
+= simple_form_for [@project, @mean] do |f|
+  .fields
+    .field-wide.two
+      = f.input :subscribe_Id, label: "Nº de inscrição"
+    .field-wide.four
+      = f.input :password, label: "Digite sua senha"
+  .field
+    = f.input :content, as: :text
+  .ui.divider.hidden
+  .field
+    = f.submit "Enviar recurso", class: 'ui button green'

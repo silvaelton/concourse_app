@@ -7,6 +7,7 @@ Portal::Engine.routes.draw do
     get 'participacoes', to: 'participations#all'
     get 'vencedores',    to: 'participations#winners'
     
+    resources :means,      path: 'recursos'
     resources :informs,    path: 'informes'
     resources :pages,      path: 'paginas'
     resources :consults,   path: 'consultas'

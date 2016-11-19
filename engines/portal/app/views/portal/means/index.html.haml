@@ -1,0 +1,24 @@
+.ui.grid
+  .row
+    .column
+      %h2 Recursos
+  .ui.divider.hidden
+  .row
+    .column 
+      %table.ui.table.celled
+        %thead
+          %tr
+            %th Nº de inscrição
+            %th Data de recurso
+            %th Ação
+        %tbody
+          - if @means.present?
+            - @means.each do |item|
+              %tr
+                %td.collapsing= item.subscribe_id
+                %td.collapsing= item.created_at.strftime("%d/%m/%Y")
+                %td= link_to "Visualizar", mean_path(item)
+          - else
+            %tr
+              %td{colspan: 3}
+                %i Nenhum recurso realizado.

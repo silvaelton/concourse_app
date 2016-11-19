@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   has_many :subscribes, -> { order('id DESC') } 
   has_many :informs,    -> { order('id DESC') } 
   has_many :popups,     -> { order('id DESC') } 
-
+  has_many :means,      -> { order('id DESC') }
   # gato
 
   has_many :subscribe_teams#, class_name: "::SubscribeTeamOptional"
