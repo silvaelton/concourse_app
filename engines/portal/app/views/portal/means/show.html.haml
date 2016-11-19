@@ -1,0 +1,13 @@
+.ui.grid
+  .row
+    .column
+      %h2 Detalhamento de recurso
+      = link_to "Voltar para listagem", project_means_path(@project)
+  .ui.divider.hidden
+  .row
+    .column 
+      %h3 Inscrição Nº #{@mean.subscribe_id}
+  .ui.divider.hidden
+  .row
+    .column 
+      = @mean.content

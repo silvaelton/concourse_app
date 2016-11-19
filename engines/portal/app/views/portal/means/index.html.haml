@@ -18,7 +18,7 @@
               %tr
                 %td.collapsing= item.subscribe_id
                 %td.collapsing= item.created_at.strftime("%d/%m/%Y")
-                %td= link_to "Visualizar", mean_path(item)
+                %td= link_to "Visualizar", project_mean_path(@project, item)
           - else
             %tr
               %td{colspan: 3}
