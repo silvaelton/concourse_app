@@ -3,7 +3,7 @@
     .column
       %h1.ui.header 
         Inscrição - Nº #{@subscribe.id}
-      = link_to "Atualizar situação", edit_project_subscribe_path(@project, @subscribe), class: 'ui button mini blue', remote: true
+      = link_to "Atualizar situação", edit_project_subscribe_path(@project, @subscribe), class: 'ui button mini blue', remote: true if current_user.administrador?
       = link_to "Voltar para listagem", project_subscribes_path(@project), class: 'ui button mini', data: { disable_with: t(:disable_with)}
   .ui.hidden.divider
   .row
