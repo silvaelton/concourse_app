@@ -43,7 +43,7 @@ module Portal
     def set_authenticate
       @user = ::User.find(session[:admin_id]) rescue nil
       
-      redirect_to '/404' @user.nil?
+      redirect_to '/404' if @user.nil?
     end
 	end
 end
