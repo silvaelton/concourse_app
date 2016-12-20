@@ -85,16 +85,16 @@
         %br/
         .row
           .ui.grid
-            .ten.wide.column
+            .thirdteen.wide.column
               = yield
-            .six.wide.column
+            .three.wide.column
               .ui.vertical.pointing.menu
                 - @project.navs.actives.each do |nav|
                   - if nav.is_page
-                    %a.item.custom-item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}"}
+                    %a.item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}"}
                       %b= nav.label
                   - else
-                    %a.item.custom-item{href: "#{nav.href}", style: "background-color: #{@project.header_color} !important"}
+                    %a.item{href: "#{nav.href}", style: "background-color: #{@project.header_color} !important"}
                       %b= nav.label
         
         %br/
