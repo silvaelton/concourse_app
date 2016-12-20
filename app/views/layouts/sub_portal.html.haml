@@ -85,7 +85,7 @@
         %br/
         .row
           .ui.grid
-            .thirdteen.wide.column
+            .thirteen.wide.column
               = yield
             .three.wide.column
               .ui.vertical.pointing.menu
@@ -94,7 +94,7 @@
                     %a.item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}"}
                       %b= nav.label
                   - else
-                    %a.item{href: "#{nav.href}", style: "background-color: #{@project.header_color} !important"}
+                    %a.item{href: "#{nav.href}"}
                       %b= nav.label
         
         %br/
