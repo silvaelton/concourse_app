@@ -93,7 +93,10 @@
             .ten.wide.column
               = yield
             .six.wide.column
-              menu
+              .ui.vertical.pointing.menu
+                - @project.navs.actives.each do |nav|
+                  %a.item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}"}
+                    = nav,label.humanize
         
         %br/
         %br/
