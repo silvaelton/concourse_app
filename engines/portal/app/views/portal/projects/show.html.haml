@@ -1,15 +1,25 @@
 .row
   .column
-    - if @project.main_page.present?
-      %br/
-      .row
-        .column.text-center
-          = image_tag '/images/imagem_0.jpg', width:'100%'
-      %br/
-      %br/
-      %br/
-      .row
-        .column.text-center
-          = @project.main_page.content.html_safe
-    - else
-      %i Necessário definir a página principal do projeto.
+    - if @project.slug != 'parques-aguas-claras'
+      - if @project.main_page.present?
+        %br/
+        .row
+          .column.text-center
+            = image_tag '/images/imagem_0.jpg', width:'100%'
+        %br/
+        %br/
+        %br/
+        .row
+          .column.text-center
+            = @project.main_page.content.html_safe
+      - else
+        %i Necessário definir a página principal do projeto.
+    - else 
+      - if @project.main_page.present?
+        %br/
+        %br/
+        .row
+          .column.text-center
+            = @project.main_page.content.html_safe
+      - else
+        %i Necessário definir a página principal do projeto.
