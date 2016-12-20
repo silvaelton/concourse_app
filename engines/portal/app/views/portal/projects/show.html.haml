@@ -16,8 +16,6 @@
         %i Necessário definir a página principal do projeto.
     - else 
       - if @project.main_page.present?
-        %br/
-        %br/
         .row
           .column.text-center
             = @project.main_page.content.html_safe
