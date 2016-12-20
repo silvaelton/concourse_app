@@ -8,55 +8,107 @@
     %link{:href => "https://fonts.googleapis.com/css?family=PT+Sans+Narrow", :rel => "stylesheet"}/
     = csrf_meta_tags
   %body
-    %div{style: "background-color: #{@project.header_color} !important; margin-top: 0px !important"}
-      .ui.container
-        .ui.grid
-          .two.wide.column{style: 'padding: 0px !important'}
-            %br/
-            = image_tag "/images/default_logo.png", size: '120x120'
-          .twelve.wide.right.column{style: "margin-top: auto; text-align: right !important;"}
-            .ui.secondary.pointing.menu{style: 'border: none !important'}
-              - @project.navs.actives.each do |nav|
-                - if nav.is_page
-                  %a.item.custom-item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}", style: "background-color: #{@project.header_color} !important"}
-                    %b= nav.label
-                - else
-                  %a.item.custom-item{href: "#{nav.href}", style: "background-color: #{@project.header_color} !important"}
-                    %b= nav.label
-          
+    - if @project.slug != 'parques-aguas-claras'
+      %div{style: "background-color: #{@project.header_color} !important; margin-top: 0px !important"}
+        .ui.container
+          .ui.grid
+            .two.wide.column{style: 'padding: 0px !important'}
+              %br/
+              = image_tag "/images/default_logo.png", size: '120x120'
+            .twelve.wide.right.column{style: "margin-top: auto; text-align: right !important;"}
+              .ui.secondary.pointing.menu{style: 'border: none !important'}
+                - @project.navs.actives.each do |nav|
+                  - if nav.is_page
+                    %a.item.custom-item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}", style: "background-color: #{@project.header_color} !important"}
+                      %b= nav.label
+                  - else
+                    %a.item.custom-item{href: "#{nav.href}", style: "background-color: #{@project.header_color} !important"}
+                      %b= nav.label
+            
 
-    .ui.container
-      %br/
-      .row
-        .column
-          %p
-          = @project.description.html_safe
-      .ui.divider
-      %br/
-      .row
-        .ui.grid
-          .sixteen.wide.column
+      .ui.container
+        %br/
+        .row
+          .column
+            %p
+            = @project.description.html_safe
+        .ui.divider
+        %br/
+        .row
+          .ui.grid
+            .sixteen.wide.column
+              - flash.each do |type, message|
+                .ui.message{class: "#{type}"}
+                  %p= message
+              = yield
+        
+        %br/
+        %br/
+        %br/
+      #footer
+        .ui.container
+          .ui.divider
+          .ui.grid
+            .three.wide.column
+              %h4{style: 'color: gray'} PROMOÇÃO E ORGANIZAÇÃO:
+              = image_tag '/images/footer-iab.png', size: '220x40'
+            .eigth.wide.column
+
+            .four.wide.column
+              %h4{style: 'color: gray'} PROMOÇÃO:
+              = image_tag '/images/footer-cau.png', size: '180x50'
+
+      = render 'layouts/portal/modal' if @popup.present?
+      #action.ui.modal
+    - else
+      %div{style: "background-color: #{@project.header_color} !important; margin-top: 0px !important"}
+        .ui.container
+          .ui.grid
+            .two.wide.column{style: 'padding: 0px !important'}
+              %br/
+            .twelve.wide.right.column{style: "margin-top: auto; text-align: right !important;"}
+              .ui.secondary.pointing.menu{style: 'border: none !important'}
+                - @project.navs.actives.each do |nav|
+                  - if nav.is_page
+                    %a.item.custom-item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}", style: "background-color: #{@project.header_color} !important"}
+                      %b= nav.label
+                  - else
+                    %a.item.custom-item{href: "#{nav.href}", style: "background-color: #{@project.header_color} !important"}
+                      %b= nav.label
+            
+
+      .ui.container
+        %br/
+        .row
+          .column
+            %p
+            = @project.description.html_safe
             - flash.each do |type, message|
               .ui.message{class: "#{type}"}
                 %p= message
-            = yield
-      
-      %br/
-      %br/
-      %br/
-    #footer
-      .ui.container
         .ui.divider
-        .ui.grid
-          .three.wide.column
-            %h4{style: 'color: gray'} PROMOÇÃO E ORGANIZAÇÃO:
-            = image_tag '/images/footer-iab.png', size: '220x40'
-          .eigth.wide.column
+        %br/
+        .row
+          .ui.grid
+            .ten.wide.column
+              = yield
+            .six.wide.column
+              menu
+        
+        %br/
+        %br/
+        %br/
+      #footer
+        .ui.container
+          .ui.divider
+          .ui.grid
+            .three.wide.column
+              %h4{style: 'color: gray'} PROMOÇÃO E ORGANIZAÇÃO:
+            .eigth.wide.column
 
-          .four.wide.column
-            %h4{style: 'color: gray'} PROMOÇÃO:
-            = image_tag '/images/footer-cau.png', size: '180x50'
+            .four.wide.column
+              %h4{style: 'color: gray'} PROMOÇÃO:
 
-    = render 'layouts/portal/modal' if @popup.present?
-    #action.ui.modal
+      = render 'layouts/portal/modal' if @popup.present?
+      #action.ui.modal      
 
