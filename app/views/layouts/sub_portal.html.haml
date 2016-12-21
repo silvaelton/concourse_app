@@ -91,7 +91,8 @@
                   - else
                     %a.item{href: "#{nav.href}", style: 'background-color: transparent !important;'}
                       %b= nav.label
-            .thirteen.wide.column
+            .one.wide.column
+            .twelve.wide.column
               = yield
         
         %br/
@@ -103,10 +104,12 @@
           .ui.grid
             .three.wide.column
               %h4{style: 'color: gray'} PROMOÇÃO E ORGANIZAÇÃO:
+              = image_tag "/images/footer-iab.png", width: '240'
             .eigth.wide.column
 
             .four.wide.column
               %h4{style: 'color: gray'} PROMOÇÃO:
+              = image_tag "/images/terracap_logo.png", width: '240'
 
       = render 'layouts/portal/modal' if @popup.present?
       #action.ui.modal      
