@@ -66,13 +66,7 @@
           .ui.grid
             .two.wide.column{style: 'padding: 0px !important'}
               %br/
-              %br/
-              %br/
-              %br/
-              %br/
-              %br/
-              %br/
-
+              = image_tag "/images/logo_terracap.jpg", size: '120x120'
             
 
       .ui.container
@@ -89,16 +83,16 @@
         .row
           .ui.grid
             .thirteen.wide.column
-              = yield
-            .three.wide.column
               .ui.vertical.pointing.menu
                 - @project.navs.actives.each do |nav|
                   - if nav.is_page
-                    %a.item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}"}
+                    %a.item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}", style: 'background-color: transparent !important;'}
                       %b= nav.label
                   - else
-                    %a.item{href: "#{nav.href}"}
+                    %a.item{href: "#{nav.href}", style: 'background-color: transparent !important;'}
                       %b= nav.label
+            .three.wide.column
+              = yield
         
         %br/
         %br/
