@@ -74,7 +74,8 @@
         .row
           .column
             %p
-            = @project.description.html_safe
+            %h3
+              %b= @project.description.html_safe
             - flash.each do |type, message|
               .ui.message{class: "#{type}"}
                 %p= message
@@ -83,7 +84,7 @@
         .row
           .ui.grid
             .three.wide.column
-              .ui.vertical.pointing.menu
+              .ui.vertical.pointing.menu{style: "border: none !important"}
                 - @project.navs.actives.each do |nav|
                   - if nav.is_page
                     %a.item{href: "#{portal.project_page_path(project_id: @project, id: nav.page)}", style: 'background-color: transparent !important;'}
@@ -91,6 +92,7 @@
                   - else
                     %a.item{href: "#{nav.href}", style: 'background-color: transparent !important;'}
                       %b= nav.label
+              
             .one.wide.column
             .twelve.wide.column
               = yield
@@ -103,7 +105,7 @@
           .ui.divider
           .ui.grid
             .three.wide.column
-              %h4{style: 'color: gray'} PROMOÇÃO E ORGANIZAÇÃO:
+              %h4{style: 'color: gray'} ORGANIZAÇÃO:
               = image_tag "/images/footer-iab.png", width: '240'
             .eigth.wide.column
 
