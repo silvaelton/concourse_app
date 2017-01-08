@@ -40,7 +40,7 @@ class Subscribe < ActiveRecord::Base
             file_content_type: { allow: ['application/pdf', 'image/jpg', 'image/png'],
                                 message: "Arquivo excede 15 MB ou está em formato inválido. Formatos válidos [PDF, PNG, JPG]"}
   
-  validates :paid_document, presence: true, file_size: { less_than_or_equal_to: 5.megabytes },
+  validates :paid_document, file_size: { less_than_or_equal_to: 5.megabytes },
             file_content_type: { allow: ['application/pdf', 'image/jpg', 'image/png'],
                                 message: "Arquivo excede 15 MB ou está em formato inválido. Formatos válidos [PDF, PNG, JPG]"}
     def self.count_projects
