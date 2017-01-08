@@ -17,7 +17,7 @@ class Subscribe < ActiveRecord::Base
   
   enum gender: ['masculino', 'feminino']
   enum situation: ['processando', 'indeferido', 'homologado']
-
+  enum professional_type: ['arquiteto_urbanista','engenheiro_civil']
 
   validates :name, :cpf, :born, presence: true 
   validates :cep,  :state, :city, :address, presence: true 
