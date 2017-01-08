@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161119020441) do
+ActiveRecord::Schema.define(version: 20170108111550) do
 
   create_table "bills", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -192,8 +192,8 @@ ActiveRecord::Schema.define(version: 20161119020441) do
 
   create_table "subscribes", force: :cascade do |t|
     t.integer  "project_id"
-    t.integer  "situation",            default: 0
-    t.boolean  "subscribe_paid",       default: false
+    t.integer  "situation",             default: 0
+    t.boolean  "subscribe_paid",        default: false
     t.integer  "subscribe_id"
     t.string   "name"
     t.string   "cpf"
@@ -213,13 +213,16 @@ ActiveRecord::Schema.define(version: 20161119020441) do
     t.string   "local_subscribe"
     t.string   "social_contract"
     t.string   "password"
-    t.boolean  "tecnical_responsible", default: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.boolean  "tecnical_responsible",  default: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "tecnical_observation"
     t.string   "token"
-    t.boolean  "paid",                 default: false
+    t.boolean  "paid",                  default: false
     t.text     "paid_observation"
+    t.integer  "professional_type"
+    t.string   "professional_document"
+    t.string   "paid_document"
   end
 
   add_index "subscribes", ["project_id"], name: "index_subscribes_on_project_id"

@@ -35,7 +35,8 @@ module Portal
         params.require(:subscribe).permit(:name, :born, :gender, :email, :telephone, :celphone, :cep, 
                                           :state_id, :city, :address, :fantasy_name, :social_reason, :cnpj, 
                                           :social_contract, :state_number, :local_subscribe, :tecnical_responsible, 
-                                          :tecnical_observation, :password, :password_confirmation)
+                                          :tecnical_observation, :password, :password_confirmation, 
+                                          :professional_type, :professional_document, :paid_document)
 
       end
 

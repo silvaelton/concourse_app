@@ -39,22 +39,13 @@
       .field
         = f.input :cnpj, input_html: { class: 'cnpj' }
   .field
-    .three.fields
-      .field
-        = f.input :social_contract, placeholder: "Informe o número do contrato"
-      .field
-        = f.input :state_number, placeholder: "Informe a inscrição estadual" 
-      .field
-        = f.input :local_subscribe, placeholder: "Nº e Local de inscrição"
-        = f.hint '(Municipal, Estadual, Distrital ou Isento)'
-  .field
-    .sixteen.wide.field
-      %label Declaro ser responsável técnico pela empresa acima
-  .field
-    .two.wide.field
-      = f.input :tecnical_responsible, as: :select, label: false, include_blank: false
-    .five.wide.field#tecnical_observation{style: !f.object.tecnical_responsible ? 'display: block' : 'display: none'}
-      = f.input :tecnical_observation, as: :string
+    .fields
+      .four.wide.field
+        = f.input :professional_type, label: "Tipo de profissional", as: :select, include_blank: false, collection: ::Subscribe.professional_types.map { |k, v| [k.humanize, k]}
+      .five.wide.field
+        = f.input :professional_document, as: :file, label: "Registro profissional (PDF, PNG ou JPG)"
+      .five.wide.field
+        = f.input :paid_document, as: :file, label: "Comprovante de pagamento"
 
   .ui.divider
   .fields

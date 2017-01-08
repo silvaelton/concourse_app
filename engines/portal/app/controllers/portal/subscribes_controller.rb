@@ -38,7 +38,7 @@ module Portal
                                         :social_contract, :state_number, :gender,
                                         :local_subscribe, :cnpj, :email, :tecnical_responsible,
                                         :telephone, :celphone, :password, :password_confirmation,
-                                        :tecnical_observation)
+                                        :tecnical_observation, :professional_type, :professional_document)
     end
 
 

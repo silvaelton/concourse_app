@@ -20,11 +20,10 @@ class Subscribe < ActiveRecord::Base
   enum professional_type: ['arquiteto_urbanista','engenheiro_civil']
 
   validates :name, :cpf, :born, presence: true 
-  validates :cep,  :state, :city, :address, presence: true 
+  validates :cep,    :city, :address, presence: true 
   
   validates :fantasy_name, :social_reason, :cnpj, presence: true
-  validates :social_contract, :state_number, :local_subscribe, presence: true
-
+  
   validates :email, email: true 
   validates :telephone,presence: true
   validates :cpf, cpf: true 
@@ -39,10 +38,12 @@ class Subscribe < ActiveRecord::Base
   
   validates :professional_document, presence: true, file_size: { less_than_or_equal_to: 5.megabytes },
             file_content_type: { allow: ['application/pdf', 'image/jpg', 'image/png'],
-                                message: "Arquivo excede 15 MB ou está em formato inválido. Formatos válidos [PDF, PNG, JPG]"}, if: :project_participation?
+                                message: "Arquivo excede 15 MB ou está em formato inválido. Formatos válidos [PDF, PNG, JPG]"}
   
-  
-  def self.count_projects
+  validates :paid_document, presence: true, file_size: { less_than_or_equal_to: 5.megabytes },
+            file_content_type: { allow: ['application/pdf', 'image/jpg', 'image/png'],
+                                message: "Arquivo excede 15 MB ou está em formato inválido. Formatos válidos [PDF, PNG, JPG]"}
+    def self.count_projects
     @index = 0
   
     ::Subscribe.all.each do |subscribe|
@@ -75,8 +76,12 @@ class Subscribe < ActiveRecord::Base
   end
 
   def send_juridical?
-    participation = ::Participation.find_by(name: "Prancha A1 (PDF até 15mb)") rescue nil
-    self.subscribe_participations.where.not(participation_id: participation.id).count == 11
+    begin 
+      participation = ::Participation.find_by(name: "Prancha A1 (PDF até 15mb)") rescue nil
+      self.subscribe_participations.where.not(participation_id: participation.id).count == 11
+    rescue
+      nil
+    end
   end
 
   def start_send_juridical?

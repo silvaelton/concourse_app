@@ -7,8 +7,6 @@
           Detalhamento da sua inscrição
   .row
     .column
-      = link_to "Editar Minha Inscrição", project_candidate_area_root_path(@project)
-      |
       = link_to "Finalizar Acesso", logout_project_candidate_area_sessions_path(@project), method: :delete
   - if current_candidate.send_participation_ok?
     .row
@@ -96,15 +94,11 @@
       %table.ui.celled.table.striped
         %thead
           %tr
-            %th.collapsing Inscrição Estadual
-            %th Nº e Local de Inscrição
-            %th Nº Registro do CAU da empresa         
-            %th Responsável Técnico
-            %th Observação
+            %th.collapsing Tipo de profissional
+            %th Documento 
+            %th Comprovante de pagamento
         %tbody
           %tr
-            %td= current_candidate.state_number
-            %td= current_candidate.local_subscribe
-            %td= current_candidate.social_contract
-            %td= current_candidate.tecnical_responsible
-            %td= current_candidate.tecnical_observation
+            %td= current_candidate.professional_type.humanize
+            %td= link_to "Visualizar arquivo", current_candidate.professional_document_url, target: '_blank'
+            %td= link_to "Visualizar arquivo", current_candidate.paid_document_url if current_candidate.paid_document?
