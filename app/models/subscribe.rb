@@ -34,6 +34,14 @@ class Subscribe < ActiveRecord::Base
   validates :password, :password_confirmation, length: {minimum: 6, maximum: 24}, presence: true, if: 'self.password_changed?'
   validate  :compare_passwords, if: 'self.password_changed?'
 
+  mount_uploader :paid_document, ::DocumentUploader
+  mount_uploader :professional_document, ::DocumentUploader
+  
+  validates :professional_document, presence: true, file_size: { less_than_or_equal_to: 5.megabytes },
+            file_content_type: { allow: ['application/pdf', 'image/jpg', 'image/png'],
+                                message: "Arquivo excede 15 MB ou está em formato inválido. Formatos válidos [PDF, PNG, JPG]"}, if: :project_participation?
+  
+  
   def self.count_projects
     @index = 0
   
