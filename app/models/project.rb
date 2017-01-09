@@ -42,12 +42,12 @@ class Project < ActiveRecord::Base
   def participation_normal;    ::Participation.where(participation_type: 0).order(:id); end
 
   def allow_consult?
-    self.consult_start <= Date.today && self.consult_end >= Date.today && self.consult_publish
+    self.consult_start <= Date.current && self.consult_end >= Date.current && self.consult_publish
   end
 
 
   def allow_subscribe?
-    self.subscribe_start <= Date.today && self.subscribe_end >= Date.today && self.subscribe_publish
+    self.subscribe_start <= Date.current && self.subscribe_end >= Date.current && self.subscribe_publish
   end
 
 end
