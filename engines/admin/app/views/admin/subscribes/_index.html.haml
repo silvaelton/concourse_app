@@ -36,27 +36,27 @@
           = link_to "Não pago", project_subscribe_update_paid_path(project_id: @project, subscribe_id: candidate), remote: true, class: 'ui button red icon mini'
       %td
         = link_to "Visualizar", project_subscribe_path(project_id: @project, id: candidate), class: 'ui button icon mini'
-    - else
-      %tr
-        %td= candidate.id
-        %td
-          .ui.label.mini= candidate.name
-          %br/
-          .ui.label.mini= candidate.cpf
-          %br/
-          .ui.label.mini= candidate.email
-          %br/
-        %td= candidate.situation.humanize
-        %td
-          Sem informação
-        %td
-          - if candidate.paid_document.present?
-            %label.ui.label.blue Comprovante enviado
-            
-          - if candidate.paid?
-            = link_to "Pago", project_subscribe_update_paid_path(project_id: @project, subscribe_id: candidate), remote: true, class: 'ui button green icon mini'
-          - else
-            = link_to "Não pago", project_subscribe_update_paid_path(project_id: @project, subscribe_id: candidate), remote: true, class: 'ui button red icon mini'
-        %td
-          = link_to "Visualizar", project_subscribe_path(project_id: @project, id: candidate), class: 'ui button icon mini'
+  - else
+    %tr
+      %td= candidate.id
+      %td
+        .ui.label.mini= candidate.name
+        %br/
+        .ui.label.mini= candidate.cpf
+        %br/
+        .ui.label.mini= candidate.email
+        %br/
+      %td= candidate.situation.humanize
+      %td
+        Sem informação
+      %td
+        - if candidate.paid_document.present?
+          %label.ui.label.blue Comprovante enviado
+          
+        - if candidate.paid?
+          = link_to "Pago", project_subscribe_update_paid_path(project_id: @project, subscribe_id: candidate), remote: true, class: 'ui button green icon mini'
+        - else
+          = link_to "Não pago", project_subscribe_update_paid_path(project_id: @project, subscribe_id: candidate), remote: true, class: 'ui button red icon mini'
+      %td
+        = link_to "Visualizar", project_subscribe_path(project_id: @project, id: candidate), class: 'ui button icon mini'
 
