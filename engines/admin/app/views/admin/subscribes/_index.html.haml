@@ -52,7 +52,8 @@
         %td
           - if candidate.paid_document.present?
             %label.ui.label.blue Comprovante enviado
-          - if candidate.paid   
+            
+          - if candidate.paid?
             = link_to "Pago", project_subscribe_update_paid_path(project_id: @project, subscribe_id: candidate), remote: true, class: 'ui button green icon mini'
           - else
             = link_to "Não pago", project_subscribe_update_paid_path(project_id: @project, subscribe_id: candidate), remote: true, class: 'ui button red icon mini'
