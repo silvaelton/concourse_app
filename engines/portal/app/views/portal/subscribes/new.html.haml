@@ -6,6 +6,17 @@
   .column
     - if @project.allow_subscribe?
       .ui.divider
-      = render 'form'
+      .column
+        %p 1. Preenchimento do formulário eletrônico de inscrição com os dados do responsável técnico, devendo ser anexado o comprovante de regularidade junto ao respectivo conselho (CAU ou CREA) e indicação da Pessoa Jurídica, nos termos do Edital. 
+        
+        %p 2. Após o preenchimento e envio dos dados e documentos, será gerado boleto para pagamento da inscrição, no valor de R$ 300,00 (trezentos reais). O comprovante de pagamento deverá ser enviado em campo apropriado.
+
+        %p 3. Em até 05 dias úteis após o envio do comprovante de pagamento do boleto, a inscrição será homologada.
+        %br/
+        %br/
+        %br/
+        %br/
+      .column
+        = render 'form'
     - else
       %i As inscrições não estão abertas ou já foram encerradas, consulte o cronograma. 
