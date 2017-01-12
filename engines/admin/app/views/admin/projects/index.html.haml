@@ -20,13 +20,25 @@
           %th Situação
           %th
       %tbody
-        - @projects.each do |project|
-          %tr
-            %td.collapsing= project.id
-            %td= project.title
-            %td= project.start.strftime("%d/%m/%Y")
-            %td= project.end.strftime("%d/%m/%Y")
-            %td= project.situation
-            %td.collapsing
-              = link_to "<i class='external square icon'></i>".html_safe, project_path(project), class: 'ui icon button mini primary '
-              = link_to "<i class='edit icon'></i>".html_safe, edit_project_path(project), class: 'ui button green edit icon mini' if current_user.administrador?
+        - if current_user.email == "terracap@concursoapp.com"
+          - @projects.where(id: 3).each do |project|
+            %tr
+              %td.collapsing= project.id
+              %td= project.title
+              %td= project.start.strftime("%d/%m/%Y")
+              %td= project.end.strftime("%d/%m/%Y")
+              %td= project.situation
+              %td.collapsing
+                = link_to "<i class='external square icon'></i>".html_safe, project_path(project), class: 'ui icon button mini primary '
+
+        - else
+          - @projects.each do |project|
+            %tr
+              %td.collapsing= project.id
+              %td= project.title
+              %td= project.start.strftime("%d/%m/%Y")
+              %td= project.end.strftime("%d/%m/%Y")
+              %td= project.situation
+              %td.collapsing
+                = link_to "<i class='external square icon'></i>".html_safe, project_path(project), class: 'ui icon button mini primary '
+                = link_to "<i class='edit icon'></i>".html_safe, edit_project_path(project), class: 'ui button green edit icon mini' if current_user.administrador?
