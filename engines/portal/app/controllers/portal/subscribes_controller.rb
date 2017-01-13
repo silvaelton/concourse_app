@@ -20,7 +20,7 @@ module Portal
       if @subscribe.save 
         session[:subscribe_id] = @subscribe.id
 
-        ::Portal::SubscribeMailer.success(@subscribe, @subscribe.project).deliver_now! rescue nil
+        ::Portal::SubscribeMailer.success(@subscribe, @subscribe.project).deliver_now!
         
         redirect_to action: :success
       else

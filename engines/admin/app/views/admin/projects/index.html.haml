@@ -5,7 +5,8 @@
       .sub.header
         página de listagem de todos os concursos já criados. 
     .ui.hidden.divider
-    %a{href: "#{admin.new_project_path}", class:'ui primary button'} + Adicionar Novo Concurso
+    - if current_user.administrator?
+      %a{href: "#{admin.new_project_path}", class:'ui primary button'} + Adicionar Novo Concurso 
 .ui.hidden.divider
 
 .row
