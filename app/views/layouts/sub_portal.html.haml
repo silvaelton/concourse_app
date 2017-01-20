@@ -8,7 +8,7 @@
     %link{:href => "https://fonts.googleapis.com/css?family=PT+Sans+Narrow", :rel => "stylesheet"}/
     = csrf_meta_tags
   %body
-    - if @project.slug != 'concursoparquesaguasclaras'
+    - if @project.id != 3
       %div{style: "background-color: #{@project.header_color} !important; margin-top: 0px !important"}
         .ui.container
           .ui.grid
