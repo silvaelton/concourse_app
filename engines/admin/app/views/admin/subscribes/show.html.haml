@@ -107,5 +107,18 @@
           %tbody
             %tr
               %td= @subscribe.professional_type.humanize
-              %td= link_to "Baixar documento", @subscribe.professional_document_url
-              %td= link_to "Baixar comprovante", @subscribe.paid_document_url
+              %td= link_to "Baixar documento", @subscribe.professional_document_url, target: '_blank'
+              %td= link_to "Baixar comprovante", @subscribe.paid_document_url, target: '_blank'
+  .row
+    .column
+      = link_to "+ Adicionar observação", new_project_subscribe_subscribe_observation_path(@project, @subscribe), remote: true, data: { disable_with: t(:disable_with)}
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th Data
+            %th Observação
+            
+        %tbody.index-observation
+          = render 'admin/subscribe_observations/index'

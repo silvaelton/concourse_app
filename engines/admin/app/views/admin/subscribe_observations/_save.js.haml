@@ -1,0 +1,5 @@
+- if @observation.errors.any?
+  $(".description").html("#{escape_javascript(render 'form')}")
+- else
+  $(".ui.modal").modal('hide')
+  $(".index-observation").html("#{escape_javascript(render 'index')}")

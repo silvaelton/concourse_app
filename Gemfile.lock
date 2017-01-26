@@ -67,6 +67,10 @@ GEM
       mime-types (>= 1.16)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
+    dotenv (2.1.2)
+    dotenv-rails (2.1.2)
+      dotenv (= 2.1.2)
+      railties (>= 3.2, < 5.1)
     email_validator (1.6.0)
       activemodel
     erubis (2.7.0)
@@ -230,6 +234,7 @@ DEPENDENCIES
   brcobranca!
   byebug
   carrierwave (>= 1.0.0.rc, < 2.0)
+  dotenv-rails
   email_validator
   file_validators
   fog-aws

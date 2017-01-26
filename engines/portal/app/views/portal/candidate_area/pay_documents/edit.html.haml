@@ -1,0 +1,21 @@
+.ui.grid
+  .row
+    .column
+      %h2.ui.header 
+        Minha Inscrição
+        .ui.sub.header
+          Envio de comprovante de pagamento
+      = link_to "Finalizar Acesso", logout_project_candidate_area_sessions_path(@project), method: :delete
+      |
+      = link_to "Voltar para o detalhamento", project_candidate_area_root_path(@project)
+
+  .row
+    .column 
+      %b Último arquivo enviado
+      - if @subscribe.paid_document.present?
+        %p= link_to "Visualizar arquivo enviado", @subscribe.paid_document_url, target: "_blank"
+      - else
+        %p
+          %i Nenhum comprovante enviado até o momento.
+  .row
+    = render 'form'

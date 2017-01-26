@@ -1,0 +1,7 @@
+.column
+  = simple_form_for [@project, @subscribe, @observation], remote: true do |f|
+    .field
+      .field.sixteen.wide
+        = f.input :content, label: "Conteúdo"
+    .field
+      = f.submit "Adicionar observação", class: 'ui button green', data: { disable_with: t(:disable_with)}

@@ -1,0 +1,4 @@
+- @subscribe.subscribe_observations.order(:created_at).each do |observation|
+  %tr
+    %td.collapsing= observation.created_at.strftime("%d/%m/%Y - %H:%M")
+    %td= observation.content

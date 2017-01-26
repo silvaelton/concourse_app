@@ -7,7 +7,7 @@ class Subscribe < ActiveRecord::Base
   has_many :subscribe_teams
   has_many :subscribe_optionals, class_name: "::SubscribeTeamOptional"
   has_many :subscribe_requireds, class_name: "::SubscribeTeamRequired"
-
+  has_many :subscribe_observations
 
   scope :processing, -> { where(situation: 0)}
   scope :recused,    -> { where(situation: 1)}
@@ -43,7 +43,7 @@ class Subscribe < ActiveRecord::Base
   validates :paid_document, file_size: { less_than_or_equal_to: 5.megabytes },
             file_content_type: { allow: ['application/pdf', 'image/jpg', 'image/png'],
                                 message: "Arquivo excede 15 MB ou está em formato inválido. Formatos válidos [PDF, PNG, JPG]"}
-    def self.count_projects
+  def self.count_projects
     @index = 0
   
     ::Subscribe.all.each do |subscribe|

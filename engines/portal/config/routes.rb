@@ -31,6 +31,7 @@ Portal::Engine.routes.draw do
         get 'success'
       end
 
+      resources :pay_documents, path: 'comprovante', only: [:edit, :update]
       resources :billets, path: 'boleto' do 
         collection do 
           get 'generate', path: 'gerar'

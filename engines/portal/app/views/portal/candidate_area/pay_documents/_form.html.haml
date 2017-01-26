@@ -1,0 +1,8 @@
+.column 
+  = simple_form_for [@project, @subscribe], url: project_candidate_area_pay_document_path(@project, @subscribe), method: :put do |f|
+    .field
+      .field.wide.five
+        = f.input :paid_document, as: :file, label: "Arquivo de comprovação de pagamento"
+    .field
+      .field
+        = f.submit "Enviar Arquivo", class: 'ui button green', data: { disable_with:  t(:disable_with)}

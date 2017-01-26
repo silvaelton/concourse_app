@@ -15,6 +15,9 @@ module Portal
       def update
         @subscribe = current_candidate
         @subscribe.update(set_params)
+
+        flash[:success] = t :success
+        redirect_to action: :edit
       end
 
       private
