@@ -5,9 +5,9 @@
         Minha Inscrição
         .ui.sub.header
           Detalhamento da sua inscrição
-  .row
-    .column
       = link_to "Finalizar Acesso", logout_project_candidate_area_sessions_path(@project), method: :delete
+      |
+      = link_to "Editar inscrição", edit_project_candidate_area_candidate_subscribe_path(@project, current_candidate)
   - if current_candidate.send_participation_ok?
     .row
       .column{style: 'text-align: center !important'}
@@ -103,3 +103,24 @@
             %td= current_candidate.professional_type.humanize
             %td= link_to "Visualizar arquivo", current_candidate.professional_document_url, target: '_blank'
             %td= link_to "Visualizar arquivo", current_candidate.paid_document_url if current_candidate.paid_document?
+
+  %br/
+  %br/
+  .row
+    .column
+      %h3 Observações da organização
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th Data
+            %th Conteúdo
+        %tbody
+          - if current_candidate.subscribe_observations.present?
+            - current_candidate.subscribe_observations.order("created_at DESC").each do |observation|
+              %tr
+                %td.collapsing= observation.created_at.strftime("%d/%m/%Y às %H:%M")
+                %td= observation.content
+          - else
+            %tr
+              %td{colspan: 2}
+                %i Nenhuma observação registrada.
