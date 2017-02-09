@@ -42,7 +42,7 @@
     .fields
       .four.wide.field
         = f.input :professional_type, label: "Tipo de profissional", as: :select, include_blank: false, collection: ::Subscribe.professional_types.map { |k, v| [k.humanize, k]}
-      .five.wide.field
+      .seven.wide.field
         = f.input :professional_document, as: :file, label: "Certidão de Registro e Quitação (CAU ou CREA)"
 
   .ui.divider
