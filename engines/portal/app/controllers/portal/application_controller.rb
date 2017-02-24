@@ -2,6 +2,9 @@ module Portal
   class ApplicationController < ActionController::Base
     layout 'portal'
 
+    before_filter :expire_hsts
+
+
     def current_candidate
       ::Subscribe.find(session[:subscribe_id]) rescue nil
     end
@@ -15,6 +18,11 @@ module Portal
     helper_method :current_candidate
     helper_method :subscribe_authenticate!
 
+    private
+    
+    def expire_hsts
+      response.headers["Strict-Transport-Security"] = 'max-age=0'
+    end
 
   end
 end
