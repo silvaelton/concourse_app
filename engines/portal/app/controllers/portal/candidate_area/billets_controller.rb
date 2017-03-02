@@ -23,7 +23,7 @@ module Portal
         @boleto.convenio = "2945690"
 
         @boleto.numero_documento = current_candidate.id
-        @boleto.data_vencimento = "2017-02-25".to_date
+        @boleto.data_vencimento = "2017-03-11".to_date
         @boleto.data_documento = Date.today.strftime("%Y-%m-%d").to_date
         @boleto.instrucao1 = "Pagável na rede bancária até a data de vencimento."
         @boleto.instrucao4 = "NÃO RECEBER APÓS data"
