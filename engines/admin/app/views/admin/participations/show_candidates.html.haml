@@ -12,7 +12,6 @@
           %th Telefone
           %th Cidade
           %th Estado
-          %th Envio
       %tbody
         - @participations.order(:id).each do |item| 
           - if item.subscribe.send_members? && item.subscribe.send_juridical? 
