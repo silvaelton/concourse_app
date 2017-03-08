@@ -1,0 +1,37 @@
+.row
+  .column
+    %h1.ui.header 
+      Relatório participações
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th.collapsing Nome
+          %th Telefone
+          %th Cidade
+          %th Estado
+          %th Envio
+      %tbody
+        - @participations.order(:id).each do |item| 
+          %tr
+            %td.collapsing= item.subscribe.name.mb_chars.upcase
+            %td.collapsing= item.subscribe.telephone
+            %td.collapsing= item.subscribe.city
+            %td.collapsing= item.subscribe.state.name
+            %td
+              - if item.subscribe.send_members?
+                .ui.label.mini.green Equipe técnica
+              - else
+                .ui.label.mini.gray Equipe técnica
+
+              - if item.subscribe.send_juridical?
+                .ui.label.mini.green Documentação jurídica
+              - else
+                .ui.label.mini.gray Documentação jurídica
+            - if ::Subscribe.allow_project?
+              %td 
+                %i Bloqueado
+            - else
+              %td.collapsing= link_to "Visualizar projeto", item.participation_path_url, target: '_blank'

@@ -27,7 +27,12 @@ Admin::Engine.routes.draw do
     resources :popups
     resources :informs
     resources :bills
-    resources :participations
+    resources :participations do 
+      collection do 
+        get 'show_candidates'
+      end
+    end
+
     resources :documents
     resources :winners
     
