@@ -9,7 +9,7 @@
       %thead
         %tr
           %th.collapsing Nº
-          %th.collapsing Nome
+          %th Nome
           %th Telefone
           %th Cidade
           %th Estado
@@ -18,7 +18,7 @@
           - if item.subscribe.send_members? && item.subscribe.send_juridical? 
             %tr
               %td.collapsing= item.subscribe.id
-              %td.collapsing= item.subscribe.name.mb_chars.upcase
+              %td= item.subscribe.name.mb_chars.upcase
               %td.collapsing= item.subscribe.telephone
               %td.collapsing= item.subscribe.city
               %td.collapsing= item.subscribe.state.name
