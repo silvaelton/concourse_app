@@ -10,6 +10,10 @@ module Admin
       @participations = ::SubscribeParticipation.where(participation_id: 1)
     end
 
+    def show_candidates
+      @participations = ::SubscribeParticipation.where(participation_id: 1)
+    end
+    
     private
 
     def set_project
