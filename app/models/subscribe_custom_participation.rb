@@ -6,13 +6,12 @@ class SubscribeCustomParticipation < ActiveRecord::Base
 
   validates :archive_file_one, file_size: { less_than_or_equal_to: 20.megabytes },
             file_content_type: { allow: ['application/pdf'],
-                                message: "Arquivo excede 20 MB ou está em formato inválido. Formatos válidos [PDF]"}, if: :project_participation?
+                                message: "Arquivo excede 20 MB ou está em formato inválido. Formatos válidos [PDF]"}
   
   
   validates :archive_file_two, file_size: { less_than_or_equal_to: 3.megabytes },
-          file_content_type: { allow: ['image/jpeg', 'image/png', 'application/pdf', 'application/msword',
-                                       'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
-                                        message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPEG, PNG, PDF, DOC, DOCX]"}, unless: :project_participation?
+          file_content_type: { allow: ['image/jpeg', 'image/png'],
+                                        message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPEG, PNG]"}
  
   mount_uploader :archive_file_one, ::DocumentUploader
   mount_uploader :archive_file_two, ::DocumentUploader
