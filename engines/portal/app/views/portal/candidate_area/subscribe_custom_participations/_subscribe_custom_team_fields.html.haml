@@ -1,4 +1,4 @@
 %fieldset
   = f.input :name, label: "Nome"
   = f.input :cpf, label: "CPF"
-  = f.input :jobs, as: :select
+  = f.input :job, as: :select, collection: ::SubscribeCustomTeam.job.keys, include_blank: false
