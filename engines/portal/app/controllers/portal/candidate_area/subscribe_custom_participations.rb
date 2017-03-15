@@ -1,7 +1,7 @@
 require_dependency 'portal/application_controller'
 module Portal
   module CandidateArea
-    def SubscribeCustomParticipationsController < ApplicationController
+    class SubscribeCustomParticipationsController < ApplicationController
 
       before_action :set_project
       before_action :set_subscribe
