@@ -35,7 +35,7 @@
               %th CPF
               %th Função
           %tbody
-            - @subscribe.subscribe_custom_teams.each do |team|
+            - @participation.subscribe_custom_teams.each do |team|
               %tr
                 %td= team.name
                 %td= team.cpf

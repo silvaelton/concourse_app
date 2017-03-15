@@ -23,7 +23,7 @@ module Portal
         @participation = current_candidate.subscribe_custom_participations.new(set_params)
 
         if @participation.save
-          redirect_to candidate_area.root_path
+          redirect_to action: :new
         else
           render action: :new
         end
