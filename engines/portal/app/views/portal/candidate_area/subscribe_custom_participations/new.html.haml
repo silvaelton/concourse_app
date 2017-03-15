@@ -1,0 +1,44 @@
+.ui.grid
+  .row
+    .column
+      %h2.ui.header 
+        Participação
+        .ui.sub.header
+          Envio de projeto
+      = link_to "Finalizar Acesso", logout_project_candidate_area_sessions_path(@project), method: :delete
+      |
+      = link_to "Voltar para o detalhamento", project_candidate_area_root_path(@project)
+
+  .row
+    .column 
+      - if @participation.present?
+        %h3 Projeto
+        %br/
+        %table.ui.table.striped
+          %thead
+            %tr
+              %th Data de envio
+              %th Arquivo
+          %tbody
+            %tr
+              %td= @participation.created_at.strftime("%d/%m/%Y")
+              %td= @participation.archive_file_one_url
+            %tr
+              %td= @participation.created_at.strftime("%d/%m/%Y")
+              %td= @participation.archive_file_one_url
+        %h3 Equipe
+        %br/
+        %table.ui.table.striped
+          %thead
+            %tr
+              %th Nome
+              %th CPF
+              %th Função
+          %tbody
+            - @subscribe.subscribe_custom_teams.each do |team|
+              %tr
+                %td= team.name
+                %td= team.cpf
+                %td= team.job
+      - else
+        = render 'form

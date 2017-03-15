@@ -1,0 +1,13 @@
+= simple_form_for @participation do |f|
+  = f.simple_fields_for :subscribe_custom_teams do |builder|
+    = render 'subscrieb_custom_team_fields', builder, :subscribe_custom_teams
+  = link_to_add_fields "Adicionar", f: :subscribe_custom_teams
+
+  = f.input :archive_file_one, label: "Arquivo 3"
+  = f.input :archive_file_two, label: "Arquivo 2"  
+
+  %br/
+  %br/
+  %br/
+  %br/
+  = f.submit "Salvar", data: { disable_with: "Carregando..."}
