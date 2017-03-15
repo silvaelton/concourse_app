@@ -8,6 +8,7 @@ class Subscribe < ActiveRecord::Base
   has_many :subscribe_optionals, class_name: "::SubscribeTeamOptional"
   has_many :subscribe_requireds, class_name: "::SubscribeTeamRequired"
   has_many :subscribe_observations
+  has_many :subscribe_custom_participations
 
   scope :processing, -> { where(situation: 0)}
   scope :recused,    -> { where(situation: 1)}
