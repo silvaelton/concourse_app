@@ -11,7 +11,7 @@
 
   .row
     .column 
-      - if @participation.present?
+      - if !@participation.new_record?
         %h3 Projeto
         %br/
         %table.ui.table.striped
