@@ -8,13 +8,13 @@ class SubscribeParticipation < ActiveRecord::Base
 
   validates :participation_path, file_size: { less_than_or_equal_to: 15.megabytes },
             file_content_type: { allow: ['application/pdf'],
-                                message: "Arquivo excede 15 MB ou está em formato inválido. Formatos válidos [PDF]"}, if: :project_participation?
+                                message: "Arquivo excede 15 MB ou está em formato inválido. Formatos válidos [PDF]"}
   
   
   validates :participation_path, file_size: { less_than_or_equal_to: 3.megabytes },
           file_content_type: { allow: ['image/jpeg', 'image/png', 'application/pdf', 'application/msword',
                                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
-                                        message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPEG, PNG, PDF, DOC, DOCX]"}, unless: :project_participation?
+                                        message: "Arquivo excede 3 MB ou está em formato inválido. Formatos válidos [JPEG, PNG, PDF, DOC, DOCX]"}
   def participation_path_url
     "http://wmasites.com.br/iabconcursos/documents/#{self.participation_path}"
   end
