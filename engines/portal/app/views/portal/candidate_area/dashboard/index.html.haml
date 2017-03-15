@@ -18,10 +18,10 @@
             Pedimos que aguarde o processo de julgamento do concurso, que ocorrerá nos dias 10, 11 e 12 de novembro de 2016.
   .row
     .column
-      - if current_candidate.send_project?
-        = link_to "Realizar envio do projeto", new_project_candidate_area_participation_path(@project),  class: 'ui right floated button blue', data: { disable_with: t(:disable_with)}
-      = link_to "Emitir boleto", generate_project_candidate_area_billets_path(@project),  class: 'ui right floated button green', data: { disable_with: t(:disable_with)}
-      = link_to "Enviar comprovante de pagamento", edit_project_candidate_area_pay_document_path(@project, current_candidate) ,  class: 'ui right floated button blue', data: { disable_with: t(:disable_with)}
+      - if current_candidate.subscribe_custom_participations.present? && current_candidate.homologado?
+        = link_to "Projeto enviado, visualizar", new_project_candidate_area_subscribe_custom_participation_path(@project),  class: 'ui right floated button green', data: { disable_with: t(:disable_with)}
+      - elsif current_candidate.homologado?
+        = link_to "Realizar envio do projeto", new_project_candidate_area_subscribe_custom_participation_path(@project),  class: 'ui right floated button blue', data: { disable_with: t(:disable_with)}
   .row
     .column
       %table.ui.celled.table.striped
