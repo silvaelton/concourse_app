@@ -2,5 +2,5 @@ class SubscribeCustomTeam < ActiveRecord::Base
 
   validates :name, :cpf, presence: true 
   
-  enum jobs: ['Co-Autor','Colaborador','Consultor', 'Outro']
+  enum job: ['Co-Autor','Colaborador','Consultor', 'Outro']
 end
