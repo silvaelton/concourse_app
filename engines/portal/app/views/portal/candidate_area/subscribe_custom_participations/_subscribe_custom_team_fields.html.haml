@@ -1,10 +1,11 @@
 %fieldset
-  .field.wide.four
-    = f.input :name, label: "Nome"
-  .field.wide.four
-    = f.input :cpf, label: "CPF"
-  .field.wide.four
-    = f.input :job, as: :select, collection: ::SubscribeCustomTeam.jobs.keys, include_blank: false
-  .field.wide.four
-    = f.hidden_field :_destroy
-    = link_to "Remover", '#', class: "ui button red remove_fields"
+  .fields
+    .field.wide.four
+      = f.input :name, label: "Nome"
+    .field.wide.four
+      = f.input :cpf, label: "CPF"
+    .field.wide.four
+      = f.input :job, as: :select, collection: ::SubscribeCustomTeam.jobs.keys, include_blank: false
+    .field.wide.four
+      = f.hidden_field :_destroy
+      = link_to "Remover", '#', class: "ui button red remove_fields mini"
