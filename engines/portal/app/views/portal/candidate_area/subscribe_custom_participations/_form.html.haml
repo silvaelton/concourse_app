@@ -1,4 +1,4 @@
-= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participation_path(@project) do |f|
+= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project) do |f|
   = f.simple_fields_for :subscribe_custom_teams do |builder|
     = render 'subscribe_custom_team_fields', f: builder
   = link_to_add_fields "Adicionar", f, :subscribe_custom_teams
