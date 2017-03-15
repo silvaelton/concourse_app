@@ -20,6 +20,8 @@ Portal::Engine.routes.draw do
     namespace :candidate_area, path: 'area_candidato' do 
       root 'dashboard#index'
       
+      resources :subscribe_custom_participations, path: 'participar'
+            
       resources :sessions, path: 'acesso' do 
         collection do 
           delete 'logout'
