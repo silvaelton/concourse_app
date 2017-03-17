@@ -12,12 +12,12 @@
   %br/
   - if @participation.archive_file_one.present?
     %br/
-    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_url, target: '_blank'
+    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_one_url, target: '_blank'
     %br/
   = f.input :archive_file_one, label: "Arquivo em PDF, com tamanho máximo de 20MB contendo as 6 pranchas"
   - if @participation.archive_file_two.present?
     %br/
-    = link_to "Visualizar imagem ilustrativa enviada", f.object.archive_file_url, target: '_blank'
+    = link_to "Visualizar imagem ilustrativa enviada", f.object.archive_file_two_url, target: '_blank'
     %br/
   = f.input :archive_file_two, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"  
 
