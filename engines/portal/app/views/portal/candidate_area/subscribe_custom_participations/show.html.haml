@@ -1,0 +1,42 @@
+.ui.grid
+  .row
+    .column
+      %h2.ui.header 
+        Participação
+        .ui.sub.header
+          Edição de projeto
+      = link_to "Finalizar Acesso", logout_project_candidate_area_sessions_path(@project), method: :delete
+      |
+      = link_to "Voltar para o detalhamento", project_candidate_area_root_path(@project)
+
+  .row
+    .column 
+      %h3 Projeto
+      %br/
+      = link_to "Editar projeto", edit_project_candidate_area_subscribe_custom_participation_path(id: current_candidate.subscribe_custom_participations.first.id, project_id: @project), class: 'ui button blue'
+      %table.ui.table.striped
+        %thead
+          %tr
+            %th Data de envio
+            %th Arquivo
+        %tbody
+          %tr
+            %td= @participation.created_at.strftime("%d/%m/%Y")
+            %td= link_to "Visualizar arquivo", @participation.archive_file_one_url, target: '_blank'
+          %tr
+            %td= @participation.created_at.strftime("%d/%m/%Y")
+            %td= link_to "Visualizar arquivo", @participation.archive_file_two_url, target: '_blank'
+      %h3 Equipe
+      %br/
+      %table.ui.table.striped
+        %thead
+          %tr
+            %th Nome
+            %th CPF
+            %th Função
+        %tbody
+          - @participation.subscribe_custom_teams.each do |team|
+            %tr
+              %td= team.name
+              %td= team.cpf
+              %td= team.job
