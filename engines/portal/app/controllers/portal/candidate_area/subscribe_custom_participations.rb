@@ -46,7 +46,7 @@ module Portal
       def update
         @participation = current_candidate.subscribe_custom_participations.find(params[:id])
         
-        if @participation.save
+        if @participation.update(set_params)
           redirect_to action: :new
         else
           render action: :new
