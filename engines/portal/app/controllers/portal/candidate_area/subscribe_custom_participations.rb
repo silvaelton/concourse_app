@@ -29,6 +29,9 @@ module Portal
         end
       end
 
+      def show
+        @participation = current_candidate.subscribe_custom_participations.find(params[:id])
+      end
 
       def edit
         
