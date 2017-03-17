@@ -62,7 +62,7 @@ module Portal
       end
 
       def set_params
-        params.require(:subscribe_custom_participation)
+        params.fetch(:subscribe_custom_participation, {})
               .permit(:archive_file_one,:archive_file_two, 
                       subscribe_custom_teams_attributes:[:name, :job, :_destroy, :id, :cpf])
       end
