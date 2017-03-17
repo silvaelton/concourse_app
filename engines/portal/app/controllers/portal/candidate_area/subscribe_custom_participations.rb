@@ -29,6 +29,27 @@ module Portal
         end
       end
 
+
+      def edit
+        
+        if current_candidate.subscribe_custom_participations.present?
+          @participation = current_candidate.subscribe_custom_participations.find(params[:id])
+        else 
+          redirect_to action: :new
+        end
+
+      end
+
+      def update
+        @participation = current_candidate.subscribe_custom_participations.find(params[:id])
+        
+        if @participation.save
+          redirect_to action: :new
+        else
+          render action: :new
+        end
+      end
+
       private
 
 

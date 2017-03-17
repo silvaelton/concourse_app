@@ -1,0 +1,27 @@
+= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project, @participation) do |f|
+  
+  %br/
+  %br/
+  %h3 Adicionar a Equipe
+  %br/
+  = f.simple_fields_for :subscribe_custom_teams do |builder|
+    = render 'subscribe_custom_team_fields', f: builder
+  = link_to_add_fields "Adicionar", f, :subscribe_custom_teams
+  %br/
+  %br/
+  %h3 Adicionar o Projeto
+  %br/
+  - if f.object.achive_file_one.present?
+    %br/
+    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_url, target: '_blank'
+    %br/
+  = f.input :archive_file_one, label: "Arquivo em PDF, com tamanho máximo de 20MB contendo as 6 pranchas"
+    %br/
+  - if f.object.achive_file_two.present?
+    = link_to "Visualizar imagem ilustrativa enviada", f.object.archive_file_url, target: '_blank'
+    %br/
+  = f.input :archive_file_two, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"  
+
+  %br/
+  %br/
+  = f.submit "Salvar", class: 'ui button green', data: { disable_with: "Carregando..."}

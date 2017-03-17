@@ -20,7 +20,7 @@
     .column
       - if (Date.current >= Date.parse('2017-03-16') && Date.current <= Date.parse('2017-03-23')) || params[:run] == 'sim'
         - if current_candidate.subscribe_custom_participations.present? && current_candidate.homologado?
-          = link_to "Projeto enviado, visualizar", new_project_candidate_area_subscribe_custom_participation_path(@project),  class: 'ui right floated button green', data: { disable_with: t(:disable_with)}
+          = link_to "Projeto enviado, visualizar/editar", edit_project_candidate_area_subscribe_custom_participation_path(@project),  class: 'ui right floated button green', data: { disable_with: t(:disable_with)}
         - elsif current_candidate.homologado?
           = link_to "Realizar envio do projeto", new_project_candidate_area_subscribe_custom_participation_path(@project),  class: 'ui right floated button blue', data: { disable_with: t(:disable_with)}
       = link_to "Emitir boleto", generate_project_candidate_area_billets_path(@project),  class: 'ui right floated button green', data: { disable_with: t(:disable_with)}
