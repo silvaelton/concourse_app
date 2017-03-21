@@ -34,8 +34,13 @@
           %td= @project.subscribes.count
           %td= @project.subscribes.enabled.count
           %td= @project.subscribes.recused.count
-          %td= ::Subscribe.count_projects
-          %td= ::Subscribe.send_participation_ok
+          - if @project.id == 3
+            %td= ::Subscribe.count_projects
+            %td= ::Subscribe.send_participation_ok
+          - else
+            %td 0
+            %td= ::SubscribeCustomParticipation.all.count
+
 .ui.hidden.divider
 .row
   .column
