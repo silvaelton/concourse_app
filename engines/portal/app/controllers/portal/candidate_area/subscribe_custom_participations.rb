@@ -10,23 +10,33 @@ module Portal
       layout 'sub_portal'
 
       def new
-
-        if current_candidate.subscribe_custom_participations.present?
-          @participation = current_candidate.subscribe_custom_participations.first
-        else 
-          @participation = current_candidate.subscribe_custom_participations.new
+        if (Date.current >= Date.parse('2017-03-16')) && (Date.current <= Date.parse('2017-03-23'))
+          if current_candidate.subscribe_custom_participations.present?
+            @participation = current_candidate.subscribe_custom_participations.first
+          else 
+            @participation = current_candidate.subscribe_custom_participations.new
+          end
+        else
+          flash[:danger] = 'Envio de projeto fechado. Verifique o cronograma.'
+          redirect_to project_candidate_area_root_path(@project)
         end
 
       end
 
       def create
-        @participation = current_candidate.subscribe_custom_participations.new(set_params)
+        if (Date.current >= Date.parse('2017-03-16')) && (Date.current <= Date.parse('2017-03-23'))
+          @participation = current_candidate.subscribe_custom_participations.new(set_params)
 
-        if @participation.save
-          redirect_to action: :new
+          if @participation.save
+            redirect_to action: :new
+          else
+            render action: :new
+          end
         else
-          render action: :new
+          flash[:danger] = 'Envio de projeto fechado. Verifique o cronograma.'
+          redirect_to project_candidate_area_root_path(@project)
         end
+ 
       end
 
       def show
