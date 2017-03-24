@@ -42,6 +42,8 @@
                   %a.item{href:"#{project_bills_path(@project)}"} Boletos
                 - if @project.id == 1
                   %a.item{href:"#{project_participations_path(@project)}"} Participações
+                - if @project.id == 3
+                  %a.item{href:"#{project_subscribe_custom_participations_path(@project)}"} Participações
                 - if @project.id == 1
                   %a.item{href:"#{show_candidates_project_participations_path(@project)}"} Relatório de participações
                   %a.item{href:"#{project_winners_path(@project)}"} Vencedores

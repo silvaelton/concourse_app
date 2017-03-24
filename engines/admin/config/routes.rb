@@ -18,6 +18,7 @@ Admin::Engine.routes.draw do
   resources :projects do 
     resources :pages 
     resources :navs
+    resources :subscribe_custom_participations
     resources :subscribes do 
       resources :subscribe_observations
       get 'update_paid'

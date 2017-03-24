@@ -1,0 +1,24 @@
+.row
+  .column
+    %h1.ui.header 
+      Participações
+    %b
+    %b Projetos enviados:
+    #{@participations.count}
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th.collapsing Nº Pasta
+          %th Data
+          %th Arquivo PDF (Pranchas)
+          %th Arquivo Imagem 
+      %tbody
+        - @participations.order(:id).each do |item| 
+          %tr
+            %td.collapsing= item.id
+            %td= item.created_at.strftime("%d/%m/%Y às %H:%M")
+            %td= link_to "Visualizar", item.archive_file_one_url, target: '_blank'
+            %td= link_to "Visualizar", item.archive_file_two_url, target: '_blank'
