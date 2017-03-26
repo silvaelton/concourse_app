@@ -5,15 +5,18 @@ class Winner < ActiveRecord::Base
 
   enum winner_type: ['primeiro_lugar', 'segundo_lugar', 'terceiro_lugar', 'quarto_lugar','quinto_lugar', 'menção_honrosa']
 
+  validates_uniqueness_of :subscribe_participation_id, scope: :project_id
+  
   validates :subscribe_participation_id, :winner_type, presence: true
   validate  :subscribe_validate, if:'self.project_id == 1'
   validate  :subscribe_custom_validate, if:'self.project_id == 3'
   
 
+
   def subscribe_custom_validate
     subscribe = ::SubscribeCustomParticipation.where(id: self.subscribe_participation_id)
 
-    if !subscribe.present? || ::Winner.where(project_id: self.project_id, subscribe_participation_id: self.subscribe_participation_id).present?
+    if !subscribe.present? 
       errors.add(:subscribe_participation_id, "Projeto não encontrado.")
     end
   end
