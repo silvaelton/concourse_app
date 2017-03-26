@@ -1,8 +1,13 @@
 .row  
-  .column 
-    %h2
-      Vencedores
-      %br/
+  .column
+    - if @project.id == 1
+      %h2
+        Vencedores
+        %br/
+    - else
+      %h2
+        Vencedores primeira etapa
+        %br/
 .ui.divider.hidden
 .row  
   .column

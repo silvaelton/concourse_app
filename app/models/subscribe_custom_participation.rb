@@ -1,5 +1,7 @@
 class SubscribeCustomParticipation < ActiveRecord::Base
   has_many :subscribe_custom_teams
+  belongs_to :subscribe 
+  
   accepts_nested_attributes_for :subscribe_custom_teams, allow_destroy: true
 
   validates :archive_file_one, :archive_file_two, presence: true 
