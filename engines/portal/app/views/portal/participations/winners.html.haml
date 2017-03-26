@@ -15,29 +15,58 @@
           %tr
             %td= link_to "Baixar arquivo", @project.result_document_url, target: '_blank' if @project.result_document?
 
-.ui.divider.hidden
-.row  
-  .column
-    %table.ui.table.celled
-      %thead
-        %tr 
-          %th.collapsing Classificação
-          %th.collapsing Nº de inscrição
-          %th.collapsing Nº de pasta
-          %th Nome 
-          %th.collapsing Cidade/Estado
-          %th.collapsing Projeto
-      %tbody 
-        - if @projects.present?
-          - @projects.order(:winner_type).each do |project|
+- if @project.id == 3
+  .ui.divider.hidden
+    .row  
+      .column
+        %table.ui.table.celled
+          %thead
             %tr 
-              %td.collapsing= project.winner_type.humanize.mb_chars.upcase
-              %td.collapsing= project.subscribe_participation.subscribe_id
-              %td.collapsing= project.subscribe_participation.id
-              %td= project.subscribe_participation.subscribe.name.mb_chars.upcase
-              %td.collapsing= "#{project.subscribe_participation.subscribe.city} / #{project.subscribe_participation.subscribe.state.name}"
-              %td.collapsing= link_to "Visualizar", project.subscribe_participation.participation_path_url, target: "_blank"
-        - else 
+              %th.collapsing Classificação
+              %th.collapsing Nº de inscrição
+              %th.collapsing Nº de pasta
+              %th Nome 
+              %th.collapsing Cidade/Estado
+              %th{colspan: 2} Projeto
+          %tbody 
+            - if @projects.present?
+              - @projects.order(:winner_type).each do |project|
+                %tr 
+                  %td.collapsing= project.winner_type.humanize.mb_chars.upcase
+                  %td.collapsing= project.subscribe_custom_participation.subscribe_id
+                  %td.collapsing= project.subscribe_custom_participation.id
+                  %td= project.subscribe_participation.subscribe.name.mb_chars.upcase
+                  %td.collapsing= "#{project.subscribe_participation.subscribe.city} / #{project.subscribe_participation.subscribe.state.name}"
+                  %td.collapsing= link_to "Visualizar arquivo 1", project.subscribe_participation.archive_one_url, target: "_blank"
+                  %td.collapsing= link_to "Visualizar arquivo 2", project.subscribe_participation.archive_two_url, target: "_blank"
+            - else 
+              %tr 
+                %td{colspan:5}
+                  %i Nenhum projeto disponível.
+- else
+  .ui.divider.hidden
+  .row  
+    .column
+      %table.ui.table.celled
+        %thead
           %tr 
-            %td{colspan:5}
-              %i Nenhum projeto disponível.
+            %th.collapsing Classificação
+            %th.collapsing Nº de inscrição
+            %th.collapsing Nº de pasta
+            %th Nome 
+            %th.collapsing Cidade/Estado
+            %th.collapsing Projeto
+        %tbody 
+          - if @projects.present?
+            - @projects.order(:winner_type).each do |project|
+              %tr 
+                %td.collapsing= project.winner_type.humanize.mb_chars.upcase
+                %td.collapsing= project.subscribe_participation.subscribe_id
+                %td.collapsing= project.subscribe_participation.id
+                %td= project.subscribe_participation.subscribe.name.mb_chars.upcase
+                %td.collapsing= "#{project.subscribe_participation.subscribe.city} / #{project.subscribe_participation.subscribe.state.name}"
+                %td.collapsing= link_to "Visualizar", project.subscribe_participation.participation_path_url, target: "_blank"
+          - else 
+            %tr 
+              %td{colspan:5}
+                %i Nenhum projeto disponível.
