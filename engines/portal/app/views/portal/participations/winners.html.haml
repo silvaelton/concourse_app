@@ -35,10 +35,10 @@
                   %td.collapsing= project.winner_type.humanize.mb_chars.upcase
                   %td.collapsing= project.subscribe_custom_participation.subscribe_id
                   %td.collapsing= project.subscribe_custom_participation.id
-                  %td= project.subscribe_participation.subscribe.name.mb_chars.upcase
+                  %td= project.subscribe_custom_participation.subscribe.name.mb_chars.upcase
                   %td.collapsing= "#{project.subscribe_participation.subscribe.city} / #{project.subscribe_participation.subscribe.state.name}"
-                  %td.collapsing= link_to "Visualizar arquivo 1", project.subscribe_participation.archive_one_url, target: "_blank"
-                  %td.collapsing= link_to "Visualizar arquivo 2", project.subscribe_participation.archive_two_url, target: "_blank"
+                  %td.collapsing= link_to "Visualizar arquivo 1", project.subscribe_custom_participation.archive_one_url, target: "_blank"
+                  %td.collapsing= link_to "Visualizar arquivo 2", project.subscribe_custom_participation.archive_two_url, target: "_blank"
             - else 
               %tr 
                 %td{colspan:5}
