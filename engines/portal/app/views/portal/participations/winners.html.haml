@@ -27,9 +27,9 @@
         %table.ui.table.celled
           %thead
             %tr 
-              %th.collapsing Classificação
-              %th.collapsing Nº de inscrição
-              %th.collapsing Nº de pasta
+              %th.collapsing Posição
+              %th.collapsing Nº insc.
+              %th.collapsing Nº pasta
               %th Nome 
               %th.collapsing Cidade/Estado
               %th{colspan: 2} Projeto
@@ -40,7 +40,7 @@
                   %td.collapsing= project.winner_type.humanize.mb_chars.upcase
                   %td.collapsing= project.subscribe_custom_participation.subscribe_id
                   %td.collapsing= project.subscribe_custom_participation.id
-                  %td= project.subscribe_custom_participation.subscribe.name.mb_chars.upcase
+                  %td.collapsing= project.subscribe_custom_participation.subscribe.name.mb_chars.upcase
                   %td.collapsing= "#{project.subscribe_custom_participation.subscribe.city} / #{project.subscribe_custom_participation.subscribe.state.name}"
                   %td.collapsing= link_to "Visualizar arquivo 1", project.subscribe_custom_participation.archive_file_one_url, target: "_blank"
                   %td.collapsing= link_to "Visualizar arquivo 2", project.subscribe_custom_participation.archive_file_two_url, target: "_blank"
