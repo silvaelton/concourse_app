@@ -44,7 +44,7 @@ module Admin
     end
 
     def set_params
-      params.require(:winner).permit(:subscribe_participation_id, :winner_type)
+      params.require(:winner).permit(:subscribe_participation_id, :winner_type, :winner_custom_type)
     end
 
   end
