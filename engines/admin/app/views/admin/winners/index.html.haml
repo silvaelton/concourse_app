@@ -41,7 +41,7 @@
             %th.collapsing Nº Pasta
             %th.collapsing Nº Inscrição
             %th{colspan: 2} Projeto
-            %th
+            %th Ação
         %tbody
           - if @winners.present?
             - @winners.order(:winner_type).each do |winner|
@@ -50,8 +50,8 @@
                 %td.collapsing= winner.subscribe_participation_id 
                 %td.collapsing= winner.subscribe_custom_participation.subscribe_id if winner.subscribe_custom_participation.present? 
                 %td.collapsing
-                  = link_to "Arquivo 1", winner.subscribe_custom_participation.archive_file_one_url, target: '_blank' if winner.subscribe_custom_participation.archive_file_one?
-                  = link_to "Arquivo 2", winner.subscribe_custom_participation.archive_file_two_url, target: '_blank' if winner.subscribe_custom_participation.archive_file_two?
+                  = link_to "#1", winner.subscribe_custom_participation.archive_file_one_url, target: '_blank' if winner.subscribe_custom_participation.archive_file_one?
+                  = link_to "#2", winner.subscribe_custom_participation.archive_file_two_url, target: '_blank' if winner.subscribe_custom_participation.archive_file_two?
                 %td.collapsing
                   = link_to "Remover", project_winner_path(project_id: @project, id: winner), method: :delete, data: { disable_with: t(:disable_with), confirm: "Tem certeza que deseja remover?"}, class: 'ui button red mini'
           - else
