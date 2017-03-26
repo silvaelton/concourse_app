@@ -56,13 +56,13 @@
         %tbody 
           - if @projects.present?
             - @projects.each do |project|
-                %tr 
-                  %td.collapsing= project.subscribe_id
-                  %td.collapsing= project.id
-                  %td.collapsing= project.subscribe.name.mb_chars.upcase
-                  %td.collapsing= "#{project.subscribe.city.mb_chars.upcase}/ #{project.subscribe.state.name}"
-                  %td.collapsing= link_to "Arquivo 1", project.archive_file_one_url, target: "_blank"
-                  %td.collapsing= link_to "Arquivo 2", project.archive_file_two_url, target: "_blank"
+              %tr 
+                %td.collapsing= project.subscribe_id
+                %td.collapsing= project.id
+                %td.collapsing= project.subscribe.name.mb_chars.upcase
+                %td.collapsing= "#{project.subscribe.city.mb_chars.upcase}/ #{project.subscribe.state.name}"
+                %td.collapsing= link_to "Arquivo 1", project.archive_file_one_url, target: "_blank"
+                %td.collapsing= link_to "Arquivo 2", project.archive_file_two_url, target: "_blank"
           - else 
             %tr 
               %td{colspan:5}

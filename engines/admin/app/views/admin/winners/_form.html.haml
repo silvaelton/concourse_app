@@ -1,4 +1,4 @@
-= simple_form_for [@project, @winner], remote: true do |f|
+= simple_form_for [@project, @winner] do |f|
   .fields  
     .field.wide.three
       = f.input :winner_type, as: :select, label: "Classificação", collection: ::Winner.winner_type_allow(@project).map { |k,v| [k.to_s.humanize, k] }, include_blank: false

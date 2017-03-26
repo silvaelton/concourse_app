@@ -21,19 +21,12 @@ module Admin
     def create
       @winner  = @project.winners.new(set_params)
       
-      respond_to do |format|
-
-        format.html {
-          if @winner.save
-            redirect_to [@project, @winner]
-          else
-            render action: :new
-          end
-        }
-
-        format.js { @winner.save }
-
+      if @winner.save
+        redirect_to [@project, @winner]
+      else
+        render action: :new
       end
+      
     end
 
     def destroy 
