@@ -1,12 +1,12 @@
 class Winner < ActiveRecord::Base
   belongs_to :subscribe_participation
-  belongs_to :subscribe_custom_participation
+  belongs_to :subscribe_custom_participation, foreign_key: :subscribe_participation_id
   belongs_to :project
 
   enum winner_type: ['primeiro_lugar', 'segundo_lugar', 'terceiro_lugar', 'quarto_lugar','quinto_lugar', 'menção_honrosa']
 
   validates_uniqueness_of :subscribe_participation_id, scope: :project_id
-  
+
   validates :subscribe_participation_id, :winner_type, presence: true
   validate  :subscribe_validate, if:'self.project_id == 1'
   validate  :subscribe_custom_validate, if:'self.project_id == 3'
