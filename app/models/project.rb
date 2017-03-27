@@ -30,7 +30,9 @@ class Project < ActiveRecord::Base
   validates :participation_start, :participation_end, presence: true
   validates :slug, uniqueness: true, presence: true
  
-  def result_document_url 
+  mount_uploader :result_document, ::DocumentUploader
+  
+  def custom_result_document_url 
     "http://wmasites.com.br/iabconcursos/documents/#{self.result_document}"
   end
 

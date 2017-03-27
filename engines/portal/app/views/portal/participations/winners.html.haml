@@ -18,7 +18,10 @@
             %th.collapsing Ata de julgamento
         %tbody
           %tr
-            %td= link_to "Baixar arquivo", @project.result_document_url, target: '_blank' if @project.result_document?
+            - if @project.id == 1
+              %td= link_to "Baixar arquivo", @project.custom_result_document_url, target: '_blank' if @project.result_document?
+            - else @project.id == 3
+              %td= link_to "Baixar arquivo", @project.result_document_url, target: '_blank' if @project.result_document?
 
 - if @project.id == 3
   .ui.divider.hidden
