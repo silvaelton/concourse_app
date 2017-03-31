@@ -8,12 +8,12 @@ module Portal
 
     def all
       if @project.id == 3
-        participation = ::Participation.find_by(name: "Prancha A1 (PDF até 15mb)") rescue nil
-        @projects = ::SubscribeParticipation.where(participation_id: participation.id)
+        @projects = ::SubscribeCustomParticipation.all.order(:id)
       end
 
       if @project.id == 1
-        @projects = ::SubscribeParticipation.all.order(:id)
+        participation = ::Participation.find_by(name: "Prancha A1 (PDF até 15mb)") rescue nil
+        @projects = ::SubscribeParticipation.where(participation_id: participation.id)
       end
     end
 
