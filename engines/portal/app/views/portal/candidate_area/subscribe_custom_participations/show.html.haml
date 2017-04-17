@@ -13,7 +13,7 @@
     .column 
       %h3 Projeto
       %br/
-      = link_to "Editar projeto", edit_project_candidate_area_subscribe_custom_participation_path(id: current_candidate.subscribe_custom_participations.first.id, project_id: @project), class: 'ui button blue'
+      = link_to "Editar projeto", edit_project_candidate_area_subscribe_custom_participation_path(id: current_candidate.subscribe_custom_participations.unscoped.where(special: true).first.id, project_id: @project), class: 'ui button blue'
       %table.ui.table.striped
         %thead
           %tr
@@ -26,3 +26,9 @@
           %tr
             %td= @participation.created_at.strftime("%d/%m/%Y")
             %td= link_to "Visualizar arquivo", @participation.archive_file_two_url, target: '_blank'
+          %tr
+            %td= @participation.created_at.strftime("%d/%m/%Y")
+            %td= link_to "Visualizar arquivo", @participation.archive_file_three_url, target: '_blank'
+          %tr
+            %td= @participation.created_at.strftime("%d/%m/%Y")
+            %td= link_to "Visualizar arquivo", @participation.archive_file_four_url, target: '_blank'
