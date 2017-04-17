@@ -18,7 +18,7 @@
             Pedimos que aguarde o processo de julgamento do concurso, que ocorrerá nos dias 10, 11 e 12 de novembro de 2016.
   .row
     .column
-      - if [415, 457, 404].include?(current_candidate.id) 
+      - if (Date.current >= Date.parse('2017-04-18')) && (Date.current <= Date.parse('2017-04-20'))
         - if current_candidate.subscribe_custom_participations.unscoped.where(special: true).present? && current_candidate.homologado? && [415, 457, 404].include?(current_candidate.id) 
           = link_to "Projeto enviado, visualizar/editar", project_candidate_area_subscribe_custom_participation_path(id: current_candidate.subscribe_custom_participations.unscoped.where(special: true).first.id, project_id: @project),  class: 'ui right floated button green', data: { disable_with: t(:disable_with)}
         - elsif current_candidate.homologado? && [415, 457, 404].include?(current_candidate.id) 

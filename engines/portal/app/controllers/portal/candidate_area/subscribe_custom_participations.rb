@@ -10,7 +10,7 @@ module Portal
       layout 'sub_portal'
 
       def new
-        if (Date.current >= Date.parse('2017-04-17')) && (Date.current <= Date.parse('2017-04-20'))
+        if (Date.current >= Date.parse('2017-04-18')) && (Date.current <= Date.parse('2017-04-20'))
           if current_candidate.subscribe_custom_participations.unscoped.where(special: true).present?
             @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).first
           else 
@@ -24,7 +24,7 @@ module Portal
       end
 
       def create
-        if (Date.current >= Date.parse('2017-04-17')) && (Date.current <= Date.parse('2017-04-20'))
+        if (Date.current >= Date.parse('2017-04-18')) && (Date.current <= Date.parse('2017-04-20'))
           @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).new(set_params)
 
           if @participation.save
