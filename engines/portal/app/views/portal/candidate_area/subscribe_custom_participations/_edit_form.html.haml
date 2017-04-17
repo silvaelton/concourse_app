@@ -1,13 +1,13 @@
 = simple_form_for @participation, url: project_candidate_area_subscribe_custom_participation_path(project_id: @project, id: @participation.id) do |f|
   %br/
   %br/
-  %h3 Adicionar a Equipe
-  %br/
-  = f.simple_fields_for :subscribe_custom_teams do |builder|
-    = render 'subscribe_custom_team_fields', f: builder
-  = link_to_add_fields "Adicionar", f, :subscribe_custom_teams
-  %br/
-  %br/
+  /%h3 Adicionar a Equipe
+  /%br/
+  /= f.simple_fields_for :subscribe_custom_teams do |builder|
+  /  = render 'subscribe_custom_team_fields', f: builder
+  /= link_to_add_fields "Adicionar", f, :subscribe_custom_teams
+  /%br/
+  /%br/
   %h3 Adicionar o Projeto
   %br/
   - if @participation.archive_file_one.present?
@@ -18,6 +18,18 @@
   - if @participation.archive_file_two.present?
     %br/
     = link_to "Visualizar imagem ilustrativa enviada", f.object.archive_file_two_url, target: '_blank'
+    %br/
+  = f.input :archive_file_two, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"  
+
+  - if @participation.archive_file_three.present?
+    %br/
+    = link_to "Visualizar imagem ilustrativa enviada", f.object.archive_file_three_url, target: '_blank'
+    %br/
+  = f.input :archive_file_two, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"  
+
+  - if @participation.archive_file_four.present?
+    %br/
+    = link_to "Visualizar imagem ilustrativa enviada", f.object.archive_file_four_url, target: '_blank'
     %br/
   = f.input :archive_file_two, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"  
 

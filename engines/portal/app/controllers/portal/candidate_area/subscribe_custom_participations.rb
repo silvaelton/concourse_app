@@ -12,7 +12,7 @@ module Portal
       def new
         if (Date.current >= Date.parse('2017-04-17')) && (Date.current <= Date.parse('2017-04-20'))
           if current_candidate.subscribe_custom_participations.unscoped.where(special: true).present?
-            @participation = current_candidate.subscribe_custom_participations.first
+            @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).first
           else 
             @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).new
           end
