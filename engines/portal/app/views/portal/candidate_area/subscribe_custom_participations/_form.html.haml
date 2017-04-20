@@ -7,7 +7,10 @@
     = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_one_url, target: '_blank'
   = f.input :archive_file_one, label: "08 pranchas, em PDF, no formato A2 (420 x 594 mm) (30 MB)"
   %br/
-  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+  - if @participation.archive_file_one.present?
+    = f.submit "Arquivo enviado, reenviar arquivo.", class: 'ui button blue', data: { disable_with: "Carregando..."}
+  - else
+    = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
   
 %br/
 %br/
@@ -18,7 +21,10 @@
     = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_two_url, target: '_blank'
   = f.input :archive_file_two, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"  
   %br/
-  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+  - if @participation.archive_file_two.present?
+    = f.submit "Arquivo enviado, reenviar arquivo.", class: 'ui button blue', data: { disable_with: "Carregando..."}
+  - else
+    = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
 %br/
 %br/
 
@@ -28,7 +34,10 @@
     = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_three_url, target: '_blank'
   = f.input :archive_file_three, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"   
   %br/
-  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+  - if @participation.archive_file_three.present?
+    = f.submit "Arquivo enviado, reenviar arquivo.", class: 'ui button blue', data: { disable_with: "Carregando..."}
+  - else
+    = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
 
 %br/
 %br/
@@ -38,4 +47,7 @@
     = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_four_url, target: '_blank'
   = f.input :archive_file_four, label: "Arquivo de apresentação em PDF, (20MB)"  
   %br/
-  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+  - if @participation.archive_file_four.present?
+    = f.submit "Arquivo enviado, reenviar arquivo.", class: 'ui button blue', data: { disable_with: "Carregando..."}
+  - else
+    = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}

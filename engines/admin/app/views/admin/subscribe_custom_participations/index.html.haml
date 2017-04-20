@@ -31,10 +31,26 @@
             %td.collapsing= item.id
             %td.collapsing= item.subscribe_id
             %td= item.created_at.strftime("%d/%m/%Y às %H:%M")
-            %td= link_to "Visualizar", item.archive_file_one_url, target: '_blank'
-            %td= link_to "Visualizar", item.archive_file_two_url, target: '_blank'
-            %td= link_to "Visualizar", item.archive_file_three_url, target: '_blank'
-            %td= link_to "Visualizar", item.archive_file_four_url, target: '_blank'
+            %td
+              - if item.archive_file_one?
+                = link_to "Visualizar", item.archive_file_one_url, target: '_blank'
+              - else
+                %i Não enviado
+            %td
+              - if item.archive_file_two?
+                = link_to "Visualizar", item.archive_file_two_url, target: '_blank'
+              - else
+                %i Não enviado
+            %td
+              - if item.archive_file_three?
+                = link_to "Visualizar", item.archive_file_three_url, target: '_blank'
+              - else
+                %i Não enviado
+            %td
+              - if item.archive_file_four?
+                = link_to "Visualizar", item.archive_file_four_url, target: '_blank'
+              - else
+                %i Não enviado
 
 %h3 Geral
 .ui.hidden.divider
