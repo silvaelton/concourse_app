@@ -19,6 +19,7 @@
       %thead
         %tr
           %th.collapsing Nº Pasta
+          %th.collapsing Nº Inscrição
           %th Data
           %th Arquivo 1
           %th Arquivo 2 
@@ -28,6 +29,7 @@
         - @participations.unscoped.where(special: true).order(:id).each do |item| 
           %tr
             %td.collapsing= item.id
+            %td.collapsing= item.subscribe_id
             %td= item.created_at.strftime("%d/%m/%Y às %H:%M")
             %td= link_to "Visualizar", item.archive_file_one_url, target: '_blank'
             %td= link_to "Visualizar", item.archive_file_two_url, target: '_blank'

@@ -1,7 +1,7 @@
 %h3 Adicionar o Projeto
 %br/
 
-= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project) do |f|
+= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project), method: :post do |f|
   - if @participation.archive_file_one.present?
     %br/
     = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_one_url, target: '_blank'
@@ -12,7 +12,7 @@
 %br/
 %br/
 
-= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project) do |f|
+= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project), method: :post do |f|
   - if @participation.archive_file_two.present?
     %br/
     = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_two_url, target: '_blank'
@@ -22,7 +22,7 @@
 %br/
 %br/
 
-= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project) do |f|
+= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project), method: :post do |f|
   - if @participation.archive_file_three.present?
     %br/
     = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_three_url, target: '_blank'
@@ -32,7 +32,7 @@
 
 %br/
 %br/
-= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project) do |f|
+= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project), method: :post do |f|
   - if @participation.archive_file_four.present?
     %br/
     = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_four_url, target: '_blank'
