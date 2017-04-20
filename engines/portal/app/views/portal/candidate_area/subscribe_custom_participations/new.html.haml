@@ -11,7 +11,8 @@
 
   .row
     .column 
-      - if !@participation.new_record?
+      /- if !@participation.new_record?
+      - if 1 > 2
         %h3 Projeto
         %br/
         = link_to "Editar projeto", edit_project_candidate_area_subscribe_custom_participation_path(id: ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).first.id, project_id: @project), class: 'ui button blue'

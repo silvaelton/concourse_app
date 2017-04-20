@@ -6,8 +6,6 @@ class SubscribeCustomParticipation < ActiveRecord::Base
 
   accepts_nested_attributes_for :subscribe_custom_teams, allow_destroy: true
 
-  validates :archive_file_one, :archive_file_two, :archive_file_three, :archive_file_four, presence: true 
-
   validates :archive_file_one, file_size: { less_than_or_equal_to: 30.megabytes },
             file_content_type: { allow: ['application/pdf'],
                                 message: "Arquivo excede 20 MB ou está em formato inválido. Formatos válidos [PDF]"}
