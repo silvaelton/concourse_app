@@ -26,7 +26,8 @@ module Portal
       def create
         if (Date.current >= Date.parse('2017-04-18')) && (Date.current <= Date.parse('2017-04-20'))
           @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).new(set_params)
-
+          @participation.subscribe_id = current_candidate.id
+          
           if @participation.save
             redirect_to action: :new
           else
