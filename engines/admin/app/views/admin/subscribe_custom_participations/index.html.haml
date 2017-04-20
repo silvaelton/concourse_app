@@ -5,6 +5,36 @@
     %b
     %b Projetos enviados:
     #{@participations.count}
+    %br/
+    %br/
+    %b Projetos finalistas enviados:
+    #{@participations.unscoped.where(special: true).count}
+.ui.hidden.divider
+
+%h3 Finalistas
+.ui.hidden.divider
+.row
+  .column
+    %table.ui.celled.table.striped
+      %thead
+        %tr
+          %th.collapsing Nº Pasta
+          %th Data
+          %th Arquivo 1
+          %th Arquivo 2 
+          %th Arquivo 3 
+          %th Arquivo 4 
+      %tbody
+        - @participations.unscoped.where(special: true).order(:id).each do |item| 
+          %tr
+            %td.collapsing= item.id
+            %td= item.created_at.strftime("%d/%m/%Y às %H:%M")
+            %td= link_to "Visualizar", item.archive_file_one_url, target: '_blank'
+            %td= link_to "Visualizar", item.archive_file_two_url, target: '_blank'
+            %td= link_to "Visualizar", item.archive_file_three_url, target: '_blank'
+            %td= link_to "Visualizar", item.archive_file_four_url, target: '_blank'
+
+%h3 Geral
 .ui.hidden.divider
 .row
   .column
