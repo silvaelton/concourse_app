@@ -1,21 +1,41 @@
-= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project) do |f|
-  
-  %br/
-  /%br/
-  /%h3 Adicionar a Equipe
-  /%br/
-  /= f.simple_fields_for :subscribe_custom_teams do |builder|
-  /  = render 'subscribe_custom_team_fields', f: builder
-  /= link_to_add_fields "Adicionar", f, :subscribe_custom_teams
-  /%br/
-  /%br/
-  %h3 Adicionar o Projeto
-  %br/
-  = f.input :archive_file_one, label: "08 pranchas, em PDF, no formato A2 (420 x 594 mm) (30 MB)"
-  = f.input :archive_file_two, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"  
-  = f.input :archive_file_three, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"  
-  = f.input :archive_file_four, label: "Arquivo de apresentação em PDF, (20MB)"  
+%h3 Adicionar o Projeto
+%br/
 
+= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project) do |f|
+  - if @participation.archive_file_one.present?
+    %br/
+    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_one_url, target: '_blank'
+  = f.input :archive_file_one, label: "08 pranchas, em PDF, no formato A2 (420 x 594 mm) (30 MB)"
   %br/
+  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+  
+%br/
+%br/
+
+= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project) do |f|
+  - if @participation.archive_file_two.present?
+    %br/
+    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_two_url, target: '_blank'
+  = f.input :archive_file_two, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"  
   %br/
-  = f.submit "Salvar", class: 'ui button green', data: { disable_with: "Carregando..."}
+  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+%br/
+%br/
+
+= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project) do |f|
+  - if @participation.archive_file_three.present?
+    %br/
+    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_three_url, target: '_blank'
+  = f.input :archive_file_three, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"   
+  %br/
+  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+
+%br/
+%br/
+= simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project) do |f|
+  - if @participation.archive_file_four.present?
+    %br/
+    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_four_url, target: '_blank'
+  = f.input :archive_file_four, label: "Arquivo de apresentação em PDF, (20MB)"  
+  %br/
+  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}

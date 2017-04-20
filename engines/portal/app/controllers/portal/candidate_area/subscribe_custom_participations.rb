@@ -25,7 +25,13 @@ module Portal
 
       def create
         if (Date.current >= Date.parse('2017-04-18')) && (Date.current <= Date.parse('2017-04-20'))
-          @participation = ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).new(set_params)
+          if ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).present?
+            @participation = ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).first
+            @participation.attributes= set_params
+          else 
+            @participation = ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).new(set_params)
+          end
+          
           @participation.subscribe_id = current_candidate.id
           
           if @participation.save
