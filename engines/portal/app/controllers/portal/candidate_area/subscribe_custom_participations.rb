@@ -11,10 +11,10 @@ module Portal
 
       def new
         if (Date.current >= Date.parse('2017-04-18')) && (Date.current <= Date.parse('2017-04-20'))
-          if current_candidate.subscribe_custom_participations.unscoped.where(special: true).present?
-            @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).first
+          if ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).present?
+            @participation = ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).first
           else 
-            @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).new
+            @participation = ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).new
           end
         else
           flash[:danger] = 'Envio de projeto fechado. Verifique o cronograma.'
@@ -25,7 +25,7 @@ module Portal
 
       def create
         if (Date.current >= Date.parse('2017-04-18')) && (Date.current <= Date.parse('2017-04-20'))
-          @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).new(set_params)
+          @participation = ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).new(set_params)
           @participation.subscribe_id = current_candidate.id
           
           if @participation.save
@@ -41,13 +41,13 @@ module Portal
       end
 
       def show
-        @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).find(params[:id])
+        @participation = ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).find(params[:id])
       end
 
       def edit
         
-        if current_candidate.subscribe_custom_participations.unscoped.where(special: true).present?
-          @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).find(params[:id])
+        if ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).present?
+          @participation = ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).find(params[:id])
         else 
           redirect_to action: :new
         end
@@ -55,7 +55,7 @@ module Portal
       end
 
       def update
-        @participation = current_candidate.subscribe_custom_participations.unscoped.where(special: true).find(params[:id])
+        @participation = ::SubscribeCustomParticipation.unscoped.where(subscribe_id: current_candidate.id, special: true).find(params[:id])
         
         if @participation.update(set_params)
           redirect_to action: :new
