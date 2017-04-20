@@ -4,13 +4,10 @@
 = simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project), method: :post do |f|
   - if @participation.archive_file_one.present?
     %br/
-    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_one_url, target: '_blank'
+    .ui.label.green= link_to "Visualizar arquivo pdf enviado", f.object.archive_file_one_url, target: '_blank'
   = f.input :archive_file_one, label: "08 pranchas, em PDF, no formato A2 (420 x 594 mm) (30 MB)"
   %br/
-  - if @participation.archive_file_one.present?
-    = f.submit "Arquivo enviado, reenviar arquivo.", class: 'ui button blue', data: { disable_with: "Carregando..."}
-  - else
-    = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
   
 %br/
 %br/
@@ -18,36 +15,29 @@
 = simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project), method: :post do |f|
   - if @participation.archive_file_two.present?
     %br/
-    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_two_url, target: '_blank'
+    .ui.label.green= link_to "Visualizar arquivo pdf enviado", f.object.archive_file_two_url, target: '_blank'
   = f.input :archive_file_two, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"  
   %br/
-  - if @participation.archive_file_two.present?
-    = f.submit "Arquivo enviado, reenviar arquivo.", class: 'ui button blue', data: { disable_with: "Carregando..."}
-  - else
-    = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
 %br/
 %br/
 
 = simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project), method: :post do |f|
   - if @participation.archive_file_three.present?
     %br/
-    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_three_url, target: '_blank'
+    .ui.label.green= link_to "Visualizar arquivo pdf enviado", f.object.archive_file_three_url, target: '_blank'
   = f.input :archive_file_three, label: "Imagem ilustrativa em formato PNG ou JPG, (3MB)"   
   %br/
-  - if @participation.archive_file_three.present?
-    = f.submit "Arquivo enviado, reenviar arquivo.", class: 'ui button blue', data: { disable_with: "Carregando..."}
-  - else
-    = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
 
 %br/
 %br/
 = simple_form_for @participation, url: project_candidate_area_subscribe_custom_participations_path(@project), method: :post do |f|
   - if @participation.archive_file_four.present?
     %br/
-    = link_to "Visualizar arquivo pdf enviado", f.object.archive_file_four_url, target: '_blank'
-  = f.input :archive_file_four, label: "Arquivo de apresentação em PDF, (20MB)"  
+    .ui.label.green= link_to "Visualizar arquivo pdf enviado", f.object.archive_file_four_url, target: '_blank'
+  = f.input :archive_file_four, label: "Arquivo de apresentação em PDF, com no máximo 20 páginas e 20 MB"  
   %br/
-  - if @participation.archive_file_four.present?
-    = f.submit "Arquivo enviado, reenviar arquivo.", class: 'ui button blue', data: { disable_with: "Carregando..."}
-  - else
-    = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+  = f.submit "Enviar arquivo", class: 'ui button green', data: { disable_with: "Carregando..."}
+
+
