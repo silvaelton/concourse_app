@@ -109,6 +109,32 @@
               %td= @subscribe.professional_type.humanize
               %td= link_to "Baixar documento", @subscribe.professional_document_url, target: '_blank'
               %td= link_to "Baixar comprovante", @subscribe.paid_document_url, target: '_blank'
+  %h3 Equipe
+  - if @subscribe.project.id == 1
+    .row
+      .column
+        %table.ui.celled.table.striped
+          %thead
+            %tr
+              %th Nome
+              %th CPF
+              %th Função
+  - else
+    .row
+      .column
+        %table.ui.celled.table.striped
+          %thead
+            %tr
+              %th Nome
+              %th CPF
+              %th Função
+          %tbody
+            - ::SubscribeCustomTeam.where(subscribe_custom_participation_id: @subscribe.subscribe_custom_participations.map(&:id)).each do |team|
+              %tr
+                %td= team.name
+                %td= team.cpf
+                %td= team.job
+  
   .row
     .column
       = link_to "+ Adicionar observação", new_project_subscribe_subscribe_observation_path(@project, @subscribe), remote: true, data: { disable_with: t(:disable_with)}
