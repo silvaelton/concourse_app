@@ -71,7 +71,8 @@
         .ui.container
           .ui.grid
             .two.wide.column{style: 'padding: 0px !important; margin-bottom: -6px !important; '}
-              = image_tag "/images/logo_terracap.png", width: '450'
+              - if @project.id == 3
+                = image_tag "/images/logo_terracap.png", width: '450'
 
 
       .ui.container
