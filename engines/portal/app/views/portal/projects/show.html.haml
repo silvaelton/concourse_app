@@ -1,6 +1,6 @@
 .row
   .column
-    - if @project.id != 3
+    - unless [3,4].include?(@project.id)
       - if @project.main_page.present?
         %br/
         .row
@@ -14,7 +14,7 @@
             = @project.main_page.content.html_safe
       - else
         %i Necessário definir a página principal do projeto.
-    - else 
+    - else
       - if @project.main_page.present?
         .row
           .column.text-center

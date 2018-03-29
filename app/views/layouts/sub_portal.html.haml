@@ -120,7 +120,9 @@
 
             .four.wide.column
               %h4{style: 'color: gray'} PROMOÇÃO:
-              = image_tag "/images/terracap_logo.png", width: '190'
-
+              - if @project.id == 4
+                = image_tag "/images/terracap_logo.png", width: '190'
+              - else
+                = image_tag "/images/logo_museu.png", width: '190'
       = render 'layouts/portal/modal' if @popup.present?
       #action.ui.modal
