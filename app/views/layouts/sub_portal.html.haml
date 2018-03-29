@@ -14,7 +14,8 @@
           .ui.grid
             .two.wide.column{style: 'padding: 0px !important'}
               %br/
-              = image_tag "/images/default_logo.png", size: '120x120'
+              - if @project.id == 3
+                = image_tag "/images/default_logo.png", size: '120x120'
             .twelve.wide.right.column{style: "margin-top: auto; text-align: right !important;"}
               .ui.secondary.pointing.menu{style: 'border: none !important'}
                 - @project.navs.actives.each do |nav|
