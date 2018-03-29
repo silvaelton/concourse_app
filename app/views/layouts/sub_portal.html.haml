@@ -16,6 +16,8 @@
               %br/
               - if @project.id == 3
                 = image_tag "/images/default_logo.png", size: '120x120'
+              - if @project.id == 4
+                = image_tag "/images/logo_museu.png", size: '120x120'
             .twelve.wide.right.column{style: "margin-top: auto; text-align: right !important;"}
               .ui.secondary.pointing.menu{style: 'border: none !important'}
                 - @project.navs.actives.each do |nav|
@@ -73,7 +75,7 @@
             .two.wide.column{style: 'padding: 0px !important; margin-bottom: -6px !important; '}
               - if @project.id == 3
                 = image_tag "/images/logo_terracap.png", width: '450'
-              - else
+              - elsif @project.id == 4
                 = image_tag "/images/logo_museu.png", width: '450'
 
 
@@ -120,7 +122,7 @@
 
             .four.wide.column
               %h4{style: 'color: gray'} PROMOÇÃO:
-              - if @project.id == 4
+              - if @project.id == 3
                 = image_tag "/images/terracap_logo.png", width: '190'
               - else
                 = image_tag "/images/logo_museu.png", width: '190'
