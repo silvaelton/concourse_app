@@ -8,7 +8,7 @@
     %link{:href => "https://fonts.googleapis.com/css?family=PT+Sans+Narrow", :rel => "stylesheet"}/
     = csrf_meta_tags
   %body
-    - if @project.id != 3
+    - unless [3,4].include?(@project.id)
       %div{style: "background-color: #{@project.header_color} !important; margin-top: 0px !important"}
         .ui.container
           .ui.grid
@@ -24,7 +24,7 @@
                   - else
                     %a.item.custom-item{href: "#{nav.href}", style: "background-color: #{@project.header_color} !important"}
                       %b= nav.label
-            
+
 
       .ui.container
         %br/
@@ -41,7 +41,7 @@
                 .ui.message{class: "#{type}"}
                   %p= message
               = yield
-        
+
         %br/
         %br/
         %br/
@@ -71,7 +71,7 @@
           .ui.grid
             .two.wide.column{style: 'padding: 0px !important; margin-bottom: -6px !important; '}
               = image_tag "/images/logo_terracap.png", width: '450'
-            
+
 
       .ui.container
         %br/
@@ -96,11 +96,11 @@
                   - else
                     %a.item{href: "#{nav.href}", style: 'background-color: transparent !important;'}
                       = nav.label
-              
+
             .one.wide.column
             .twelve.wide.column
               = yield
-        
+
         %br/
         %br/
         %br/
@@ -118,5 +118,4 @@
               = image_tag "/images/terracap_logo.png", width: '190'
 
       = render 'layouts/portal/modal' if @popup.present?
-      #action.ui.modal      
-
+      #action.ui.modal
